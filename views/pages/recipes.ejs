@@ -70,11 +70,14 @@
 
     <header>
         <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
-                <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            <div class="panel panel-default">
+              <div class="panel-body text-primary"></div>
+                <div class="header-content-inner text-primary">
+                    
+                    <h1 id="homeHeading">Recipe Recommending Application</h1>
+                    <hr>
+                    <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                </div>
             </div>
         </div>
     </header>
@@ -83,17 +86,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">This is the first API call:</h2>
+                    <h2 class="section-heading"> <%= recipe_type%> </h2>
                     <hr class="light">
-                    <p class="text-faded">https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&amp;cuisine=american&amp;excludeIngredients=coconut%2C+mango&amp;fillIngredients=<br>false&amp;includeIngredients=onions%2C+lettuce%2C+tomato&amp;intolerances=peanut%2C+shellfish&amp;limitLicense=false&amp;<br>maxCalories=1500&amp;maxCarbs=100&amp;maxFat=100&amp;maxProtein=100&amp;minCalories=150&amp;minCarbs=5&amp;minFat=5<br>&amp;minProtein=5&amp;number=10&amp;offset=0&amp;query=burger&amp;ranking=1&amp;type=main+course"</p>
-                    <p>Using ejs we can then loop through the response returned to get info to display. E.g. these are the titles of the recipes returned from spoonacular database:</p>
-                    <ul>
-                        <% if (recipeTitles.length > 0) { %>
-                            <%    for (i=0; i< recipeTitles.length; i++){ %>
-                                    <li> <%= recipeTitles[i] %> </li>
+                    <p class="text-faded">
+                    <p>These are the titles of the <%= recipe_type%> recipes returned from spoonacular database:</p>
+                    <div class="list-group">
+                        <ul>
+                            <% if (recipeTitles.length > 0) { %>
+                                <%    for (i=0; i< recipeTitles.length; i++){ %>
+                                        <a href="#" class="list-group-item"><%= recipeTitles[i] %></a>
+                                <%    } %>
                             <%    } %>
-                        <%    } %>
-                    </ul>
+                        </ul>
+                    </div>
                     </p>
                     <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
                 </div>

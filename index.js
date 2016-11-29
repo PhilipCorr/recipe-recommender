@@ -26,6 +26,7 @@ app.get('/recipe', function(request, response) {
   .end(function (result) {
 
   	var titles = [];
+    var images =[];
 
   	console.log("result.status is:\n\n")
   	console.log(result.status)
@@ -40,10 +41,13 @@ app.get('/recipe', function(request, response) {
     	result.body.results.forEach(function(recipe){
     		console.log(recipe)
     		titles = titles.concat(recipe.title)
+        images = images.concat(recipe.images)
     	});
 
     response.render('pages/recipes', {
-    		recipeTitles: titles
+       recipe_type: "",
+    		recipeTitles: titles,
+        recipeImages: images
 
     });
   })
@@ -56,6 +60,7 @@ app.get('/italian', function(request, response) {
   .end(function (result) {
 
   	var titles = [];
+    var images =[];
 
   	console.log("result.status is:\n\n")
   	console.log(result.status)
@@ -70,10 +75,13 @@ app.get('/italian', function(request, response) {
     	result.body.results.forEach(function(recipe){
     		console.log(recipe)
     		titles = titles.concat(recipe.title)
+        images = images.concat(recipe.images)
     	});
 
     response.render('pages/recipes', {
-    		recipeTitles: titles
+        recipe_type: "Italian",
+    		recipeTitles: titles,
+        recipeImages: images
 
     });
   })
