@@ -41,7 +41,7 @@ app.get('/recipe', function(request, response) {
     	result.body.results.forEach(function(recipe){
     		console.log(recipe)
     		titles = titles.concat(recipe.title)
-        images = images.concat(recipe.images)
+        images = images.concat(recipe.image)
     	});
 
     response.render('pages/recipes', {
@@ -68,21 +68,20 @@ app.get('/italian', function(request, response) {
   	console.log("result.headers is:\n\n")
     console.log(result.headers)
 
-    console.log("result.body is:\n\n")
-  	console.log(result.body)
+    //console.log("result.body is:\n\n")
+  	//console.log(result.body)
 
     	console.log("recipe titles:")
     	result.body.results.forEach(function(recipe){
     		console.log(recipe)
     		titles = titles.concat(recipe.title)
-        images = images.concat(recipe.images)
+        images = images.concat(recipe.image)
     	});
 
     response.render('pages/recipes', {
         recipe_type: "Italian",
     		recipeTitles: titles,
         recipeImages: images
-
     });
   })
 });
