@@ -19,7 +19,6 @@ app.get('/cool', function(request, response) {
   response.send(cool());
 });
 
-
 app.get('/homepage', function(request, response) {
   response.render('pages/homepage', {
        recipe_type: "",
@@ -34,25 +33,17 @@ app.get('/american', function(request, response) {
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
-
     var titles = [];
     var images =[];
 
-    console.log("result.status is:\n\n")
-    console.log(result.status)
-
-    console.log("result.headers is:\n\n")
-    console.log(result.headers)
+    result.body.results.forEach(function(recipe){
+      console.log(recipe)
+      titles = titles.concat(recipe.title)
+      images = images.concat(recipe.image)
+    });
 
     console.log("result.body is:\n\n")
-    console.log(result.body)
-
-      console.log("recipe titles:")
-      result.body.results.forEach(function(recipe){
-        console.log(recipe)
-        titles = titles.concat(recipe.title)
-        images = images.concat(recipe.image)
-      });
+    console.log(images)
 
     response.render('pages/recipes', {
        recipe_type: "American",
@@ -68,25 +59,18 @@ app.get('/italian', function(request, response) {
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
-
   	var titles = [];
     var images =[];
 
-  	console.log("result.status is:\n\n")
-  	console.log(result.status)
-
-  	console.log("result.headers is:\n\n")
-    console.log(result.headers)
+  	result.body.results.forEach(function(recipe){
+  		console.log(recipe)
+  		titles = titles.concat(recipe.title)
+      images = images.concat(recipe.image)
+  	});
 
     console.log("result.body is:\n\n")
-  	console.log(result.body)
+    console.log(images)
 
-    	console.log("recipe titles:")
-    	result.body.results.forEach(function(recipe){
-    		console.log(recipe)
-    		titles = titles.concat(recipe.title)
-        images = images.concat(recipe.images)
-    	});
 
     response.render('pages/recipes', {
         recipe_type: "Italian",
@@ -102,28 +86,21 @@ app.get('/indian', function(request, response) {
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
-
   	var titles = [];
     var images =[];
 
-  	console.log("result.status is:\n\n")
-  	console.log(result.status)
-
-  	console.log("result.headers is:\n\n")
-    console.log(result.headers)
+  	result.body.results.forEach(function(recipe){
+  		console.log(recipe)
+  		titles = titles.concat(recipe.title)
+      images = images.concat(recipe.image)
+  	});
 
     console.log("result.body is:\n\n")
-  	console.log(result.body)
+    console.log(images)
 
-    	console.log("recipe titles:")
-    	result.body.results.forEach(function(recipe){
-    		console.log(recipe)
-    		titles = titles.concat(recipe.title)
-        images = images.concat(recipe.images)
-    	});
 
     response.render('pages/recipes', {
-        recipe_type: "Italian",
+        recipe_type: "Indian",
     		recipeTitles: titles,
         recipeImages: images
 
@@ -136,28 +113,20 @@ app.get('/irish', function(request, response) {
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
-
   	var titles = [];
     var images =[];
 
-  	console.log("result.status is:\n\n")
-  	console.log(result.status)
-
-  	console.log("result.headers is:\n\n")
-    console.log(result.headers)
+  	result.body.results.forEach(function(recipe){
+  		console.log(recipe)
+  		titles = titles.concat(recipe.title)
+      images = images.concat(recipe.image)
+  	});
 
     console.log("result.body is:\n\n")
-  	console.log(result.body)
-
-    	console.log("recipe titles:")
-    	result.body.results.forEach(function(recipe){
-    		console.log(recipe)
-    		titles = titles.concat(recipe.title)
-        images = images.concat(recipe.images)
-    	});
+    console.log(images)
 
     response.render('pages/recipes', {
-        recipe_type: "Italian",
+        recipe_type: "Irish",
     		recipeTitles: titles,
         recipeImages: images
 
@@ -170,28 +139,20 @@ app.get('/chinese', function(request, response) {
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
-
   	var titles = [];
     var images =[];
 
-  	console.log("result.status is:\n\n")
-  	console.log(result.status)
-
-  	console.log("result.headers is:\n\n")
-    console.log(result.headers)
+  	result.body.results.forEach(function(recipe){
+  		console.log(recipe)
+  		titles = titles.concat(recipe.title)
+      images = images.concat(recipe.image)
+  	});
 
     console.log("result.body is:\n\n")
-  	console.log(result.body)
-
-    	console.log("recipe titles:")
-    	result.body.results.forEach(function(recipe){
-    		console.log(recipe)
-    		titles = titles.concat(recipe.title)
-        images = images.concat(recipe.images)
-    	});
+    console.log(images)
 
     response.render('pages/recipes', {
-        recipe_type: "Italian",
+        recipe_type: "Chinese",
     		recipeTitles: titles,
         recipeImages: images
 
@@ -204,28 +165,21 @@ app.get('/mexican', function(request, response) {
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
-
   	var titles = [];
     var images =[];
 
-  	console.log("result.status is:\n\n")
-  	console.log(result.status)
+  	result.body.results.forEach(function(recipe){
+  		console.log(recipe)
+  		titles = titles.concat(recipe.title)
+      images = images.concat(recipe.image)
+  	});
 
-  	console.log("result.headers is:\n\n")
-    console.log(result.headers)
+    console.log("Images:\n\n")
+    console.log(images)
 
-    //console.log("result.body is:\n\n")
-  	//console.log(result.body)
-
-    	console.log("recipe titles:")
-    	result.body.results.forEach(function(recipe){
-    		console.log(recipe)
-    		titles = titles.concat(recipe.title)
-        images = images.concat(recipe.image)
-    	});
 
     response.render('pages/recipes', {
-        recipe_type: "Italian",
+        recipe_type: "Mexican",
     		recipeTitles: titles,
         recipeImages: images
     });
