@@ -31,6 +31,8 @@
     <script src="js/angular-route.js"></script>
     <script src="js/angular-animate.js"></script>
     <script src="js/recipe-app.js"></script>
+    <script src="js/controllers/indexController.js"></script>
+    <script src="js/services/indexService.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,200 +80,22 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
-    <header ng-controller="appController">
+    <header>
         <div class="header-content">
             <div class="panel panel-default">
               <div class="panel-body text-primary"></div>
                 <div class="header-content-inner text-primary">
-
-                    <h1 id="homeHeading">{{ message }}</h1>
                     <h1 id="homeHeading">Recipe Recommending Application</h1>
                     <hr>
-                    <a href="#about" ng-click="main.getMessage()" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
+                    <a href="#about" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
                     <a href="#about" class="btn btn-primary btn-xl page-scroll">Build a Shopping List!</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="bg-primary" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="form-group">
-                  <label for="sel1">Food Type:</label>
-                  <select class="form-control" id="sel1">
-                    <option>Italian</option>
-                    <option>American</option>
-                    <option>Chinese</option>
-                    <option>Indian</option>
-                    <option>Irish</option>
-                    <option>Mexican</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="sel1">Dietary Needs (hold ctrl or shift (or drag with the mouse) to select more than one):</label>
-                 <select multiple class="form-control" id="sel2">
-                    <option>Vegetarian</option>
-                    <option>Vegan</option>
-                    <option>Coeliac</option>
-                    <option>Lactose Intolerant</option>
-                    <option>Nut Allergy</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="sel1">Ingredients:</label>
-                 <select multiple class="form-control" id="sel2">
-                    <option>Chicken</option>
-                    <option>Beef</option>
-                    <option>Mince</option>
-                    <option>Carrots</option>
-                    <option>Potato</option>
-                    <option>Bell Peppers</option>
-                    <option>Rice</option>
-                    <option>Cheese</option>
-                    <option>Tomatoes</option>
-                    <option>Lettuce</option>
-                  </select>
-                </div>
-                <!--
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-menu-toggle" type="button" id="menu1"  data-toggle="dropdown">Food Type 
-                  <span class="caret" width="100%"></span></button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation"><a role="menuitem" href="/american">American</a></li>
-                    <li role="presentation"><a role="menuitem" href="/italian">Italian</a></li>
-                    <li role="presentation"><a role="menuitem" href="/mexican">Mexian</a></li>
-                    <li role="presentation"><a role="menuitem" href="/chinese">Chinese</a></li>-->
-                    <!--<li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" href="#">About Us</a></li> -->
-                  </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter ">
-                <div class="col-lg-4 col-sm-6 center-block">
-                    <a href="/italian" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/italian.jpg" class="img-fluid" alt="Responsive image" height="228.03">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Italian
-                                </div>
-                                <div class="project-name">
-                                    Click here to view Italian Recipes
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 center-block">
-                    <a href="/american" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/american.jpg" class="img-fluid" alt="Responsive image" height="228.03">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    American
-                                </div>
-                                <div class="project-name">
-                                    Click here to view American Recipes
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 center-block">
-                    <a href="/chinese" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/chinese.jpg" class="img-fluid" alt="Responsive image" height="228.03">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Chinese
-                                </div>
-                                <div class="project-name">
-                                    Click here to view Chinese Recipes
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="/indian" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/indian.jpg" class="img-fluid" alt="Responsive image" height="228.03">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Indian
-                                </div>
-                                <div class="project-name">
-                                    Click here to view Indian Recipes
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="/irish" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/Irish.jpg" class="img-fluid" alt="Responsive image" height="228.03">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Irish
-                                </div>
-                                <div class="project-name">
-                                   Click here to view Irish Recipes
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="/mexican" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/mexican.jpg" class="img-fluid" alt="Responsive image" height="228.03">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Mexican
-                                </div>
-                                <div class="project-name">
-                                    Click here to view Mexican Recipes
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Get in Contact!</h2>
-                    <hr class="primary">
-                    <p>This application was created by Engineering students for the module COMP41670 - Software Engineering</p>
-                </div>
-                <!-- 
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                -->
-                <div class="col-lg-4 col-lg-offset-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:caroline.mc-mahon@ucdconnect.ie">caroline.mc-mahon@ucdconnect.ie</a><a href="mailto:philip.corr@ucdconnect.ie"> philip.corr@ucdconnect.ie</a><a href="mailto:gavin.heaney@ucdconnect.ie"> gavin.heaney@ucdconnect.ie</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div ng-view>
+    </div>
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>

@@ -1,5 +1,16 @@
-var recipeApp = angular.module('recipeApp', []);
+var recipeApp = angular.module('recipeApp', ['ngRoute']);
 
-recipeApp.controller('appController', ['$scope', function($scope){
-	$scope.message = "Angular JS is working...";
-}])
+recipeApp.config(['$routeProvider', function($routeProvider){
+	$routeProvider.
+		when('/',{
+			templateUrl: '/partial/indexPartial.html',
+			controller: 'indexController'
+		}).
+		// when('/recipe',{
+		// 	templateUrl: 'views/recipe.html',
+		// 	controller: 'recipeController'
+		// }).
+		otherwise({
+			redirectTo: '/'
+		});
+}]);
