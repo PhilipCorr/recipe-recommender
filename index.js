@@ -35,11 +35,19 @@ app.get('/american', function(request, response) {
   .end(function (result) {
     var titles = [];
     var images =[];
+    var calories =[];
+    var protein = [];
+    var fat = [];
+    var carbs = [];
 
     result.body.results.forEach(function(recipe){
       console.log(recipe)
       titles = titles.concat(recipe.title)
       images = images.concat(recipe.image)
+      calories = calories.concat(recipe.calories)
+      protein = protein.concat(recipe.protein)
+      fat = fat.concat(recipe.fat)
+      carbs = carbs.concat(recipe.carbs)
     });
 
     console.log("result.body is:\n\n")
@@ -48,7 +56,11 @@ app.get('/american', function(request, response) {
     response.render('pages/recipes', {
        recipe_type: "American",
         recipeTitles: titles,
-        recipeImages: images
+        recipeImages: images,
+        recipeCalories: calories,
+        recipeProtein: protein,
+        recipeFat: fat,
+        recipeCarbs: carbs
 
     });
   })
@@ -61,11 +73,19 @@ app.get('/italian', function(request, response) {
   .end(function (result) {
   	var titles = [];
     var images =[];
+    var calories =[];
+    var protein = [];
+    var fat = [];
+    var carbs = [];
 
   	result.body.results.forEach(function(recipe){
   		console.log(recipe)
   		titles = titles.concat(recipe.title)
       images = images.concat(recipe.image)
+      calories = calories.concat(recipe.calories)
+      protein = protein.concat(recipe.protein)
+      fat = fat.concat(recipe.fat)
+      carbs = carbs.concat(recipe.carbs)
   	});
 
     console.log("result.body is:\n\n")
@@ -75,7 +95,11 @@ app.get('/italian', function(request, response) {
     response.render('pages/recipes', {
         recipe_type: "Italian",
     		recipeTitles: titles,
-        recipeImages: images
+        recipeImages: images,
+        recipeCalories: calories,
+        recipeProtein: protein,
+        recipeFat: fat,
+        recipeCarbs: carbs
 
     });
   })
@@ -88,6 +112,10 @@ app.get('/indian', function(request, response) {
   .end(function (result) {
   	var titles = [];
     var images =[];
+    var calories =[];
+    var protein = [];
+    var fat = [];
+    var carbs = [];
 
   	result.body.results.forEach(function(recipe){
   		console.log(recipe)
@@ -102,7 +130,11 @@ app.get('/indian', function(request, response) {
     response.render('pages/recipes', {
         recipe_type: "Indian",
     		recipeTitles: titles,
-        recipeImages: images
+        recipeImages: images,
+        recipeCalories: calories,
+        recipeProtein: protein,
+        recipeFat: fat,
+        recipeCarbs: carbs
 
     });
   })
@@ -115,6 +147,10 @@ app.get('/irish', function(request, response) {
   .end(function (result) {
   	var titles = [];
     var images =[];
+    var calories =[];
+    var protein = [];
+    var fat = [];
+    var carbs = [];
 
   	result.body.results.forEach(function(recipe){
   		console.log(recipe)
@@ -128,7 +164,11 @@ app.get('/irish', function(request, response) {
     response.render('pages/recipes', {
         recipe_type: "Irish",
     		recipeTitles: titles,
-        recipeImages: images
+        recipeImages: images,
+        recipeCalories: calories,
+        recipeProtein: protein,
+        recipeFat: fat,
+        recipeCarbs: carbs
 
     });
   })
@@ -141,6 +181,10 @@ app.get('/chinese', function(request, response) {
   .end(function (result) {
   	var titles = [];
     var images =[];
+    var calories =[];
+    var protein = [];
+    var fat = [];
+    var carbs = [];
 
   	result.body.results.forEach(function(recipe){
   		console.log(recipe)
@@ -154,7 +198,11 @@ app.get('/chinese', function(request, response) {
     response.render('pages/recipes', {
         recipe_type: "Chinese",
     		recipeTitles: titles,
-        recipeImages: images
+        recipeImages: images,
+        recipeCalories: calories,
+        recipeProtein: protein,
+        recipeFat: fat,
+        recipeCarbs: carbs
 
     });
   })
@@ -167,6 +215,10 @@ app.get('/mexican', function(request, response) {
   .end(function (result) {
   	var titles = [];
     var images =[];
+    var calories =[];
+    var protein = [];
+    var fat = [];
+    var carbs = [];
 
   	result.body.results.forEach(function(recipe){
   		console.log(recipe)
@@ -181,7 +233,11 @@ app.get('/mexican', function(request, response) {
     response.render('pages/recipes', {
         recipe_type: "Mexican",
     		recipeTitles: titles,
-        recipeImages: images
+        recipeImages: images,
+        recipeCalories: calories,
+        recipeProtein: protein,
+        recipeFat: fat,
+        recipeCarbs: carbs
     });
   })
 });
