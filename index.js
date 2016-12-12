@@ -1,4 +1,3 @@
-var cool = require('cool-ascii-faces');
 var express = require('express'); // import express module
 var app = express();
 var unirest = require('unirest');
@@ -9,15 +8,18 @@ app.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-  response.render('pages/index');
+//app.get('/', function(request, response) {
+//  response.render('pages/index');
+//});
+
+app.get('/', (req, res) => {
+   res.sendFile('index.html', {
+     root: 'views/pages'
+   });
 });
 
-app.get('/cool', function(request, response) {
-  response.send(cool());
-});
 
 app.get('/homepage', function(request, response) {
   response.render('pages/homepage', {
@@ -27,6 +29,8 @@ app.get('/homepage', function(request, response) {
 
     });
 });
+
+
 
 app.get('/american', function(request, response) {
   unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")

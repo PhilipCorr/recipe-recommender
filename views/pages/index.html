@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="recipeApp">
 
 <head>
 
@@ -26,11 +26,12 @@
 
     <!-- Theme CSS -->
     <link href="vendor/main-theme/creative.css" rel="stylesheet">
-    
+
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
     <script src="js/angular-animate.js"></script>
     <script src="js/recipe-app.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -78,16 +79,16 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header>
+    <header ng-controller="appController">
         <div class="header-content">
             <div class="panel panel-default">
               <div class="panel-body text-primary"></div>
                 <div class="header-content-inner text-primary">
 
-                    
+                    <h1 id="homeHeading">{{ message }}</h1>
                     <h1 id="homeHeading">Recipe Recommending Application</h1>
                     <hr>
-                    <a href="#about" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
+                    <a href="#about" ng-click="main.getMessage()" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
                     <a href="#about" class="btn btn-primary btn-xl page-scroll">Build a Shopping List!</a>
                 </div>
             </div>
