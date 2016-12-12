@@ -106,7 +106,7 @@ app.get('/italian', function(request, response) {
 });
 
 app.get('/indian', function(request, response) {
-  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=indian&fillIngredients=false&includeIngredients=onions%2C+tomato&intolerances=peanut&limitLicense=false&&number=10&offset=0&ranking=1&type=main+course")
+  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=indian&fillIngredients=false&includeIngredients=onions%2C+tomato&intolerances=peanut&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&ranking=1&type=main+course")
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
@@ -121,6 +121,10 @@ app.get('/indian', function(request, response) {
   		console.log(recipe)
   		titles = titles.concat(recipe.title)
       images = images.concat(recipe.image)
+	  calories = calories.concat(recipe.calories)
+      protein = protein.concat(recipe.protein)
+      fat = fat.concat(recipe.fat)
+      carbs = carbs.concat(recipe.carbs)
   	});
 
     console.log("result.body is:\n\n")
@@ -141,7 +145,7 @@ app.get('/indian', function(request, response) {
 });
 
 app.get('/irish', function(request, response) {
-  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=irish&fillIngredients=false&includeIngredients=potatoes%2C+carrots&intolerances=peanut&limitLicense=false&&number=10&offset=0&ranking=1&type=main+course")
+  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=irish&fillIngredients=false&includeIngredients=potatoes%2C+carrots&intolerances=peanut&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&ranking=1&type=main+course")
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
@@ -156,6 +160,10 @@ app.get('/irish', function(request, response) {
   		console.log(recipe)
   		titles = titles.concat(recipe.title)
       images = images.concat(recipe.image)
+	  calories = calories.concat(recipe.calories)
+      protein = protein.concat(recipe.protein)
+      fat = fat.concat(recipe.fat)
+      carbs = carbs.concat(recipe.carbs)
   	});
 
     console.log("result.body is:\n\n")
@@ -175,7 +183,7 @@ app.get('/irish', function(request, response) {
 });
 
 app.get('/chinese', function(request, response) {
-  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=chinese&fillIngredients=false&includeIngredients=chicken%2C+rice&intolerances=peanut&limitLicense=false&&number=10&offset=0&ranking=1&type=main+course")
+  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=chinese&fillIngredients=false&includeIngredients=chicken%2C+rice&intolerances=peanut&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&ranking=1&type=main+course")
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
@@ -190,6 +198,10 @@ app.get('/chinese', function(request, response) {
   		console.log(recipe)
   		titles = titles.concat(recipe.title)
       images = images.concat(recipe.image)
+	  calories = calories.concat(recipe.calories)
+      protein = protein.concat(recipe.protein)
+      fat = fat.concat(recipe.fat)
+      carbs = carbs.concat(recipe.carbs)
   	});
 
     console.log("result.body is:\n\n")
@@ -209,7 +221,7 @@ app.get('/chinese', function(request, response) {
 });
 
 app.get('/mexican', function(request, response) {
-  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=mexican&fillIngredients=false&includeIngredients=tomato%2C+beans&intolerances=peanut&limitLicense=false&&number=10&offset=0&ranking=1&type=main+course")
+  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=mexican&fillIngredients=false&includeIngredients=tomato%2C+beans&intolerances=peanut&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&ranking=1&type=main+course")
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
   .end(function (result) {
@@ -224,6 +236,10 @@ app.get('/mexican', function(request, response) {
   		console.log(recipe)
   		titles = titles.concat(recipe.title)
       images = images.concat(recipe.image)
+	  calories = calories.concat(recipe.calories)
+      protein = protein.concat(recipe.protein)
+      fat = fat.concat(recipe.fat)
+      carbs = carbs.concat(recipe.carbs)
   	});
 
     console.log("Images:\n\n")
