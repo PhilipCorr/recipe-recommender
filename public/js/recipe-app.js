@@ -6,10 +6,10 @@ recipeApp.config(['$routeProvider', function($routeProvider){
 			templateUrl: '/partial/indexPartial.html',
 			controller: 'indexController'
 		}).
-		// when('/recipe',{
-		// 	templateUrl: 'views/recipe.html',
-		// 	controller: 'recipeController'
-		// }).
+		 when('/american',{
+		 	templateUrl: 'partial/indexPartial.html',
+		 	controller: 'americanController'
+		 }).
 		otherwise({
 			redirectTo: '/'
 		});

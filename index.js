@@ -21,32 +21,29 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/homepage', function(request, response) {
-  response.render('pages/homepage', {
-       recipe_type: "",
-        recipeTitles: "",
-        recipeImages: ""
-
+app.get('/home', function(request, response) {
+  console.log("About to make unirest call for homepage...")
+  //unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=10")
+    unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=italian&fillIngredients=false&intolerances=peanut&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&ranking=1&type=main+course")
+  .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
+  .header("Accept", "application/json")
+  .end(function (result) {
+      console.log("Unirest call made! Details of Response:")
+      console.log(result.status, result.headers, result.body);
+      response.json(result.body.results);
     });
-});
+  });
 
 
 app.get('/american', function(request, response) {
-  //var titles = [];
-
-  console.log("About to make unirest call...")
+  console.log("About to make unirest call for american...")
   unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
-  .end(function (res) {
-        console.log("Unirest call made!")
-        console.log("response is" + res.body.results)
-        res.body.results.forEach(function(recipe){
-          console.log(recipe)
-          titles = titles.concat(recipe.title)
-        })
-        //console.log("Recipes have the following titles: " + titles)
-        response.json(res.body.results);
+  .end(function (result) {
+      console.log("Unirest call made! Details of Response:")
+      console.log(result.status, result.headers, result.body);
+      response.json(result.body.results);
     });
   });
 

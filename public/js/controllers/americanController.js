@@ -1,8 +1,6 @@
-recipeApp.controller('indexController', ['$scope', '$http', function($scope, $http){ 
-		var titles = [];
+recipeApp.controller('americanController', ['$scope', '$http', function($scope, $http){ 
 
-		//promise = indexService.getRecipeTitles()
-		console.log("Entered Controller, about to call american")	
+		console.log("Entered Controller, about to make american call")	
 		$http.get("/american").then(function(res){
 			console.log("successfully made get request")
 			console.log("Results from request: " + res.data)

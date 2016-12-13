@@ -3,17 +3,13 @@
             <div class="row">
                 <div class="form-group">
                   <label for="sel1">Food Type:</label>
-                  <select class="form-control" id="sel1">
-                    <option>Italian</option>
-                    <option>American</option>
-                    <option>Chinese</option>
-                    <option>Indian</option>
-                    <option>Irish</option>
-                    <option>Mexican</option>
-                  </select>
+                  <ul>
+                    <li><a ng-href="#/home">Italian</a></li>
+                    <li><a ng-href="#/american">American</a></li>
+                  </ul>
                 </div>
-                <ul ng-repeat="title in recipes">
-                    <li>{{title}}</li>
+                <ul ng-repeat="recipe in recipes">
+                    <li>{{recipe.title}}</li>
                 </ul>
                 <div class="form-group">
                   <label for="sel1">Dietary Needs (hold ctrl or shift (or drag with the mouse) to select more than one):</label>
