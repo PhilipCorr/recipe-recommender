@@ -24,6 +24,26 @@ recipeApp.config(function($routeProvider, $locationProvider){
 		 	templateUrl: 'partial/indexPartial.html',
 		 	controller: 'americanController'
 		 })
+		.when('/index/italian',{
+		 	templateUrl: 'partial/indexPartial.html',
+		 	controller: 'italianController'
+		 })
+		.when('/index/indian',{
+		 	templateUrl: 'partial/indexPartial.html',
+		 	controller: 'indianController'
+		 })
+		.when('/index/irish',{
+		 	templateUrl: 'partial/indexPartial.html',
+		 	controller: 'irishController'
+		 })
+		.when('/index/chinese',{
+		 	templateUrl: 'partial/indexPartial.html',
+		 	controller: 'chineseController'
+		 })
+		.when('/index/mexican',{
+		 	templateUrl: 'partial/indexPartial.html',
+		 	controller: 'mexicanController'
+		 })
 		.otherwise({
 			redirectTo: '/index'
 		});
