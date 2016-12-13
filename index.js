@@ -31,44 +31,62 @@ app.get('/homepage', function(request, response) {
 });
 
 
-
 app.get('/american', function(request, response) {
+  //var titles = [];
+
+  console.log("About to make unirest call...")
   unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")
   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
   .header("Accept", "application/json")
-  .end(function (result) {
-    var titles = [];
-    var images =[];
-    var calories =[];
-    var protein = [];
-    var fat = [];
-    var carbs = [];
-
-    result.body.results.forEach(function(recipe){
-      console.log(recipe)
-      titles = titles.concat(recipe.title)
-      images = images.concat(recipe.image)
-      calories = calories.concat(recipe.calories)
-      protein = protein.concat(recipe.protein)
-      fat = fat.concat(recipe.fat)
-      carbs = carbs.concat(recipe.carbs)
+  .end(function (res) {
+        console.log("Unirest call made!")
+        console.log("response is" + res.body.results)
+        res.body.results.forEach(function(recipe){
+          console.log(recipe)
+          titles = titles.concat(recipe.title)
+        })
+        //console.log("Recipes have the following titles: " + titles)
+        response.json(res.body.results);
     });
+  });
 
-    console.log("result.body is:\n\n")
-    console.log(images)
+// app.get('/american', function(request, response) {
+//   unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")
+//   .header("X-Mashape-Key", "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S")
+//   .header("Accept", "application/json")
+//   .end(function (result) {
+//     var titles = [];
+//     var images =[];
+//     var calories =[];
+//     var protein = [];
+//     var fat = [];
+//     var carbs = [];
 
-    response.render('pages/recipes', {
-       recipe_type: "American",
-        recipeTitles: titles,
-        recipeImages: images,
-        recipeCalories: calories,
-        recipeProtein: protein,
-        recipeFat: fat,
-        recipeCarbs: carbs
+//     result.body.results.forEach(function(recipe){
+//       console.log(recipe)
+//       titles = titles.concat(recipe.title)
+//       images = images.concat(recipe.image)
+//       calories = calories.concat(recipe.calories)
+//       protein = protein.concat(recipe.protein)
+//       fat = fat.concat(recipe.fat)
+//       carbs = carbs.concat(recipe.carbs)
+//     });
 
-    });
-  })
-});
+//     console.log("result.body is:\n\n")
+//     console.log(images)
+
+//     response.render('pages/recipes', {
+//        recipe_type: "American",
+//         recipeTitles: titles,
+//         recipeImages: images,
+//         recipeCalories: calories,
+//         recipeProtein: protein,
+//         recipeFat: fat,
+//         recipeCarbs: carbs
+
+//     });
+//   })
+// });
 
 app.get('/italian', function(request, response) {
   unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=italian&fillIngredients=false&intolerances=peanut&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&ranking=1&type=main+course")
