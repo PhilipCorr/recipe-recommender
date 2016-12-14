@@ -4,24 +4,39 @@
                 <div >
                     <!-- <a href="/index" class="btn btn-success">>Home</a> -->
                     <div class="center-block centre-create">
-                    <a href="/index/american" class="btn btn-cuisine">American</a>
+<!--                     <a href="/index/american" class="btn btn-cuisine">American</a>
                     <a href="/index/italian" class="btn btn-cuisine">Italian</a>
                     <a href="/index/indian" class="btn btn-cuisine">Indian</a>
                     <a href="/index/irish" class="btn btn-cuisine">Irish</a>
                     <a href="/index/chinese" class="btn btn-cuisine">Chinese</a>
-                    <a href="/index/mexican" class="btn btn-cuisine">Mexican</a>
+                    <a href="/index/mexican" class="btn btn-cuisine">Mexican</a> -->
                     </div>
                 </div>
-                <div class="form-group">
+
+                <div >
+                    <div class="center-block centre-create">
+                    <a ng-click="diet='vegetarian'; getData()" class="btn btn-cuisine">Vegetarian</a>
+                    {{diet}}
+<!--                     <a ng-click="diet='vegan'"      class="btn btn-cuisine">Vegan</a>
+                    <a ng-click="diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
+                    <a ng-click="diet='paleo'" class="btn btn-cuisine">Paleo</a>
+                    <a ng-click="diet='primal'" class="btn btn-cuisine">Primal</a>
+                    <a ng-click="diet='ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian,</a>
+                    <a ng-click="diet='lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian,</a> -->
+
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
                   <label for="sel1">Dietary Needs (hold ctrl or shift (or drag with the mouse) to select more than one):</label>
                  <select multiple class="form-control" id="sel2">
-                    <option>Vegetarian</option>
-                    <option>Vegan</option>
-                    <option>Coeliac</option>
-                    <option>Lactose Intolerant</option>
-                    <option>Nut Allergy</option>
+                    <option ng-click="record(event.id)">Vegetarian</option>
+                    <option ng-click="deleteEvent(event.id)">Vegan</option>
+                    <option ng-click="deleteEvent(event.id)">Coeliac</option>
+                    <option ng-click="deleteEvent(event.id)">Lactose Intolerant</option>
+                    <option ng-click="deleteEvent(event.id)">Nut Allergy</option>
                   </select>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label for="sel1">Ingredients:</label>
                  <select multiple class="form-control" id="sel2">

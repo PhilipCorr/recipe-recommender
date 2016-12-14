@@ -1,12 +1,33 @@
 var recipeControllers = angular.module('recipeControllers', []);
 
-recipeControllers.controller('indexController',['$scope', '$http', function($scope, $http){
+recipeControllers.controller('indexController', ['$scope', 'recipeService', function($scope, recipeService){
 		console.log("Entered Controller, about to make most popular call")	
-		$http.get("/home").then(function(res){
-			console.log("successfully made get request")
-			console.log("Results from request: " + res.data)
-	    	$scope.recipes = res.data
-		})
+		$scope.diet = "paleo"
+		console.log("$scope.diet is " + $scope.diet)
+		$scope.getData = function() {
+			recipeService.getData();
+		}
+		// $http.get("/home").then(function(res){
+		// 	console.log("successfully made get request")
+		// 	console.log("Results from request: " + res.data)
+	 //    	$scope.recipes = res.data
+		//})
+		// var config = {
+	 //    		params: {
+	 //        		diet:vegetarian,
+	 //        		cuisine:american,
+	 //        		number:10,
+	 //        		type:main+course
+	 //    		}
+		// 	}
+
+			// 		$http({
+		 //    url: user.details_path, 
+		 //    method: "GET",
+		 //    params: {user_id: user.id}
+		 // });
+
+        
 }]);
 
 recipeControllers.controller('americanController',['$scope', '$http', function($scope, $http){
