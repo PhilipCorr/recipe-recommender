@@ -1,21 +1,17 @@
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
-                <div class="form-group">
-                  <label for="sel1">Food Type:</label>
-                  <ul>
-                    <li><a href="/index">Home</a></li>
-                    <li><a href="/index/american">American</a></li>
-                    <li><a href="/index/italian">Italian</a></li>
-                    <li><a href="/index/indian">Indian</a></li>
-                    <li><a href="/index/irish">Irish</a></li>
-                    <li><a href="/index/chinese">Chinese</a></li>
-                    <li><a href="/index/mexican">Mexican</a></li>
-                  </ul>
+                <div >
+                    <!-- <a href="/index" class="btn btn-success">>Home</a> -->
+                    <div class="center-block centre-create">
+                    <a href="/index/american" class="btn btn-cuisine">American</a>
+                    <a href="/index/italian" class="btn btn-cuisine">Italian</a>
+                    <a href="/index/indian" class="btn btn-cuisine">Indian</a>
+                    <a href="/index/irish" class="btn btn-cuisine">Irish</a>
+                    <a href="/index/chinese" class="btn btn-cuisine">Chinese</a>
+                    <a href="/index/mexican" class="btn btn-cuisine">Mexican</a>
+                    </div>
                 </div>
-                <ul ng-repeat="recipe in recipes">
-                    <li>{{recipe.title}}</li>
-                </ul>
                 <div class="form-group">
                   <label for="sel1">Dietary Needs (hold ctrl or shift (or drag with the mouse) to select more than one):</label>
                  <select multiple class="form-control" id="sel2">
@@ -59,7 +55,28 @@
         </div>
     </section>
 
+<section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter ">
 
+                <div class="col-lg-4 col-sm-6 center-block" ng-repeat="recipe in recipes">
+                    <a href="/italian" class="portfolio-box">
+                        <img ng-src="{{recipe.image}}" class="img-fluid" alt="Responsive image" height="228.03">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    {{recipe.title}}
+                                </div>
+                                <div class="project-name">
+                                    Click here to view Recipe
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     
 
 
