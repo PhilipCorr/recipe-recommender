@@ -4,7 +4,16 @@
                 <div >
                     <!-- <a href="/index" class="btn btn-success">>Home</a> -->
                     <div class="center-block centre-create">
-<!--                     <a href="/index/american" class="btn btn-cuisine">American</a>
+                    <a ng-click="cuisine='american'" class="btn btn-cuisine">American</a>
+                    <a ng-click="cuisine='italian'" class="btn btn-cuisine">Italian</a>
+                    <a ng-click="cuisine='indian'" class="btn btn-cuisine">Indian</a>
+                    <a ng-click="cuisine='irish'" class="btn btn-cuisine">Irish</a>
+                    <a ng-click="cuisine='chinese'" class="btn btn-cuisine">Chinese</a>
+                    <a ng-click="cuisine='mexican'" class="btn btn-cuisine">Mexican</a>
+                    {{cuisine}}
+
+
+                    <!-- <a href="/index/american" class="btn btn-cuisine">American</a>
                     <a href="/index/italian" class="btn btn-cuisine">Italian</a>
                     <a href="/index/indian" class="btn btn-cuisine">Indian</a>
                     <a href="/index/irish" class="btn btn-cuisine">Irish</a>
@@ -15,7 +24,7 @@
 
                 <div >
                     <div class="center-block centre-create">
-                    <a ng-click="diet='vegetarian'; getData()" class="btn btn-cuisine">Vegetarian</a>
+                    <a ng-click="diet='vegetarian'" class="btn btn-cuisine">Vegetarian</a>
                     {{diet}}
 <!--                     <a ng-click="diet='vegan'"      class="btn btn-cuisine">Vegan</a>
                     <a ng-click="diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
@@ -37,7 +46,9 @@
                     <option ng-click="deleteEvent(event.id)">Nut Allergy</option>
                   </select>
                 </div> -->
+
                 <div class="form-group">
+                <a ng-click="getData()" class="btn btn-cuisine">Vegetarian</a>
                   <label for="sel1">Ingredients:</label>
                  <select multiple class="form-control" id="sel2">
                     <option>Chicken</option>

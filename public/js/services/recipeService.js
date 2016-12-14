@@ -3,14 +3,16 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 	console.log("Entered service factory")
 
 		return{
-			getData: function(){	
+			getData: function(diet, cuisine){	
 				console.log("Just about to make get request...")
+				console.log("$scope.diet is " + diet)
+				console.log("$scope.cuisine is " + cuisine)
 		        $http({
 				url:'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?type=main+course',
 	            method: "GET",
 	            params:{
-	            	diet: $rootScope.diet,
-	            	cuisine: "american",
+	            	diet: diet,
+	            	cuisine: cuisine,
 	            	number: "10"
 	            },
 	            headers: {"X-Mashape-Key": "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S"}
