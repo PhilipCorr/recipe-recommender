@@ -6,7 +6,7 @@ var recipeControllers = angular.module('recipeControllers', []);
 // In this case we only have one service to make get requests.
 // We may have more later. Depends how much functionality we want to add.
 recipeControllers.controller('recipeController', ['$scope', 'recipeService', function($scope, recipeService){
-		console.log("Entered Controller")	
+		console.log("Entered recipe Controller")	
 
 		// Instantiate variables that view can see here.
 		// Will combine into a single object so that
@@ -36,14 +36,17 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 		}
 }]);
 
-// recipeControllers.controller('americanController',['$scope', '$http', function($scope, $http){
-// 		console.log("Entered Controller, about to make american call")	
-// 		$http.get("/american").then(function(res){
-// 			console.log("successfully made get request")
-// 			console.log("Results from request: " + res.data)
-// 	    	$scope.recipes = res.data
-// 		})
-// }]);
+recipeControllers.controller('listController',['$scope',  'listService', function($scope, listService){
+
+	    $scope.ingredients = [];
+		console.log("$scope.ingredients[0] is " + $scope.ingredients[0])
+
+		console.log("Entered list Controller, about to add ingredient")	
+		$scope.addIngredient = function(){
+			console.log("addIngredient method in listController now executing...")
+			listService.addIngredient($scope.ingredient, $scope.ingredients);
+		}
+}]);
 
 // recipeControllers.controller('italianController',['$scope', '$http', function($scope, $http){
 // 		console.log("Entered Controller, about to make italian call")	

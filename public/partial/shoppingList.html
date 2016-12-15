@@ -6,10 +6,10 @@
         </div>
 
         <fieldset>
-        <input type="text" name="firstname" placeholder="First Name">
-        <input type="text" name="lastname" placeholder="Last Name">
-        </fieldset>
+        <input type="text" name="addIngredient" placeholder="Add Ingredient..." ng-model="ingredient">
 
-        <button type="submit" class="btn">Submit></button>
+        </fieldset>
+        <button type="submit" class="btn" ng-click="addIngredient(); ingredient=''">Submit></button>
+                {{ingredients}}
     </form>
 </section>

@@ -9,7 +9,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 	// the scope variables are available here. The other option would have been to send
 	// the scope variables to nodejs in a post request but that would mean making a post
 	// request in order to make a get request which would be messier and wouldn't make much sense.
-	console.log("Entered service factory")
+	console.log("Entered recipe service factory")
 
 		return{
 			getData: function(filters){	

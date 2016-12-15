@@ -19,7 +19,7 @@ recipeApp.config(function($routeProvider, $locationProvider){
 		})
 		.when('/index/list',{
 			templateUrl: '/partial/shoppingList.html',
-			controller: 'recipeController'
+			controller: 'listController'
 		})
 		.otherwise({
 			redirectTo: '/index'
