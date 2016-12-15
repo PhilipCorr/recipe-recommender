@@ -12,9 +12,9 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 	console.log("Entered service factory")
 
 		return{
-			getData: function(diet, cuisine){	
-				console.log("diet variable in service is " + diet)
-				console.log("cuisine variable in service is " + cuisine)
+			getData: function(filters){	
+				console.log("diet variable in service is " + filters.diet)
+				console.log("cuisine variable in service is " + filters.cuisine)
 				console.log("Just about to make get request...")
 		        $http({
 
@@ -22,9 +22,9 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 				url:'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?type=main+course',
 	            method: "GET",
 	            params:{
-	            	diet: diet,
-	            	cuisine: cuisine,
-	            	number: "10"
+	            	diet: filters.diet,
+	            	cuisine: filters.cuisine,
+	            	number: filters.number
 	            },
 	            headers: {"X-Mashape-Key": "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S"}
 

@@ -11,21 +11,28 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 		// Instantiate variables that view can see here.
 		// Will combine into a single object so that
 		// we are only passing a single object to and from the view.
-		$scope.cuisine = "indian"
-		$scope.diet = "paleo"
+		// $scope.cuisine = "indian"
+		// $scope.diet = "paleo"
+    
+    	$scope.filters =
+        {
+            "cuisine": "indian",
+            "diet": "paleo",
+            "number": "10"
+        };
 
-		console.log("$scope.diet is " + $scope.diet)
-		console.log("$scope.cuisine is " + $scope.cuisine)
+		console.log("$scope.diet is " + $scope.filters.diet)
+		console.log("$scope.cuisine is " + $scope.filters.cuisine)
 
 		// Method to make get request. Called using ng-click or other ng tags in html.
 		// Putting $scope before method or variable makes it available to the view
 		$scope.getData = function() {
 			console.log("getData method in recipeController now executing...")
-			console.log("$scope.diet in getData is " + $scope.diet)
-			console.log("$scope.cuisine in getData is " + $scope.cuisine)
+			console.log("$scope.diet in getData is " + $scope.filters.diet)
+			console.log("$scope.cuisine in getData is " + $scope.filters.cuisine)
 
 			// call method in service
-			recipeService.getData($scope.diet, $scope.cuisine);
+			recipeService.getData($scope.filters);
 		}
 }]);
 

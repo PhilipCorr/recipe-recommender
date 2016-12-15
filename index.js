@@ -1,6 +1,5 @@
 var express = require('express'); // import express module
 var app = express();
-var unirest = require('unirest');
 
 app.set('port', (process.env.PORT || 5000));
 

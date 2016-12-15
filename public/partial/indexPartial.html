@@ -5,12 +5,12 @@
                     <div class="center-block centre-create">
 
 <!--                ng-click updates the scope variables which are available to the controller
- -->                <a ng-click="cuisine='american'" class="btn btn-cuisine">American</a>
-                    <a ng-click="cuisine='italian'" class="btn btn-cuisine">Italian</a>
-                    <a ng-click="cuisine='indian'" class="btn btn-cuisine">Indian</a>
-                    <a ng-click="cuisine='irish'" class="btn btn-cuisine">Irish</a>
-                    <a ng-click="cuisine='chinese'" class="btn btn-cuisine">Chinese</a>
-                    <a ng-click="cuisine='mexican'" class="btn btn-cuisine">Mexican</a>
+ -->                <a ng-click="filters.cuisine='american'" class="btn btn-cuisine">American</a>
+                    <a ng-click="filters.cuisine='italian'" class="btn btn-cuisine">Italian</a>
+                    <a ng-click="filters.cuisine='indian'" class="btn btn-cuisine">Indian</a>
+                    <a ng-click="filters.cuisine='irish'" class="btn btn-cuisine">Irish</a>
+                    <a ng-click="filters.cuisine='chinese'" class="btn btn-cuisine">Chinese</a>
+                    <a ng-click="filters.cuisine='mexican'" class="btn btn-cuisine">Mexican</a>
 
 
                     <!-- <a href="/index/american" class="btn btn-cuisine">American</a>
@@ -24,19 +24,19 @@
 
                 <div >
                     <div class="center-block centre-create">
-                    <a ng-click="diet='vegetarian'" class="btn btn-cuisine">Vegetarian</a>
-                    <a ng-click="diet='vegan'"      class="btn btn-cuisine">Vegan</a>
-                    <a ng-click="diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
-                    <a ng-click="diet='paleo'" class="btn btn-cuisine">Paleo</a>
-                    <a ng-click="diet='primal'" class="btn btn-cuisine">Primal</a>
-                    <a ng-click="diet='ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian,</a>
-                    <a ng-click="diet='lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian,</a>
+                    <a ng-click="filters.diet='vegetarian'" class="btn btn-cuisine">Vegetarian</a>
+                    <a ng-click="filters.diet='vegan'"      class="btn btn-cuisine">Vegan</a>
+                    <a ng-click="filters.diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
+                    <a ng-click="filters.diet='paleo'" class="btn btn-cuisine">Paleo</a>
+                    <a ng-click="filters.diet='primal'" class="btn btn-cuisine">Primal</a>
+                    <a ng-click="filters.diet='ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian,</a>
+                    <a ng-click="filters.diet='lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian,</a>
                     </div>
                 </div>
 
                 <div>
 <!--                 double curly braces are used to display the value of the scope variables
- -->                    <p>diet: {{diet}} cuisine: {{cuisine}}</p>
+ -->                    <p>diet: {{filters.diet}} cuisine: {{filters.cuisine}}</p>
                     <a ng-click="getData()" class="btn btn-cuisine">Make Get Request</a>
                 </div>
                 <!-- <div class="form-group">

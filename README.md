@@ -1,8 +1,8 @@
-# node-js-getting-started
+# Recipe Recommender Application
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+A Node.js and Angular.js app using [Express 4](http://expressjs.com/) and [AngularJS v1.6.0](http://angularjs.com/).
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+This application runs on Heroku. See the following links for deployment info.
 
 ## Running Locally
 
