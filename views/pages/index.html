@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<!-- Tell html that angular is being used and 
+tell all angular components that they are operating
+under the title of recipeApp -->
 <html lang="en" ng-app="recipeApp">
 
 <head>
@@ -9,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="/">
-    <title>Recipe application Test</title>
+    <title>Recipe application</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -64,6 +68,7 @@
         </div>
 </header>
 
+    <!-- This is where the template specified in recipe-app.js file will be injected-->    
     <div ng-view></div>
 
     <div ng-include="'/partial/contact.html'"></div>

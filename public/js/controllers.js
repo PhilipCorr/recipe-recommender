@@ -1,38 +1,32 @@
 var recipeControllers = angular.module('recipeControllers', []);
 
+
+// The controller is where we instantiate all of the scope variables.
+// It's also where we call the services to do what we want.
+// In this case we only have one service to make get requests.
+// We may have more later. Depends how much functionality we want to add.
 recipeControllers.controller('recipeController', ['$scope', 'recipeService', function($scope, recipeService){
-		console.log("Entered Controller, about to make most popular call")	
+		console.log("Entered Controller")	
+
+		// Instantiate variables that view can see here.
+		// Will combine into a single object so that
+		// we are only passing a single object to and from the view.
 		$scope.cuisine = "indian"
 		$scope.diet = "paleo"
+
 		console.log("$scope.diet is " + $scope.diet)
 		console.log("$scope.cuisine is " + $scope.cuisine)
 
+		// Method to make get request. Called using ng-click or other ng tags in html.
+		// Putting $scope before method or variable makes it available to the view
 		$scope.getData = function() {
-			console.log("$scope.diet is " + $scope.diet)
-			console.log("$scope.cuisine is " + $scope.cuisine)
+			console.log("getData method in recipeController now executing...")
+			console.log("$scope.diet in getData is " + $scope.diet)
+			console.log("$scope.cuisine in getData is " + $scope.cuisine)
+
+			// call method in service
 			recipeService.getData($scope.diet, $scope.cuisine);
 		}
-		// $http.get("/home").then(function(res){
-		// 	console.log("successfully made get request")
-		// 	console.log("Results from request: " + res.data)
-	 //    	$scope.recipes = res.data
-		//})
-		// var config = {
-	 //    		params: {
-	 //        		diet:vegetarian,
-	 //        		cuisine:american,
-	 //        		number:10,
-	 //        		type:main+course
-	 //    		}
-		// 	}
-
-			// 		$http({
-		 //    url: user.details_path, 
-		 //    method: "GET",
-		 //    params: {user_id: user.id}
-		 // });
-
-        
 }]);
 
 // recipeControllers.controller('americanController',['$scope', '$http', function($scope, $http){

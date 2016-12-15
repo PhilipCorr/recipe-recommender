@@ -9,12 +9,18 @@ app.use(express.static(__dirname + '/public'));
 // views is directory for all template files
 app.set('views', __dirname + '/views');
 
+
+// See recipeService.js as to why the get requests are no longer being made here.
+// They are being made there instead.
 app.get('/', (req, res) => {
    res.sendFile('index.html', {
      root: 'views/pages'
    });
 });
 
+app.listen(app.get('port')  , function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 
 // app.get('/home', function(request, response) {
 //   console.log("About to make unirest call for homepage...")
@@ -101,10 +107,6 @@ app.get('/', (req, res) => {
 //       response.json(result.body.results);
 //   })
 // });
-
-app.listen(app.get('port')  , function() {
-  console.log('Node app is running on port', app.get('port'));
-});
 
 // app.get('/american', function(request, response) {
 //   unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")
