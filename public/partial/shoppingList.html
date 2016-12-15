@@ -1,15 +1,30 @@
 <section>
-    <form name="myform">
-        <div>
-            <h1>Form Validation</h1>
-            <p>Please fill out the following form</p>
+    <div class="container">
+        <div class="row">
+            <form name="myform" class="centre-form">
+                    <div>
+                        <h1>Shopping List</h1>
+                        <p></p>
+                    </div>
+
+                    <fieldset>
+                    <input type="text" class="form-control" name="addIngredient" placeholder="Add Ingredient..." ng-model="ingredient">
+
+                    </fieldset>
+                    <button type="button" class="btn btn-primary list-submit" ng-click="addIngredient();ingredient=''">
+                    Submit
+                    </button>
+
+                    <div ng-repeat="ingredient in ingredients">
+                        {{ingredient}} 
+                        <button type="button" class="btn btn-primary list-submit" ng-click="removeIngredient(ingredient)">
+                        Delete
+                        </button>
+                    </div>
+
+
+
+            </form>
         </div>
-
-        <fieldset>
-        <input type="text" name="addIngredient" placeholder="Add Ingredient..." ng-model="ingredient">
-
-        </fieldset>
-        <button type="submit" class="btn" ng-click="addIngredient(); ingredient=''">Submit></button>
-                {{ingredients}}
-    </form>
+    </div>
 </section>

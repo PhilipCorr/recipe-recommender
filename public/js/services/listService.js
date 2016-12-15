@@ -5,6 +5,10 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 		return{
 			addIngredient: function(ingredient, ingredients){	
          		ingredients.push(ingredient);
+			},
+			removeIngredient: function(ingredient, ingredients){
+				var index = ingredients.indexOf(ingredient);
+  				ingredients.splice(index, 1); 
 			}
 		};
 }]);

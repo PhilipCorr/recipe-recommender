@@ -430,3 +430,9 @@ body {
     border: 1px solid #fff;
     font-size: 20px;
 }
+.centre-form{
+  text-align:center;
+}
+.list-submit{
+  margin-top: 20px;
+}

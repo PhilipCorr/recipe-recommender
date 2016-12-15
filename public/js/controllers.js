@@ -39,12 +39,17 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 recipeControllers.controller('listController',['$scope',  'listService', function($scope, listService){
 
 	    $scope.ingredients = [];
+
 		console.log("$scope.ingredients[0] is " + $scope.ingredients[0])
 
 		console.log("Entered list Controller, about to add ingredient")	
 		$scope.addIngredient = function(){
 			console.log("addIngredient method in listController now executing...")
 			listService.addIngredient($scope.ingredient, $scope.ingredients);
+		}
+		$scope.removeIngredient = function(ingredient){
+			console.log("removeIngredient method in listController now executing...")
+			listService.removeIngredient(ingredient, $scope.ingredients);
 		}
 }]);
 
