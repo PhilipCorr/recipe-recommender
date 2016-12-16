@@ -6,8 +6,9 @@
                     <h3 class="section-heading text-center"> Cusine Type </h3>
                     <!-- ng-click updates the scope variables which are available to the controller-->                
                     <div class="centre-create">
-                    <a ng-click="filters.cuisine='american'; cuisine_name='American'" class="btn btn-cuisine centre">American</a>
-                    <a ng-click="filters.cuisine='italian'; cuisine_name='Italian'" class="btn btn-cuisine centre">Italian</a>
+                    <a ng-click="filters.cuisine='' ; cuisine_name='None'" class="btn btn-cuisine">None</a>
+                    <a ng-click="filters.cuisine='american'; cuisine_name='American'" class="btn btn-cuisine ">American</a>
+                    <a ng-click="filters.cuisine='italian'; cuisine_name='Italian'" class="btn btn-cuisine">Italian</a>
                     <a ng-click="filters.cuisine='indian'; cuisine_name='Indian'" class="btn btn-cuisine">Indian</a>
                     <a ng-click="filters.cuisine='irish'; cuisine_name='Irish'" class="btn btn-cuisine">Irish</a>
                     <a ng-click="filters.cuisine='chinese'; cuisine_name='Chinese'" class="btn btn-cuisine">Chinese</a>
