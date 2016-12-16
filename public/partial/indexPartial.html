@@ -2,15 +2,17 @@
         <div class="container">
             <div class="row">
                 <div >
-                    <div class="center-block centre-create">
-
-<!--                ng-click updates the scope variables which are available to the controller
- -->                <a ng-click="filters.cuisine='american'" class="btn btn-cuisine">American</a>
-                    <a ng-click="filters.cuisine='italian'" class="btn btn-cuisine">Italian</a>
-                    <a ng-click="filters.cuisine='indian'" class="btn btn-cuisine">Indian</a>
-                    <a ng-click="filters.cuisine='irish'" class="btn btn-cuisine">Irish</a>
-                    <a ng-click="filters.cuisine='chinese'" class="btn btn-cuisine">Chinese</a>
-                    <a ng-click="filters.cuisine='mexican'" class="btn btn-cuisine">Mexican</a>
+                    
+                    <h3 class="section-heading text-center"> Cusine Type </h3>
+                    <!-- ng-click updates the scope variables which are available to the controller-->                
+                    <div class="centre-create">
+                    <a ng-click="filters.cuisine='american'; cuisine_name='American'" class="btn btn-cuisine centre">American</a>
+                    <a ng-click="filters.cuisine='italian'; cuisine_name='Italian'" class="btn btn-cuisine centre">Italian</a>
+                    <a ng-click="filters.cuisine='indian'; cuisine_name='Indian'" class="btn btn-cuisine">Indian</a>
+                    <a ng-click="filters.cuisine='irish'; cuisine_name='Irish'" class="btn btn-cuisine">Irish</a>
+                    <a ng-click="filters.cuisine='chinese'; cuisine_name='Chinese'" class="btn btn-cuisine">Chinese</a>
+                    <a ng-click="filters.cuisine='mexican'; cuisine_name='Mexican'" class="btn btn-cuisine">Mexican</a>
+                    <p></p>
 
 
                     <!-- <a href="/index/american" class="btn btn-cuisine">American</a>
@@ -23,21 +25,29 @@
                 </div>
 
                 <div >
-                    <div class="center-block centre-create">
-                    <a ng-click="filters.diet='vegetarian'" class="btn btn-cuisine">Vegetarian</a>
-                    <a ng-click="filters.diet='vegan'"      class="btn btn-cuisine">Vegan</a>
-                    <a ng-click="filters.diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
-                    <a ng-click="filters.diet='paleo'" class="btn btn-cuisine">Paleo</a>
-                    <a ng-click="filters.diet='primal'" class="btn btn-cuisine">Primal</a>
-                    <a ng-click="filters.diet='ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian,</a>
-                    <a ng-click="filters.diet='lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian,</a>
+                    <p></p>
+                    <h3 class="section-heading text-center"> Dietary Needs </h3>
+                    <div class="container">
+                    <a ng-click="filters.diet='' ; diet_pref='None'" class="btn btn-cuisine">None</a>
+                    <a ng-click="filters.diet='vegetarian'; diet_pref='Vegetarian'" class="btn btn-cuisine">Vegetarian</a>
+                    <a ng-click="filters.diet='vegan' ; diet_pref='Vegan'"      class="btn btn-cuisine">Vegan</a>
+                    <a ng-click="filters.diet='pescetarian' ; diet_pref='Pescetarian'" class="btn btn-cuisine">Pescetarian</a>
+                    <a ng-click="filters.diet='paleo' ; diet_pref='Paleo'" class="btn btn-cuisine">Paleo</a>
+                    <a ng-click="filters.diet='primal' ; diet_pref='Primal'" class="btn btn-cuisine">Primal</a>
+                    <a ng-click="filters.diet='ovo vegetarian' ; diet_pref='Ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian</a>
+                    <a ng-click="filters.diet='lacto vegetarian' ; diet_pref='Lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian</a>
+                    <p></p>
                     </div>
                 </div>
 
                 <div>
-<!--                 double curly braces are used to display the value of the scope variables
- -->                    <p>diet: {{filters.diet}} cuisine: {{filters.cuisine}}</p>
-                    <a ng-click="getData()" class="btn btn-cuisine">Make Get Request</a>
+<!--                 double curly braces are used to display the value of the scope variables -->  
+                    <p></p>
+                    <h3 class="section-heading"> Selected Preferences: </h3>                  
+                    <p>{{cuisine_name}}</p> 
+                    <p>{{diet_pref}} </p>
+
+                    <a ng-click="getData()" href="#services" class="btn btn-cuisine centre-create">Get recipes</a>
                 </div>
                 <!-- <div class="form-group">
                   <label for="sel1">Dietary Needs (hold ctrl or shift (or drag with the mouse) to select more than one):</label>
@@ -82,6 +92,62 @@
             </div>
         </div>
     </section>
+
+<section class="bg-primary" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center" >
+                    <h2 class="section-heading"> {{cuisine_name}} </h2>
+                    <hr class="light">
+                    <p class="text-faded">
+                    <p>These are the titles of the {{cuisine_name}} recipes returned from spoonacular database:</p>
+                    <div class="list-group">
+                        <div class="col-lg-4 col-sm-6 center-block" ng-repeat="recipe in recipes">
+                            <a href="/italian" class="list-group">
+                                <button type="button" class="list-group-item" data-toggle="modal" data-target="#myModal<%=i%>" >{{recipe.title}}
+                                    <span class="pull-right">
+                                        <a type="button" class="btn btn-xs btn-default" href=/{{recipe.title}}>
+                                            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                                        </a>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    </p>
+                    <a href="#portfolio" class="page-scroll btn btn-default btn-xl sr-button">See Top 6 recipes images!</a>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!-- Modal -->
+
+            <body>
+                <div class="modal fade" id="myModal<%=i%>" role="dialog" ng-repeat="recipe in recipes">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">{{recipe.title}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some basic info about recipe here:</p>
+                                <p>Calories: <%=recipeCalories[i]%> </p>
+                                <p>Fat: <%=recipeFat[i]%> </p>
+                                <p>Protein: <%=recipeProtein[i]%> </p>
+                                <p>Carbs: <%=recipeCarbs[i]%> </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>             
+                    </div>
+                </div>
+            </body>
+
+
 
 <section class="no-padding" id="portfolio">
         <div class="container-fluid">
