@@ -11,7 +11,7 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 		// Instantiate variables that view can see here.
 		// Will combine into a single object so that
 		// we are only passing a single object to and from the view.
-		
+
 		console.log("$scope.diet is " + $scope.filters.diet)
 		console.log("$scope.cuisine is " + $scope.filters.cuisine)
 
@@ -52,8 +52,8 @@ recipeControllers.controller('listController',['$scope',  'listService', functio
 		}
 }]);
 
-// recipeControllers.controller('italianController',['$scope', '$http', function($scope, $http){
-// 		console.log("Entered Controller, about to make italian call")	
+// recipeControllers.controller('recipeController',['$scope', '$http', function($scope, $http){
+// 		console.log("Entered recipe Controller")	
 // 		$http.get("/italian").then(function(res){
 // 			console.log("successfully made get request")
 // 			console.log("Results from request: " + res.data)

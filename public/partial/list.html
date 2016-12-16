@@ -15,7 +15,7 @@
                     Submit
                     </button>
 
-                    <div ng-repeat="ingredient in ingredients">
+                    <div ng-repeat="ingredient in ingredients track by $index">
                         {{ingredient}} 
                         <button type="button" class="btn btn-primary list-submit" ng-click="removeIngredient(ingredient)">
                         Delete
