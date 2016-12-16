@@ -3,7 +3,7 @@
 <!-- Tell html that angular is being used and 
 tell all angular components that they are operating
 under the title of recipeApp -->
-<html lang="en" ng-app="recipeApp">
+<html lang="en" ng-app="recipeApp" ng-controller="recipeController" ng-init="init()">
 
 <head>
 
@@ -60,7 +60,7 @@ under the title of recipeApp -->
                 <div class="header-content-inner text-primary">
                     <h1 id="homeHeading">Recipe Recommending Application</h1>
                     <hr>
-                    <a href="#about" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
+                    <a href="/index" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
                     <a href="/index/list" class="btn btn-primary btn-xl page-scroll">Build a Shopping List!</a>
                 </div>
             </div>

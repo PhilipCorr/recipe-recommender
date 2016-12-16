@@ -11,8 +11,23 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 	// request in order to make a get request which would be messier and wouldn't make much sense.
 	console.log("Entered recipe service factory")
 
+		var filters =
+	        {
+	            "cuisine": "indian",
+	            "diet": "paleo",
+	            "number": "10"
+	        };
+
 		return{
-			getData: function(filters){	
+			getFilters: function(){
+				console.log("getFilters in list service now executing...")
+				return filters;
+			},
+			addFilter: function(newFilters){	
+				console.log("addFilter in list service now executing...")
+         		filters = newFilters;
+			},
+			getData: function(){	
 				console.log("diet variable in service is " + filters.diet)
 				console.log("cuisine variable in service is " + filters.cuisine)
 				console.log("Just about to make get request...")
@@ -35,9 +50,9 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 					console.log("Response.data.recipes is: " + res.data.results)
 
 					//Just testing that object returned is as expected
-					angular.forEach(res.data.results, function(recipe){
-                   		console.log("Current recipe.title in loop is:" + recipe.title);  
-               		})
+					// angular.forEach(res.data.results, function(recipe){
+     //               		console.log("Current recipe.title in loop is:" + recipe.title);  
+     //           		})
 
                		//Assign Json to object in the view
 					$rootScope.recipes = res.data.results
