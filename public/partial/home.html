@@ -3,16 +3,16 @@
             <div class="row">
                 <div >
                     
-                    <h3 class="section-heading text-center"> Cusine Type </h3>
+                    <h3 class="section-heading text-center"> Cuisine Type </h3>
                     <!-- ng-click updates the scope variables which are available to the controller-->                
                     <div class="centre-create">
-                    <a ng-click="filters.cuisine='' ; cuisine_name='None'" class="btn btn-cuisine">None</a>
-                    <a ng-click="filters.cuisine='american'; cuisine_name='American'" class="btn btn-cuisine ">American</a>
-                    <a ng-click="filters.cuisine='italian'; cuisine_name='Italian'" class="btn btn-cuisine">Italian</a>
-                    <a ng-click="filters.cuisine='indian'; cuisine_name='Indian'" class="btn btn-cuisine">Indian</a>
-                    <a ng-click="filters.cuisine='irish'; cuisine_name='Irish'" class="btn btn-cuisine">Irish</a>
-                    <a ng-click="filters.cuisine='chinese'; cuisine_name='Chinese'" class="btn btn-cuisine">Chinese</a>
-                    <a ng-click="filters.cuisine='mexican'; cuisine_name='Mexican'" class="btn btn-cuisine">Mexican</a>
+                    <a ng-click="filters.cuisine=''" class="btn btn-cuisine">None</a>
+                    <a ng-click="filters.cuisine='american'" class="btn btn-cuisine ">American</a>
+                    <a ng-click="filters.cuisine='italian'" class="btn btn-cuisine">Italian</a>
+                    <a ng-click="filters.cuisine='indian'" class="btn btn-cuisine">Indian</a>
+                    <a ng-click="filters.cuisine='irish'" class="btn btn-cuisine">Irish</a>
+                    <a ng-click="filters.cuisine='chinese'" class="btn btn-cuisine">Chinese</a>
+                    <a ng-click="filters.cuisine='mexican'" class="btn btn-cuisine">Mexican</a>
                     <p></p>
 
 
@@ -29,14 +29,14 @@
                     <p></p>
                     <h3 class="section-heading text-center"> Dietary Needs </h3>
                     <div class="container">
-                    <a ng-click="filters.diet='' ; diet_pref='None'" class="btn btn-cuisine">None</a>
-                    <a ng-click="filters.diet='vegetarian'; diet_pref='Vegetarian'" class="btn btn-cuisine">Vegetarian</a>
-                    <a ng-click="filters.diet='vegan' ; diet_pref='Vegan'"      class="btn btn-cuisine">Vegan</a>
-                    <a ng-click="filters.diet='pescetarian' ; diet_pref='Pescetarian'" class="btn btn-cuisine">Pescetarian</a>
-                    <a ng-click="filters.diet='paleo' ; diet_pref='Paleo'" class="btn btn-cuisine">Paleo</a>
-                    <a ng-click="filters.diet='primal' ; diet_pref='Primal'" class="btn btn-cuisine">Primal</a>
-                    <a ng-click="filters.diet='ovo vegetarian' ; diet_pref='Ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian</a>
-                    <a ng-click="filters.diet='lacto vegetarian' ; diet_pref='Lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian</a>
+                    <a ng-click="filters.diet=''" class="btn btn-cuisine">None</a>
+                    <a ng-click="filters.diet='vegetarian'" class="btn btn-cuisine">Vegetarian</a>
+                    <a ng-click="filters.diet='vegan'"      class="btn btn-cuisine">Vegan</a>
+                    <a ng-click="filters.diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
+                    <a ng-click="filters.diet='paleo'" class="btn btn-cuisine">Paleo</a>
+                    <a ng-click="filters.diet='primal'" class="btn btn-cuisine">Primal</a>
+                    <a ng-click="filters.diet='ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian</a>
+                    <a ng-click="filters.diet='lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian</a>
                     <p></p>
                     </div>
                 </div>
@@ -45,8 +45,8 @@
 <!--                 double curly braces are used to display the value of the scope variables -->  
                     <p></p>
                     <h3 class="section-heading"> Selected Preferences: </h3>                  
-                    <p>{{cuisine_name}}</p> 
-                    <p>{{diet_pref}} </p>
+                    <p>{{filters.cuisine | capitalize}}</p> 
+                    <p>{{filters.diet | capitalize}} </p>
 
                     <a ng-click="getData()" href="#services" class="btn btn-cuisine centre-create">Get recipes</a>
                 </div>
@@ -160,7 +160,7 @@
             It is getting the titles and the images.
             ng-src is used to reference the images-->
                 <div class="col-lg-4 col-sm-6 center-block" ng-repeat="recipe in recipes">
-                    <a href="/index/recipe" class="portfolio-box">
+                    <a href="/index/recipe" ng-click="chosenR=recipe" class="portfolio-box">
                         <img ng-src="{{recipe.image}}" class="img-fluid" alt="Responsive image" height="228.03">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
