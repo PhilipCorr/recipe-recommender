@@ -48,7 +48,7 @@
                     <p>{{filters.cuisine | capitalize}}</p> 
                     <p>{{filters.diet | capitalize}} </p>
 
-                    <a ng-click="getData()" href="#services" class="btn btn-cuisine centre-create">Get recipes</a>
+                    <a ng-click="getData()" class="btn btn-cuisine centre-create">Get recipes</a>
                 </div>
                 <!-- <div class="form-group">
                   <label for="sel1">Dietary Needs (hold ctrl or shift (or drag with the mouse) to select more than one):</label>
@@ -159,8 +159,8 @@
             Note the double curly braces accessing the scope object that is available to the view.
             It is getting the titles and the images.
             ng-src is used to reference the images-->
-                <div class="col-lg-4 col-sm-6 center-block" ng-repeat="recipe in recipes">
-                    <a href="/index/recipe" ng-click="chosenR=recipe" class="portfolio-box">
+                <div class="col-lg-4 col-sm-6 center-block" ng-repeat="recipe in recipes track by $index">
+                    <a href="/index/recipe" ng-click="setChosenRecipe($index)" class="portfolio-box">
                         <img ng-src="{{recipe.image}}" class="img-fluid" alt="Responsive image" height="228.03">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">

@@ -8,6 +8,8 @@ var recipeControllers = angular.module('recipeControllers', []);
 recipeControllers.controller('recipeController', ['$scope', 'recipeService', function($scope, recipeService){
 		console.log("Entered recipe Controller")	
 		$scope.filters = recipeService.getFilters();
+		$scope.chosenRecipe = recipeService.getChosenRecipe();
+
 		// Instantiate variables that view can see here.
 		// Will combine into a single object so that
 		// we are only passing a single object to and from the view.
@@ -18,8 +20,13 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 		// Method to make get request. Called using ng-click or other ng tags in html.
 		// Putting $scope before method or variable makes it available to the view
 
+		$scope.setChosenRecipe = function(index){
+			console.log("setChosenRecipe method in recipeController now executing...")
+			$scope.chosenrecipe = recipeService.setChosenRecipe(index);
+
+		}
 		$scope.addFilters = function(){
-			console.log("addFilters method in listController now executing...")
+			console.log("addFilters method in recipeController now executing...")
 			recipeService.addFilter($scope.filters);
 			$scope.filters = recipeService.getFilters()
 		} 

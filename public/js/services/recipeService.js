@@ -18,13 +18,24 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 	            "number": "10"
 	        };
 
+	    // initialise as empty object
+	    var chosenRecipe = {};
+
 		return{
+			getChosenRecipe: function(){
+				console.log("getChosenRecipe in recipe service now executing...")
+				return chosenRecipe;
+			},
+			setChosenRecipe: function(index){	
+				console.log("setChosenRecipe in recipe service now executing...")
+         		chosenRecipe = $rootScope.recipes[index];
+			},
 			getFilters: function(){
-				console.log("getFilters in list service now executing...")
+				console.log("getFilters in recipe service now executing...")
 				return filters;
 			},
 			addFilter: function(newFilters){	
-				console.log("addFilter in list service now executing...")
+				console.log("addFilter in recipe service now executing...")
          		filters = newFilters;
 			},
 			getData: function(){	

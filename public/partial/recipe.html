@@ -1,13 +1,16 @@
 <section>
     <div class="container">
         <div class="row">
-                    <div>
-                        <h1>Recipe</h1>
-                        <p></p>
-                    </div>
-                    <div ng-repeat="recipe in recipes">
-                        {{recipe.title}} 
-                    </div>
+                <h1>Chosen Recipe:</h1>
+                <p>
+                We have access to the chosen recipe here. This is obtained using the ng-click class in the anchor tag at the last section of home.html. We will need to call getData and pass the id into the url in order to get more detailed info on the chosenRecipe. This will then be displayed to the user on this page. For info on how to structure the get request see the way that we make a url request when the GET RECIPES button is clicked. 
+                </p>
+                <p>
+                    The id to use is: {{chosenRecipe.id}} <br>
+                    chosen recipe title is: {{chosenRecipe.title}} <br> 
+                    chosen recipe image is: {{chosenRecipe.image}} <br>
+
+                </p>
         </div>
     </div>
 </section>
