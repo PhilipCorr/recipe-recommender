@@ -472,6 +472,10 @@ a.btn-filter:hover{
   color: #FFF; 
 }
 
+.black-text{
+  color: #000; 
+}
+
 .red-text{
   color:#F05F40;
 }
@@ -552,6 +556,10 @@ a #back-to-top:active{
 
 .back-to-top:hover .arrow-back-to-top {
   color: white;
+}
+
+.contact-name:hover{
+  color: black;
 }
 
 span.arrow-back-to-top.glyphicon.glyphicon-chevron-up:active {
