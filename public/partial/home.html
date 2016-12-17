@@ -1,20 +1,18 @@
-    <section class="bg-primary" id="about">
+    <section class="bg-primary filter-wrapper" id="about">
         <div class="container">
             <div class="row">
                 <div >
                     
-                    <h3 class="section-heading text-center"> Cuisine Type </h3>
+                    <h3 class="section-heading text-center red-text"> Cuisine Type </h3>
                     <!-- ng-click updates the scope variables which are available to the controller-->                
-                    <div class="centre-create">
+                    <div class="centre-filters">
                     <a ng-click="filters.cuisine=''" class="btn btn-cuisine">None</a>
-                    <a ng-click="filters.cuisine='american'" class="btn btn-cuisine ">American</a>
+                    <a ng-click="filters.cuisine='american'" class="btn btn-cuisine">American</a>
                     <a ng-click="filters.cuisine='italian'" class="btn btn-cuisine">Italian</a>
                     <a ng-click="filters.cuisine='indian'" class="btn btn-cuisine">Indian</a>
                     <a ng-click="filters.cuisine='irish'" class="btn btn-cuisine">Irish</a>
                     <a ng-click="filters.cuisine='chinese'" class="btn btn-cuisine">Chinese</a>
                     <a ng-click="filters.cuisine='mexican'" class="btn btn-cuisine">Mexican</a>
-                    <p></p>
-
 
                     <!-- <a href="/index/american" class="btn btn-cuisine">American</a>
                     <a href="/index/italian" class="btn btn-cuisine">Italian</a>
@@ -27,9 +25,9 @@
 
                 <div >
                     <p></p>
-                    <h3 class="section-heading text-center"> Dietary Needs </h3>
-                    <div class="container">
-                    <a ng-click="filters.diet=''" class="btn btn-cuisine">None</a>
+                    <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
+                    <div class="container centre-filters">
+                    <a href="#portfolio" ng-click="filters.diet=''" class="btn btn-cuisine">None</a>
                     <a ng-click="filters.diet='vegetarian'" class="btn btn-cuisine">Vegetarian</a>
                     <a ng-click="filters.diet='vegan'"      class="btn btn-cuisine">Vegan</a>
                     <a ng-click="filters.diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
@@ -41,15 +39,19 @@
                     </div>
                 </div>
 
-                <div>
-<!--                 double curly braces are used to display the value of the scope variables -->  
-                    <p></p>
-                    <h3 class="section-heading"> Selected Preferences: </h3>                  
-                    <p>{{filters.cuisine | capitalize}}</p> 
-                    <p>{{filters.diet | capitalize}} </p>
+                <fieldset>
+                    <input type="text" class="form-control" name="addIngredient" placeholder="Add Ingredients to search by..." ng-model="filters.includeIngredients">
+                </fieldset>
 
-                    <a ng-click="getData()" class="btn btn-cuisine centre-create">Get recipes</a>
+                <div class="centre-filters">
+                    <!-- <h3 class="section-heading text-center red-text"> Selected Preferences: </h3>                   -->
+<!--                <p>{{filters.cuisine | capitalize}}</p> 
+                    <p>{{filters.diet | capitalize}} </p>
+                    <p>{{filters.includeIngredients | capitalize}} </p> -->
+
+                    <a ng-click="getData()" class="btn btn-cuisine centre-custom">Get recipes</a>
                 </div>
+
                 <!-- <div class="form-group">
                   <label for="sel1">Dietary Needs (hold ctrl or shift (or drag with the mouse) to select more than one):</label>
                  <select multiple class="form-control" id="sel2">
@@ -61,7 +63,8 @@
                   </select>
                 </div> -->
 
-                <div class="form-group">
+
+                <!-- <div class="form-group">
                   <label for="sel1">Ingredients:</label>
                  <select multiple class="form-control" id="sel2">
                     <option>Chicken</option>
@@ -75,7 +78,7 @@
                     <option>Tomatoes</option>
                     <option>Lettuce</option>
                   </select>
-                </div>
+                </div> -->
                 <!--
                 <div class="dropdown">
                   <button class="btn btn-default dropdown-menu-toggle" type="button" id="menu1"  data-toggle="dropdown">Food Type 
@@ -94,7 +97,7 @@
         </div>
     </section>
 
-<section class="bg-primary" id="services">
+<!-- <section class="bg-primary" id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center" >
@@ -120,14 +123,13 @@
                 </div>
             </div>
         </div>
-</section>
+</section> -->
 
 <!-- Modal -->
 
-            <body>
+<!--             <body>
                 <div class="modal fade" id="myModal<%=i%>" role="dialog" ng-repeat="recipe in recipes">
                     <div class="modal-dialog">
-                        <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -146,8 +148,23 @@
                         </div>             
                     </div>
                 </div>
-            </body>
+            </body> -->
 
+<div class="col-lg-4 col-sm-6 cuisine-selection" ng-repeat="cuisine in cuisineTypes"> 
+                    <a ng-click="getData()" class="portfolio-box">
+                    <!-- height="228.03"  -->
+                        <img ng-src="img/portfolio/thumbnails/{{cuisine}}.jpg" class="img-fluid" alt="Responsive image" > 
+                        <div class="portfolio-box-caption"> 
+                            <div class="portfolio-box-caption-content"> 
+                                <div class="project-category text-faded"> 
+                                    Category 
+                                    Mexican 
+                                </div> 
+                                <div class="project-name"> 
+                                    Click here to view {{cuisine}} Recipes 
+                                </div> 
+                            </div> 
+                        </div>
 
 
 <section class="no-padding" id="portfolio">
@@ -159,6 +176,9 @@
             Note the double curly braces accessing the scope object that is available to the view.
             It is getting the titles and the images.
             ng-src is used to reference the images-->
+                <div ng-if="recipes.length == false && submittedSearch" class="alert alert-danger centre-custom">
+                    No results found, please adjust your search parameters and try again
+                </div>
                 <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
                     <a href="/index/recipe" ng-click="getDetailedData(recipe.id)" class="portfolio-box">
                     <!-- height="228.03" -->

@@ -11,6 +11,7 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 		$scope.chosenRecipe = recipeService.getChosenRecipe();
 		$scope.recipes = recipeService.getRecipes();
 		$scope.var = "Initial Value";
+		$scope.cuisineTypes = ["irish","indian","chinese","american","italian","mexican"];
 
 		// Instantiate variables that view can see here.
 		// Will combine into a single object so that
@@ -46,6 +47,7 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 			recipeService.getData()
 			.then(function(response){
 				$scope.recipes = response;
+				$scope.submittedSearch='true'
 			});
 
 		}

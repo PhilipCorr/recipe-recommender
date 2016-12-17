@@ -1,6 +1,6 @@
 
 // link config and routes up to recipeApp
-var recipeApp = angular.module('recipeApp', ['ngRoute','recipeControllers']);
+var recipeApp = angular.module('recipeApp', ['ngRoute','ngAnimate','recipeControllers']);
 
 // This config specifies routes to inject into ng-view. 
 // This means that when the view tells the url to change (using ng-href tag),

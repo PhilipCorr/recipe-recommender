@@ -17,7 +17,9 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 	        {
 	            "cuisine": "indian",
 	            "diet": "paleo",
-	            "number": "10"
+	            "number": "10",
+	            "includeIngredients": ""
+
 	        };
 	    var recipes = [];
 
