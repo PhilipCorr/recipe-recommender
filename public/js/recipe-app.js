@@ -17,12 +17,16 @@ recipeApp.config(function($routeProvider, $locationProvider){
 			templateUrl: '/partial/home.html',
 			controller: 'recipeController'
 		})
+		.when('/index/recipes',{
+			templateUrl: '/partial/recipes.html',
+			controller: 'recipeController'
+		})
 		.when('/index/list',{
 			templateUrl: '/partial/list.html',
 			controller: 'listController'
 		})
-		.when('/index/recipe',{
-			templateUrl: '/partial/recipe.html',
+		.when('/index/specificrecipe',{
+			templateUrl: '/partial/specificRecipe.html',
 			controller: 'recipeController'
 		})
 		.otherwise({

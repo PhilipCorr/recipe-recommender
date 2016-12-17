@@ -5,12 +5,32 @@ var recipeControllers = angular.module('recipeControllers', []);
 // It's also where we call the services to do what we want.
 // In this case we only have one service to make get requests.
 // We may have more later. Depends how much functionality we want to add.
+
+recipeControllers.controller('mainController',['$scope', 'recipeService', function($scope, recipeService){
+		$scope.filters = recipeService.getFilters();
+		$scope.recipes = recipeService.getRecipes();
+
+		$scope.addFilters = function(){
+			console.log("addFilters method in MainController now executing...")
+			recipeService.addFilter($scope.filters);
+			$scope.filters = recipeService.getFilters()
+		},
+
+		$scope.getData = function() {
+			console.log("getData method in recipeController now executing...")
+
+			// call method in service
+			recipeService.getData()
+			.then(function(response){
+				$scope.recipes = response;
+				$scope.submittedSearch='true'
+			});
+		}
+}]);
+
 recipeControllers.controller('recipeController', ['$scope', 'recipeService', function($scope, recipeService){
 		console.log("Entered recipe Controller")	
-		$scope.filters = recipeService.getFilters();
 		$scope.chosenRecipe = recipeService.getChosenRecipe();
-		$scope.recipes = recipeService.getRecipes();
-		$scope.var = "Initial Value";
 		$scope.cuisineTypes = ["irish","indian","chinese","american","italian","mexican"];
 
 		// Instantiate variables that view can see here.
@@ -34,27 +54,11 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 				console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe)
 				console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe.title)
 			});
-		},
-		$scope.addFilters = function(){
-			console.log("addFilters method in recipeController now executing...")
-			recipeService.addFilter($scope.filters);
-			$scope.filters = recipeService.getFilters()
-		},
-		$scope.getData = function() {
-			console.log("getData method in recipeController now executing...")
-
-			// call method in service
-			recipeService.getData()
-			.then(function(response){
-				$scope.recipes = response;
-				$scope.submittedSearch='true'
-			});
-
 		}
+		
 }]);
 
-recipeControllers.controller('listController',['$scope',  'listService', function($scope, listService){
-
+recipeControllers.controller('listController',['$scope', '$location', 'listService', function($scope, $location, listService){
 		
 		console.log("Entered list Controller, about to add ingredient")	
 		$scope.ingredients = listService.getIngredients()
@@ -70,6 +74,11 @@ recipeControllers.controller('listController',['$scope',  'listService', functio
 			listService.removeIngredient(ingredient);
 			$scope.ingredients = listService.getIngredients()
 		}
+
+		$scope.scrollTo = function() {
+      		$location.hash("shopping-list");
+      		$anchorScroll();
+   		}
 }]);
 
 // recipeControllers.controller('recipeController',['$scope', '$http', function($scope, $http){

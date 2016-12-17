@@ -3,7 +3,7 @@
 <!-- Tell html that angular is being used and 
 tell all angular components that they are operating
 under the title of recipeApp -->
-<html lang="en" ng-app="recipeApp" ng-controller="recipeController" ng-init="init()">
+<html lang="en" ng-app="recipeApp" ng-controller="mainController" ng-init="init()">
 
 <head>
 
@@ -40,6 +40,7 @@ under the title of recipeApp -->
 
     <script src="js/services/recipeService.js"></script>
     <script src="js/services/listService.js"></script>
+    <script src="js/scrollTo.js"></script>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,12 +63,62 @@ under the title of recipeApp -->
                 <div class="header-content-inner text-primary">
                     <h1 id="homeHeading" class="title-custom">Roasted Pepper</h1>
                     <hr class="hr-custom">
-                    <a href="/index" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
+                    <a href="#search" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
                     <a href="/index/list" class="btn btn-primary btn-xl page-scroll">Build a Shopping List!</a>
                 </div>
             </div>
         </div>
     </header>
+
+    <section class="bg-primary filter-wrapper" id="search">
+        <div class="container">
+            <div class="row">
+                <div >
+                    
+                    <h3 class="section-heading text-center red-text"> Cuisine Type </h3>
+                    <div class="centre-filters">
+                    <a ng-click="filters.cuisine=''" class="btn btn-cuisine">None</a>
+                    <a ng-click="filters.cuisine='american'" class="btn btn-cuisine">American</a>
+                    <a ng-click="filters.cuisine='italian'" class="btn btn-cuisine">Italian</a>
+                    <a ng-click="filters.cuisine='indian'" class="btn btn-cuisine">Indian</a>
+                    <a ng-click="filters.cuisine='irish'" class="btn btn-cuisine">Irish</a>
+                    <a ng-click="filters.cuisine='chinese'" class="btn btn-cuisine">Chinese</a>
+                    <a ng-click="filters.cuisine='mexican'" class="btn btn-cuisine">Mexican</a>
+
+                    </div>
+                </div>
+
+                <div >
+                    <p></p>
+                    <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
+                    <div class="container centre-filters">
+                    <a href="#portfolio" ng-click="filters.diet=''" class="btn btn-cuisine">None</a>
+                    <a ng-click="filters.diet='vegetarian'" class="btn btn-cuisine">Vegetarian</a>
+                    <a ng-click="filters.diet='vegan'"      class="btn btn-cuisine">Vegan</a>
+                    <a ng-click="filters.diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
+                    <a ng-click="filters.diet='paleo'" class="btn btn-cuisine">Paleo</a>
+                    <a ng-click="filters.diet='primal'" class="btn btn-cuisine">Primal</a>
+                    <a ng-click="filters.diet='ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian</a>
+                    <a ng-click="filters.diet='lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian</a>
+                    <p></p>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <input type="text" class="form-control" name="addIngredient" placeholder="Add Ingredients to search by..." ng-model="filters.includeIngredients">
+                </fieldset>
+
+                <div class="centre-filters">
+
+                    <a href="/index/recipes" ng-click="getData()" class="btn btn-cuisine centre-custom">Get recipes</a>
+                </div>
+
+                  </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- This is where the template specified in recipe-app.js file will be injected-->    
     <div ng-view></div>

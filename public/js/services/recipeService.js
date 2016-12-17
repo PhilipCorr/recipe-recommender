@@ -33,7 +33,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
    //       		chosenRecipe = $rootScope.recipes[index];
 			// },
 			getRecipes: function(){
-				console.log("getRecipe in recipe service now executing...")
+				console.log("getRecipes in recipe service now executing...")
 				return recipes;
 			},
 			getFilters: function(){
