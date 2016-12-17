@@ -15,11 +15,10 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 	    var URL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
 	    var filters =
 	        {
-	            "cuisine": "indian",
-	            "diet": "paleo",
+	            "cuisine": [],
+	            "diet": [],
 	            "number": "10",
 	            "includeIngredients": ""
-
 	        };
 	    var recipes = [];
 
@@ -43,6 +42,10 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 			addFilter: function(newFilters){	
 				console.log("addFilter in recipe service now executing...")
          		filters = newFilters;
+			},
+			appendToFilters: function(filterType, newFilter){
+				console.log("In appendToArray")
+				filters.cuisine.push(newFilter);
 			},
 			getDetailedData: function(id){	
 				console.log("id value is " + id)

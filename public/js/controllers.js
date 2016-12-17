@@ -16,6 +16,10 @@ recipeControllers.controller('mainController',['$scope', 'recipeService', functi
 			recipeService.addFilter($scope.filters);
 			$scope.filters = recipeService.getFilters()
 		},
+		$scope.appendToFilters = function (filterType, newFilter) {
+        	recipeService.appendToFilters(filterType, newFilter);
+        	$scope.filters = recipeService.getFilters();
+    	},
 
 		$scope.getData = function() {
 			console.log("getData method in recipeController now executing...")
