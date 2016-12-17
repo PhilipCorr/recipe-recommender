@@ -152,7 +152,7 @@
 
 <section class="no-padding" id="portfolio">
         <div class="container-fluid">
-            <div class="row no-gutter ">
+            <div class="row no-gutter">
            <!--  ng-repeat will create as many copies as it needs to of the div that it is defined in.
             It creates one copy for every recipe in recipes.
             It also copies thee children tags 
@@ -163,6 +163,7 @@
                     <a href="/index/recipe" ng-click="getDetailedData(recipe.id)" class="portfolio-box">
                     <!-- height="228.03" -->
                         <img ng-src="{{recipe.image}}" class="img-fluid img-uniform" alt="Responsive image"> 
+                        <div class="recipe-summary">{{recipe.title}}</div>
                         <!-- <div class="portfolio-box-caption"> -->
 
                             <!-- <div class="portfolio-box-caption-content"> -->

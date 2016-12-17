@@ -447,3 +447,8 @@ body {
     background-size:     cover;
     margin: 15px;
 }
+
+.recipe-summary{
+  color: #000;
+  padding: 20px;
+}
