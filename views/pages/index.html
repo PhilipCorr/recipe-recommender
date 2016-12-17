@@ -22,6 +22,9 @@ under the title of recipeApp -->
     <script src="js/recipe-app.js"></script>
     <script src="js/controllers.js"></script>
 
+    <!-- JQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script> -->
+
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Fonts -->
@@ -63,8 +66,17 @@ under the title of recipeApp -->
                 <div class="header-content-inner text-primary">
                     <h1 id="homeHeading" class="title-custom">Roasted Pepper</h1>
                     <hr class="hr-custom">
-                    <a href="#search" class="btn btn-primary btn-xl page-scroll">Start you recipe search!</a>
-                    <a href="/index/list" class="btn btn-primary btn-xl page-scroll">Build a Shopping List!</a>
+                    <a ng-href="#search" class="btn btn-primary btn-xl page-scroll">Start your recipe search!</a>
+                    <a ng-href="/index/list" id="link-to-list">Build a Shopping List!</a>
+
+<!-- class="btn btn-primary btn-xl page-scroll" -->
+
+                    <!-- <a href="/index/recipes" ng-click="getData()" class="btn btn-cuisine centre-custom" id="shopping-list">Get recipes</a> -->
+<!--                 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top"
+                    role="button" title="Back to Top" data-toggle="tooltip" data-placement="top">
+                </a> -->
+
+
                 </div>
             </div>
         </div>
@@ -77,13 +89,13 @@ under the title of recipeApp -->
                     
                     <h3 class="section-heading text-center red-text"> Cuisine Type </h3>
                     <div class="centre-filters">
-                    <a ng-click="filters.cuisine=''" class="btn btn-cuisine">None</a>
-                    <a ng-click="filters.cuisine='american'" class="btn btn-cuisine">American</a>
-                    <a ng-click="filters.cuisine='italian'" class="btn btn-cuisine">Italian</a>
-                    <a ng-click="filters.cuisine='indian'" class="btn btn-cuisine">Indian</a>
-                    <a ng-click="filters.cuisine='irish'" class="btn btn-cuisine">Irish</a>
-                    <a ng-click="filters.cuisine='chinese'" class="btn btn-cuisine">Chinese</a>
-                    <a ng-click="filters.cuisine='mexican'" class="btn btn-cuisine">Mexican</a>
+                        <a id="none1" ng-click="filters.cuisine=''" class="btn btn-filter">None</a>
+                        <a id="american" ng-click="filters.cuisine='american'" class="btn btn-filter">American</a>
+                        <a id="italian" ng-click="filters.cuisine='italian'" class="btn btn-filter">Italian</a>
+                        <a id="indian" ng-click="filters.cuisine='indian'" class="btn btn-filter">Indian</a>
+                        <a id="irish" ng-click="filters.cuisine='irish'" class="btn btn-filter">Irish</a>
+                        <a id="chinese" ng-click="filters.cuisine='chinese'" class="btn btn-filter">Chinese</a>
+                        <a id="mexican" ng-click="filters.cuisine='mexican'" class="btn btn-filter">Mexican</a> 
 
                     </div>
                 </div>
@@ -92,14 +104,14 @@ under the title of recipeApp -->
                     <p></p>
                     <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
                     <div class="container centre-filters">
-                    <a href="#portfolio" ng-click="filters.diet=''" class="btn btn-cuisine">None</a>
-                    <a ng-click="filters.diet='vegetarian'" class="btn btn-cuisine">Vegetarian</a>
-                    <a ng-click="filters.diet='vegan'"      class="btn btn-cuisine">Vegan</a>
-                    <a ng-click="filters.diet='pescetarian'" class="btn btn-cuisine">Pescetarian</a>
-                    <a ng-click="filters.diet='paleo'" class="btn btn-cuisine">Paleo</a>
-                    <a ng-click="filters.diet='primal'" class="btn btn-cuisine">Primal</a>
-                    <a ng-click="filters.diet='ovo vegetarian'" class="btn btn-cuisine">Ovo vegetarian</a>
-                    <a ng-click="filters.diet='lacto vegetarian'" class="btn btn-cuisine">Lacto vegetarian</a>
+                    <a id="none2" ng-click="filters.diet=''" class="btn btn-filter">None</a>
+                    <a id="vegetarian" ng-click="filters.diet='vegetarian'" class="btn btn-filter">Vegetarian</a>
+                    <a id="vegan" ng-click="filters.diet='vegan'"      class="btn btn-filter">Vegan</a>
+                    <a id="pescetarian" ng-click="filters.diet='pescetarian'" class="btn btn-filter">Pescetarian</a>
+                    <a id="paleo" ng-click="filters.diet='paleo'" class="btn btn-filter">Paleo</a>
+                    <a id="primal" ng-click="filters.diet='primal'" class="btn btn-filter">Primal</a>
+                    <a id="ovo vegetarian" ng-click="filters.diet='ovo vegetarian'" class="btn btn-filter">Ovo vegetarian</a>
+                    <a id="lacto vegetarian" ng-click="filters.diet='lacto vegetarian'" class="btn btn-filter">Lacto vegetarian</a>
                     <p></p>
                     </div>
                 </div>
@@ -110,7 +122,7 @@ under the title of recipeApp -->
 
                 <div class="centre-filters">
 
-                    <a href="/index/recipes" ng-click="getData()" class="btn btn-cuisine centre-custom">Get recipes</a>
+                    <a href="/index/recipes" ng-click="getData()" class="btn btn-get centre-custom" id="shopping-list">Get recipes</a>
                 </div>
 
                   </ul>
@@ -125,8 +137,12 @@ under the title of recipeApp -->
 
     <div ng-include="'/partial/contact.html'"></div>
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+        <p class="pull-right">
+      <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top"
+      role="button" title="Back to Top" data-toggle="tooltip" data-placement="top">
+          <span class="arrow-back-to-top glyphicon glyphicon-chevron-up"></span>
+      </a>
+    </p>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

@@ -386,7 +386,6 @@ fieldset[disabled] .btn-primary.active {
   border: none;
   border-radius: 300px;
   font-weight: 700;
-  text-transform: uppercase;
 }
 .btn-xl {
   padding: 15px 30px;
@@ -422,20 +421,27 @@ body {
   margin-top: 2%;
 }
 
-a.btn-cuisine{
+a.btn-filter{
     color: #F05F40;
     background-color: #FFF;
     border: 1px solid #F05F40;
     font-size: 20px;
 }
-
-a.btn-cuisine:hover{
+a.btn-get{
+    color: #F05F40;
+    background-color: #FFF;
+    border: 1px solid #F05F40;
+    font-size: 20px;
+}
+a.btn-filter:hover{
   color: #be2e0e;
 }
 
-a.btn-cuisine:focus{
-  /*color: #FFF;*/
- background-color: #F05F40;
+.filter-added{
+    color: #FFF;
+    background-color: #F05F40;
+    border: 1px solid #F05F40;
+    font-size: 20px;
 }
 
 .img-uniform{
@@ -514,6 +520,42 @@ a.btn-cuisine:focus{
   clear:left;
   margin: auto;
   width: 20%;
+}
+
+.back-to-top {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display:none;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-width: 2px;
+}
+
+.arrow-back-to-top{
+  top:3px;
+  right: 1px;
+  color: #004d00;
+}
+
+
+a #back-to-top:active{
+  background-color: #004d00;
+  border-color: #003300;
+}
+
+
+.back-to-top:hover .arrow-back-to-top {
+  color: white;
+}
+
+span.arrow-back-to-top.glyphicon.glyphicon-chevron-up:active {
+    color: #fff;
 }
 /* slide in from the right */
 /*@keyframes slideInRight {

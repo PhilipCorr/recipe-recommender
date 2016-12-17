@@ -9,6 +9,7 @@ var recipeControllers = angular.module('recipeControllers', []);
 recipeControllers.controller('mainController',['$scope', 'recipeService', function($scope, recipeService){
 		$scope.filters = recipeService.getFilters();
 		$scope.recipes = recipeService.getRecipes();
+		$scope.cuisineTypes = ["none", "irish","indian","chinese","american","italian","mexican"];
 
 		$scope.addFilters = function(){
 			console.log("addFilters method in MainController now executing...")
@@ -31,7 +32,6 @@ recipeControllers.controller('mainController',['$scope', 'recipeService', functi
 recipeControllers.controller('recipeController', ['$scope', 'recipeService', function($scope, recipeService){
 		console.log("Entered recipe Controller")	
 		$scope.chosenRecipe = recipeService.getChosenRecipe();
-		$scope.cuisineTypes = ["irish","indian","chinese","american","italian","mexican"];
 
 		// Instantiate variables that view can see here.
 		// Will combine into a single object so that
@@ -58,7 +58,7 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 		
 }]);
 
-recipeControllers.controller('listController',['$scope', '$location', 'listService', function($scope, $location, listService){
+recipeControllers.controller('listController',['$scope', '$location', '$document', 'listService', function($scope, $location, $document, listService){
 		
 		console.log("Entered list Controller, about to add ingredient")	
 		$scope.ingredients = listService.getIngredients()
@@ -73,55 +73,15 @@ recipeControllers.controller('listController',['$scope', '$location', 'listServi
 			console.log("removeIngredient method in listController now executing...")
 			listService.removeIngredient(ingredient);
 			$scope.ingredients = listService.getIngredients()
-		}
+		},
 
-		$scope.scrollTo = function() {
-      		$location.hash("shopping-list");
-      		$anchorScroll();
-   		}
+		// $scope.scrollTo = function() {
+  //     		$location.hash("shopping-list");
+  //     		$anchorScroll();
+  //  		}
+
+		$scope.scrollTo = function(id) {
+    		$document.scrollToElement(id, 0, 2000);
+  		}
 }]);
 
-// recipeControllers.controller('recipeController',['$scope', '$http', function($scope, $http){
-// 		console.log("Entered recipe Controller")	
-// 		$http.get("/italian").then(function(res){
-// 			console.log("successfully made get request")
-// 			console.log("Results from request: " + res.data)
-// 	    	$scope.recipes = res.data
-// 		})
-// }]);
-
-// recipeControllers.controller('indianController',['$scope', '$http', function($scope, $http){
-// 		console.log("Entered Controller, about to make indian call")	
-// 		$http.get("/indian").then(function(res){
-// 			console.log("successfully made get request")
-// 			console.log("Results from request: " + res.data)
-// 	    	$scope.recipes = res.data
-// 		})
-// }]);
-
-// recipeControllers.controller('irishController',['$scope', '$http', function($scope, $http){
-// 		console.log("Entered Controller, about to make irish call")	
-// 		$http.get("/irish").then(function(res){
-// 			console.log("successfully made get request")
-// 			console.log("Results from request: " + res.data)
-// 	    	$scope.recipes = res.data
-// 		})
-// }]);
-
-// recipeControllers.controller('chineseController',['$scope', '$http', function($scope, $http){
-// 		console.log("Entered Controller, about to make chinese call")	
-// 		$http.get("/chinese").then(function(res){
-// 			console.log("successfully made get request")
-// 			console.log("Results from request: " + res.data)
-// 	    	$scope.recipes = res.data
-// 		})
-// }]);
-
-// recipeControllers.controller('mexicanController',['$scope', '$http', function($scope, $http){
-// 		console.log("Entered Controller, about to make mexican call")	
-// 		$http.get("/mexican").then(function(res){
-// 			console.log("successfully made get request")
-// 			console.log("Results from request: " + res.data)
-// 	    	$scope.recipes = res.data
-// 		})
-// }]);
