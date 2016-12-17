@@ -11,24 +11,28 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 	// request in order to make a get request which would be messier and wouldn't make much sense.
 	console.log("Entered recipe service factory")
 
-		var filters =
+	    var chosenRecipe = [];
+	    var URL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
+	    var filters =
 	        {
 	            "cuisine": "indian",
 	            "diet": "paleo",
 	            "number": "10"
 	        };
-
-	    // initialise as empty object
-	    var chosenRecipe = {};
+	    var recipes = [];
 
 		return{
 			getChosenRecipe: function(){
 				console.log("getChosenRecipe in recipe service now executing...")
 				return chosenRecipe;
 			},
-			setChosenRecipe: function(index){	
-				console.log("setChosenRecipe in recipe service now executing...")
-         		chosenRecipe = $rootScope.recipes[index];
+			// setChosenRecipe: function(index){	
+			// 	console.log("setChosenRecipe in recipe service now executing...")
+   //       		chosenRecipe = $rootScope.recipes[index];
+			// },
+			getRecipes: function(){
+				console.log("getRecipe in recipe service now executing...")
+				return recipes;
 			},
 			getFilters: function(){
 				console.log("getFilters in recipe service now executing...")
@@ -38,20 +42,46 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 				console.log("addFilter in recipe service now executing...")
          		filters = newFilters;
 			},
+			getDetailedData: function(id){	
+				console.log("id value is " + id)
+				console.log("Just about to make get request...")
+		        return $http({
+				url: URL + id +'/information',
+	            method: "GET",
+	            //params: filters,
+	            headers: {"X-Mashape-Key": "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S"}
+
+         		}).then(
+         		function(res) {
+         			console.log("The url request made was: " + res.config.url)
+         			console.log("Response.status is: " + res.status)
+					console.log("Response.data is: " + res.data)
+
+					//Just testing that object returned is as expected
+					// angular.forEach(res.data.results, function(recipe){
+     //               		console.log("Current recipe.title in loop is:" + recipe.title);  
+     //           		})
+
+               		//Assign Json to object in the view
+					chosenRecipe =  res.data
+					console.log("chosenRecipe in recipeService: " + chosenRecipe)
+					return chosenRecipe
+
+				},
+				function(data){
+					console.log("error occured making getDetailedData request in recipeController:" + data)
+				});
+				},
 			getData: function(){	
 				console.log("diet variable in service is " + filters.diet)
 				console.log("cuisine variable in service is " + filters.cuisine)
 				console.log("Just about to make get request...")
-		        $http({
+		        return $http({
 
 		        // params get added to url when get request is made
-				url:'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?type=main+course',
+				url: URL + 'searchComplex?type=main+course',
 	            method: "GET",
-	            params:{
-	            	diet: filters.diet,
-	            	cuisine: filters.cuisine,
-	            	number: filters.number
-	            },
+	            params: filters,
 	            headers: {"X-Mashape-Key": "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S"}
 
          		}).then(
@@ -66,10 +96,12 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
      //           		})
 
                		//Assign Json to object in the view
-					$rootScope.recipes = res.data.results
+					recipes =  res.data.results
+					console.log("Recipes array is: " + recipes)
+					return recipes
 				},
 				function(data){
-					console.log("error occured making get request in recipeController:" + data)
+					console.log("error occured making getData request in recipeController:" + data)
 				});
 				}
 			};

@@ -436,3 +436,14 @@ body {
 .list-submit{
   margin-top: 20px;
 }
+
+.img-uniform{
+    position: relative;
+    float: left;
+    width:  250px;
+    height: 250px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+    margin: 15px;
+}

@@ -159,19 +159,21 @@
             Note the double curly braces accessing the scope object that is available to the view.
             It is getting the titles and the images.
             ng-src is used to reference the images-->
-                <div class="col-lg-4 col-sm-6 center-block" ng-repeat="recipe in recipes track by $index">
-                    <a href="/index/recipe" ng-click="setChosenRecipe($index)" class="portfolio-box">
-                        <img ng-src="{{recipe.image}}" class="img-fluid" alt="Responsive image" height="228.03">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
+                <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
+                    <a href="/index/recipe" ng-click="getDetailedData(recipe.id)" class="portfolio-box">
+                    <!-- height="228.03" -->
+                        <img ng-src="{{recipe.image}}" class="img-fluid img-uniform" alt="Responsive image"> 
+                        <!-- <div class="portfolio-box-caption"> -->
+
+                            <!-- <div class="portfolio-box-caption-content"> -->
+                               <!--  <div class="project-category text-faded">
                                     {{recipe.title}}
-                                </div>
-                                <div class="project-name">
+                                </div> -->
+                              <!--   <div class="project-name">
                                     Click here to view Recipe
-                                </div>
-                            </div>
-                        </div>
+                                </div> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
                     </a>
                 </div>
             </div>

@@ -9,34 +9,45 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 		console.log("Entered recipe Controller")	
 		$scope.filters = recipeService.getFilters();
 		$scope.chosenRecipe = recipeService.getChosenRecipe();
+		$scope.recipes = recipeService.getRecipes();
+		$scope.var = "Initial Value";
 
 		// Instantiate variables that view can see here.
 		// Will combine into a single object so that
 		// we are only passing a single object to and from the view.
 
-		console.log("$scope.diet is " + $scope.filters.diet)
-		console.log("$scope.cuisine is " + $scope.filters.cuisine)
 
 		// Method to make get request. Called using ng-click or other ng tags in html.
 		// Putting $scope before method or variable makes it available to the view
 
-		$scope.setChosenRecipe = function(index){
-			console.log("setChosenRecipe method in recipeController now executing...")
-			$scope.chosenrecipe = recipeService.setChosenRecipe(index);
+		// $scope.setChosenRecipe = function(index){
+		// 	console.log("setChosenRecipe method in recipeController now executing...")
+		// 	$scope.chosenrecipe = recipeService.setChosenRecipe(index);
 
-		}
+		// }
+		$scope.getDetailedData = function(id){
+			console.log("getDetailedData method in recipeController now executing...")
+			recipeService.getDetailedData(id)
+			.then(function(response){
+				$scope.chosenRecipe[0] = response;
+				console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe)
+				console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe.title)
+			});
+		},
 		$scope.addFilters = function(){
 			console.log("addFilters method in recipeController now executing...")
 			recipeService.addFilter($scope.filters);
 			$scope.filters = recipeService.getFilters()
-		} 
+		},
 		$scope.getData = function() {
 			console.log("getData method in recipeController now executing...")
-			console.log("$scope.diet in getData is " + $scope.filters.diet)
-			console.log("$scope.cuisine in getData is " + $scope.filters.cuisine)
 
 			// call method in service
-			recipeService.getData($scope.filters);
+			recipeService.getData()
+			.then(function(response){
+				$scope.recipes = response;
+			});
+
 		}
 }]);
 
