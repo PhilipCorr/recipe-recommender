@@ -105,9 +105,10 @@ under the title of recipeApp -->
                 <div >
                     <p></p>
                     <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
+                    <data ng-init="filters.diet=''"/>
                     <p class="text-center red-text"> Please select a dietary need</p>
                     <p class="text-center red-text">(to clear any previous selected dietary needs please click "None")</p>
-                    <div class="container centre-filters">
+                    <div class="container centre-filters ">
                     <a id="none2" ng-click="filters.diet=''" class="btn btn-filter">None</a>
                     <a id="vegetarian" ng-click="filters.diet='vegetarian'" class="btn btn-filter">Vegetarian</a>
                     <a id="vegan" ng-click="filters.diet='vegan'"      class="btn btn-filter">Vegan</a>
@@ -118,6 +119,12 @@ under the title of recipeApp -->
                     </div>
                 </div>
 
+                <h4 class="red-text">Selected Cuisine: </h4>
+                <p class="red-text">{{filters.cuisine[0]|capitalize}} {{filters.cuisine[1]|capitalize}} {{filters.cuisine[2]|capitalize}} {{filters.cuisine[3]|capitalize}} {{filters.cuisine[4]|capitalize}} {{filters.cuisine[5]|capitalize}}</p>
+                <!--<p class="red-text">{{filters.cuisine}}</p>-->
+                
+                <h4 class="red-text">Selected Dietary Need: </h4>
+                <p class="red-text"> {{filters.diet|capitalize}} </p>
                 <!--
                 <p class="red-text">Selected Cuisine: {{filters.cuisine}}<p>
                 <p class="red-text">Selected Dietary Need: {{filters.diet}}<p>
