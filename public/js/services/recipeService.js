@@ -43,9 +43,19 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 				console.log("addFilter in recipe service now executing...")
          		filters = newFilters;
 			},
-			appendToFilters: function(filterType, newFilter){
-				console.log("In appendToArray")
-				filters.cuisine.push(newFilter);
+			removeFilters: function(filterType){	
+				console.log("removeFilters in recipe service now executing...")
+         		filterType.length = 0;
+			},
+			appendFilter: function(filterType, filterVal){
+				console.log("In appendFilter")
+				console.log("filterType is: " + filterType)
+				filterType.push(filterVal);
+			},
+			removeFilter: function(filterType, filterVal){
+				console.log("In removeFilter")
+				var index = filterType.indexOf(filterVal);
+  				filterType.splice(index, 1);
 			},
 			getDetailedData: function(id){	
 				console.log("id value is " + id)
@@ -60,8 +70,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
          		function(res) {
          			console.log("The url request made was: " + res.config.url)
          			console.log("Response.status is: " + res.status)
-					console.log("Response.data is: " + res.data)
-
+         			
 					//Just testing that object returned is as expected
 					// angular.forEach(res.data.results, function(recipe){
      //               		console.log("Current recipe.title in loop is:" + recipe.title);  
@@ -77,9 +86,12 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
 					console.log("error occured making getDetailedData request in recipeController:" + data)
 				});
 				},
-			getData: function(){	
-				console.log("diet variable in service is " + filters.diet)
-				console.log("cuisine variable in service is " + filters.cuisine)
+			getData: function(){
+				console.log("Parameters:")
+				console.log("filters.diet:" + filters.diet)
+				console.log("filters.cuisine:" + filters.cuisine)
+				console.log("filters.number:" + filters.number)
+				console.log("filters.includeIngredients:" + filters.includeIngredients)
 				console.log("Just about to make get request...")
 		        return $http({
 
@@ -93,7 +105,6 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
          		function(res) {
          			console.log("The url request made was: " + res.config.url)
          			console.log("Response.status is: " + res.status)
-					console.log("Response.data.recipes is: " + res.data.results)
 
 					//Just testing that object returned is as expected
 					// angular.forEach(res.data.results, function(recipe){

@@ -1,5 +1,5 @@
 $(document).ready(function(){
- $(window).scroll(function () {
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('#back-to-top').fadeIn();
         } else {
@@ -25,7 +25,6 @@ $(document).ready(function(){
     });
 
     $(".btn-filter").click(function(event) {
-
         if ($("#" + event.target.id).hasClass('filter-added') == false) {
             $("#" + event.target.id).addClass('filter-added');
             $("#" + event.target.id).removeClass('btn-filter');
@@ -35,5 +34,10 @@ $(document).ready(function(){
             $("#" + event.target.id).addClass('btn-filter');
             $("#" + event.target.id).removeClass('filter-added');
         }
+    });
+
+    $(".btn-filter-none").click(function(event) {
+            $("#" + event.target.id).siblings().removeClass('filter-added');
+            $("#" + event.target.id).siblings().addClass('btn-filter');
     });
 });

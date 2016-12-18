@@ -433,6 +433,12 @@ a.btn-get{
     border: 1px solid #F05F40;
     font-size: 20px;
 }
+a.btn-filter-none{
+    color: #F05F40;
+    background-color: #FFF;
+    border: 1px solid #F05F40;
+    font-size: 20px;
+}
 a.btn-filter:hover{
   color: #be2e0e;
 }
@@ -557,6 +563,7 @@ a #back-to-top:active{
 span.arrow-back-to-top.glyphicon.glyphicon-chevron-up:active {
     color: #fff;
 }
+
 /* slide in from the right */
 /*@keyframes slideInRight {
     from    { transform: translateX(100%); }

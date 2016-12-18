@@ -16,11 +16,21 @@ recipeControllers.controller('mainController',['$scope', 'recipeService', functi
 			recipeService.addFilter($scope.filters);
 			$scope.filters = recipeService.getFilters()
 		},
-		$scope.appendToFilters = function (filterType, newFilter) {
-        	recipeService.appendToFilters(filterType, newFilter);
+		$scope.removeFilters = function(filterType){
+			recipeService.removeFilters(filterType);
+			$scope.filters = recipeService.getFilters()
+		},
+		$scope.changeSelection = function (filterType, filterVal) {
+        	if(filterType.indexOf(filterVal) == -1){
+        		console.log("detected that it is not in array")
+        		recipeService.appendFilter(filterType, filterVal);
+        	}
+        	else{
+        	console.log("detected that it is in array")
+				recipeService.removeFilter(filterType, filterVal);
+        	}
         	$scope.filters = recipeService.getFilters();
     	},
-
 		$scope.getData = function() {
 			console.log("getData method in recipeController now executing...")
 

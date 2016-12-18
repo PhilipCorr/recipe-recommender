@@ -89,32 +89,30 @@ under the title of recipeApp -->
                     
                     <h3 class="section-heading text-center red-text"> Cuisine Type </h3>
                     <div class="centre-filters">
-                        <a id="none1" ng-click="filters.cuisine=''" class="btn btn-filter">None</a>
-                        <a id="american" ng-click="appendToFilters('cusine','american')" class="btn btn-filter">American</a>
-                        <a id="italian" ng-click="appendToFilters('cusine','italian')" class="btn btn-filter">Italian</a>
-                        <a id="indian" ng-click="appendToFilters('cusine','indian')" class="btn btn-filter">Indian</a>
-                        <a id="irish" ng-click="appendToFilters('cusine','irish')" class="btn btn-filter">Irish</a>
-                        <a id="chinese" ng-click="appendToFilters('cusine','chinese')" class="btn btn-filter">Chinese</a>
-                        <a id="mexican" ng-click="appendToFilters('cusine','mexican')" class="btn btn-filter">Mexican</a> 
+                        <a id="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">None</a>
+                        <a id="american" ng-click="changeSelection(filters.cuisine,'american')" class="btn btn-filter">American</a>
+                        <a id="italian" ng-click="changeSelection(filters.cuisine,'italian')" class="btn btn-filter">Italian</a>
+                        <a id="indian" ng-click="changeSelection(filters.cuisine,'indian')" class="btn btn-filter">Indian</a>
+                        <a id="irish" ng-click="changeSelection(filters.cuisine,'irish')" class="btn btn-filter">Irish</a>
+                        <a id="chinese" ng-click="changeSelection(filters.cuisine,'chinese')" class="btn btn-filter">Chinese</a>
+                        <a id="mexican" ng-click="changeSelection(filters.cuisine,'mexican')" class="btn btn-filter">Mexican</a> 
 
                     </div>
                 </div>
-                <p class="red-text">filters.Cuisine1 is: {{filters.cuisine[0]}}<p>
-                <p class="red-text">filters.Cuisine2 is: {{filters.cuisine[1]}}<p>
-                <p class="red-text">filters.Diet1 is: {{filters.diet[0]}}<p>
-                <p class="red-text">filters.Diet2 is: {{filters.diet[1]}}<p>
+                <p class="red-text">filters.Cuisine is: {{filters.cuisine}}<p>
+                <p class="red-text">filters.Diet is: {{filters.diet}}<p>
 
 
                 <div >
                     <p></p>
                     <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
                     <div class="container centre-filters">
-                    <a id="none2" ng-click="filters.diet=''" class="btn btn-filter">None</a>
-                    <a id="vegetarian" ng-click="filters.diet='vegetarian'" class="btn btn-filter">Vegetarian</a>
-                    <a id="vegan" ng-click="filters.diet='vegan'"      class="btn btn-filter">Vegan</a>
-                    <a id="pescetarian" ng-click="filters.diet='pescetarian'" class="btn btn-filter">Pescetarian</a>
-                    <a id="paleo" ng-click="filters.diet='paleo'" class="btn btn-filter">Paleo</a>
-                    <a id="primal" ng-click="filters.diet='primal'" class="btn btn-filter">Primal</a>
+                    <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">None</a>
+                    <a id="vegetarian" ng-click="changeSelection(filters.diet,'vegetarian')" class="btn btn-filter">Vegetarian</a>
+                    <a id="vegan" ng-click="changeSelection(filters.diet,'vegan')"      class="btn btn-filter">Vegan</a>
+                    <a id="pescetarian" ng-click="changeSelection(filters.diet,'pescatarian')" class="btn btn-filter">Pescetarian</a>
+                    <a id="paleo" ng-click="changeSelection(filters.diet,'paleo')" class="btn btn-filter">Paleo</a>
+                    <a id="primal" ng-click="changeSelection(filters.diet,'primal')" class="btn btn-filter">Primal</a>
                     <p></p>
                     </div>
                 </div>
