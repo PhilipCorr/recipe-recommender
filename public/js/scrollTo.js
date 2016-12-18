@@ -25,6 +25,7 @@ $(document).ready(function(){
     });
 
     $(".btn-filter").click(function(event) {
+        console.log(".btn-filter clicked on")
         if ($("#" + event.target.id).hasClass('filter-added') == false) {
             $("#" + event.target.id).addClass('filter-added');
             $("#" + event.target.id).removeClass('btn-filter');

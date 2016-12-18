@@ -7,16 +7,12 @@
                     <p class="text-center red-text">Please select your cuisine type preference </p>
                     <p class="text-center red-text">(to clear any previous selected cuisine types please click "None")</p>
                     <div class="centre-filters">
-                        <a id="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">None</a>
-                        <a id="american" ng-click="changeSelection(filters.cuisine,'american')" class="btn btn-filter">American</a>
-                        <a id="italian" ng-click="changeSelection(filters.cuisine,'italian')" class="btn btn-filter">Italian</a>
-                        <a id="indian" ng-click="changeSelection(filters.cuisine,'indian')" class="btn btn-filter">Indian</a>
-                        <a id="irish" ng-click="changeSelection(filters.cuisine,'irish')" class="btn btn-filter">Irish</a>
-                        <a id="chinese" ng-click="changeSelection(filters.cuisine,'chinese')" class="btn btn-filter">Chinese</a>
-                        <a id="mexican" ng-click="changeSelection(filters.cuisine,'mexican')" class="btn btn-filter">Mexican</a> 
-
+                        <a ="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">None</a>
+                        <div ng-repeat="cuisine in cuisines">
+                            <a  ng-attr-id="{{cuisine}}" ng-click="changeSelection(filters.cuisine, cuisine)" class="btn btn-filter">{{cuisine}}</a>
+                        </div>
                     </div>
-                </div>
+                    </div>
 
 
                 <div >
@@ -27,12 +23,15 @@
                     <p class="text-center red-text">(to clear any previous selected dietary needs please click "None")</p>
                     <div class="container centre-filters ">
                     <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">None</a>
-                    <a id="vegetarian" ng-click="changeSelection(filters.diet,'vegetarian')" class="btn btn-filter">Vegetarian</a>
-                    <a id="vegan" ng-click="changeSelection(filters.diet,'vegan')"      class="btn btn-filter">Vegan</a>
+                    
+                    <div ng-repeat="diet in diets">
+                            <a  ng-attr-id="{{diet}}" ng-click="changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet}}</a>
+                    </div>
+<!--                     <a id="vegetarian" ng-click="changeSelection(filters.diet,'vegetarian')" class="btn btn-filter">Vegetarian</a> -->
+                    <!--<a id="vegan" ng-click="changeSelection(filters.diet,'vegan')"      class="btn btn-filter">Vegan</a>
                     <a id="pescetarian" ng-click="changeSelection(filters.diet,'pescatarian')" class="btn btn-filter">Pescetarian</a>
                     <a id="paleo" ng-click="changeSelection(filters.diet,'paleo')" class="btn btn-filter">Paleo</a>
-                    <a id="primal" ng-click="changeSelection(filters.diet,'primal')" class="btn btn-filter">Primal</a>
-                    <p></p>
+                    <a id="primal" ng-click="changeSelection(filters.diet,'primal')" class="btn btn-filter">Primal</a> -->
                     </div>
                 </div>
 
@@ -77,3 +76,23 @@
             </div>
         </div>
     </section>
+
+    <script type="text/javascript">
+    $(".btn-filter").click(function(event) {
+        console.log(".btn-filter clicked on inline method")
+        if ($("#" + event.target.id).hasClass('filter-added') == false) {
+            $("#" + event.target.id).addClass('filter-added');
+            $("#" + event.target.id).removeClass('btn-filter');
+
+        } 
+        else {
+            $("#" + event.target.id).addClass('btn-filter');
+            $("#" + event.target.id).removeClass('filter-added');
+        }
+    });
+
+    $(".btn-filter-none").click(function(event) {
+            $("#" + event.target.id).siblings().removeClass('filter-added');
+            $("#" + event.target.id).siblings().addClass('btn-filter');
+    });
+    </script>
