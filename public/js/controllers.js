@@ -22,6 +22,13 @@ recipeControllers.controller('filterController', ['$scope', 'recipeService', fun
 			$scope.filters = recipeService.getFilters()
 		},
 		$scope.removeFilters = function(filterType){
+			angular.forEach(filterType, function(filterVal){
+      			var myEl = angular.element( document.querySelector( '#' + filterVal ) );
+				console.log(myEl)
+				myEl.removeClass('filter-added');
+				myEl.addClass('btn-filter');   			
+ 
+   			});
 			recipeService.removeFilters(filterType);
 			$scope.filters = recipeService.getFilters()
 		},
