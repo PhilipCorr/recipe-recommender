@@ -6,10 +6,13 @@ var recipeControllers = angular.module('recipeControllers', []);
 // In this case we only have one service to make get requests.
 // We may have more later. Depends how much functionality we want to add.
 
-recipeControllers.controller('mainController',['$scope', 'recipeService', function($scope, recipeService){
+
+recipeControllers.controller('filterController', ['$scope', 'recipeService', function($scope, recipeService){
+		console.log("Entered Filter Controller")	
+		$scope.chosenRecipe = recipeService.getChosenRecipe();
 		$scope.filters = recipeService.getFilters();
 		$scope.recipes = recipeService.getRecipes();
-		$scope.cuisineTypes = ["none", "irish","indian","chinese","american","italian","mexican"];
+		$scope.cuisineTypes = ["irish","indian","chinese","american","italian","mexican"];
 
 		$scope.addFilters = function(){
 			console.log("addFilters method in MainController now executing...")
@@ -40,12 +43,22 @@ recipeControllers.controller('mainController',['$scope', 'recipeService', functi
 				$scope.recipes = response;
 				$scope.submittedSearch='true'
 			});
+		},
+		$scope.getDetailedData = function(id){
+			console.log("getDetailedData method in recipeController now executing...")
+			recipeService.getDetailedData(id)
+			.then(function(response){
+				$scope.chosenRecipe[0] = response;
+				console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe[0])
+				console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe[0].title)
+			});
 		}
+
+		
 }]);
 
 recipeControllers.controller('recipeController', ['$scope', 'recipeService', function($scope, recipeService){
 		console.log("Entered recipe Controller")	
-		$scope.chosenRecipe = recipeService.getChosenRecipe();
 
 		// Instantiate variables that view can see here.
 		// Will combine into a single object so that
@@ -60,15 +73,7 @@ recipeControllers.controller('recipeController', ['$scope', 'recipeService', fun
 		// 	$scope.chosenrecipe = recipeService.setChosenRecipe(index);
 
 		// }
-		$scope.getDetailedData = function(id){
-			console.log("getDetailedData method in recipeController now executing...")
-			recipeService.getDetailedData(id)
-			.then(function(response){
-				$scope.chosenRecipe[0] = response;
-				console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe)
-				console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe.title)
-			});
-		}
+
 		
 }]);
 
@@ -76,6 +81,10 @@ recipeControllers.controller('listController',['$scope', '$location', '$document
 		
 		console.log("Entered list Controller, about to add ingredient")	
 		$scope.ingredients = listService.getIngredients()
+		//$scope.$broadcast('listLoaded');
+		$scope.showList='true'
+		console.log("showList: " + $scope.showList)	
+
 
 		$scope.addIngredient = function(){
 			console.log("addIngredient method in listController now executing...")

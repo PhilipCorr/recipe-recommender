@@ -1,4 +1,4 @@
-recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$http){
+recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, $http){
 
 	// factory creates a service. 
 	// This service can be called from whatever 
@@ -70,7 +70,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope,$
          		function(res) {
          			console.log("The url request made was: " + res.config.url)
          			console.log("Response.status is: " + res.status)
-         			
+
 					//Just testing that object returned is as expected
 					// angular.forEach(res.data.results, function(recipe){
      //               		console.log("Current recipe.title in loop is:" + recipe.title);  

@@ -1,0 +1,79 @@
+<section class="bg-primary filter-wrapper" id="search">
+        <div class="container">
+            <div class="row">
+                <div >
+                    
+                    <h3 class="section-heading text-center red-text"> Cuisine Type </h3>
+                    <p class="text-center red-text">Please select your cuisine type preference </p>
+                    <p class="text-center red-text">(to clear any previous selected cuisine types please click "None")</p>
+                    <div class="centre-filters">
+                        <a id="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">None</a>
+                        <a id="american" ng-click="changeSelection(filters.cuisine,'american')" class="btn btn-filter">American</a>
+                        <a id="italian" ng-click="changeSelection(filters.cuisine,'italian')" class="btn btn-filter">Italian</a>
+                        <a id="indian" ng-click="changeSelection(filters.cuisine,'indian')" class="btn btn-filter">Indian</a>
+                        <a id="irish" ng-click="changeSelection(filters.cuisine,'irish')" class="btn btn-filter">Irish</a>
+                        <a id="chinese" ng-click="changeSelection(filters.cuisine,'chinese')" class="btn btn-filter">Chinese</a>
+                        <a id="mexican" ng-click="changeSelection(filters.cuisine,'mexican')" class="btn btn-filter">Mexican</a> 
+
+                    </div>
+                </div>
+
+
+                <div >
+                    <p></p>
+                    <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
+
+                    <p class="text-center red-text"> Please select a dietary need</p>
+                    <p class="text-center red-text">(to clear any previous selected dietary needs please click "None")</p>
+                    <div class="container centre-filters ">
+                    <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">None</a>
+                    <a id="vegetarian" ng-click="changeSelection(filters.diet,'vegetarian')" class="btn btn-filter">Vegetarian</a>
+                    <a id="vegan" ng-click="changeSelection(filters.diet,'vegan')"      class="btn btn-filter">Vegan</a>
+                    <a id="pescetarian" ng-click="changeSelection(filters.diet,'pescatarian')" class="btn btn-filter">Pescetarian</a>
+                    <a id="paleo" ng-click="changeSelection(filters.diet,'paleo')" class="btn btn-filter">Paleo</a>
+                    <a id="primal" ng-click="changeSelection(filters.diet,'primal')" class="btn btn-filter">Primal</a>
+                    <p></p>
+                    </div>
+                </div>
+
+                <h4 class="red-text">Selected Cuisine: </h4>
+                <p class="red-text">{{filters.cuisine[0]|capitalize}} {{filters.cuisine[1]|capitalize}} {{filters.cuisine[2]|capitalize}} {{filters.cuisine[3]|capitalize}} {{filters.cuisine[4]|capitalize}} {{filters.cuisine[5]|capitalize}}</p>
+                <!--<p class="red-text">{{filters.cuisine}}</p>-->
+                
+                <h4 class="red-text">Selected Dietary Need: </h4>
+                <p class="red-text">{{filters.diet[0]|capitalize}} {{filters.diet[1]|capitalize}} {{filters.diet[2]|capitalize}} {{filters.diet[3]|capitalize}} {{filters.diet[4]|capitalize}} {{filters.diet[5]|capitalize}}</p>
+                <!--
+                <p class="red-text">Selected Cuisine: {{filters.cuisine}}<p>
+                <p class="red-text">Selected Dietary Need: {{filters.diet}}<p>
+
+                <p class="red-text">filters.Cuisine1 is: {{filters.cuisine[0]}}<p>
+                <p class="red-text">filters.Cuisine2 is: {{filters.cuisine[1]}}<p>
+                <p class="red-text">filters.Diet1 is: {{filters.diet}}<p>
+                <p class="red-text">filters.Diet2 is: {{filters.diet[1]}}<p> -->
+
+                    <input type="text" class="form-control" name="addIngredient" placeholder="Add Ingredients to search by..." ng-model="filters.includeIngredients">
+
+                    <div class="centre-filters">
+                        <p class="red-text">{{submittedSearch}}</p>
+                        <a ng-click="getData()" class="btn btn-get centre-custom" id="shopping-list">Get recipes</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div ng-if="recipes.length == false && submittedSearch" class="alert alert-danger centre-custom">
+                    No results found, please adjust your search parameters and try again
+                </div>
+                <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
+                    <a href="/index/recipe" class="portfolio-box">
+                        <img ng-src="{{recipe.image}}" ng-click="getDetailedData(recipe.id)"  class="img-fluid img-uniform" alt="Responsive image"> 
+                        <div class="recipe-summary">{{recipe.title}}</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>

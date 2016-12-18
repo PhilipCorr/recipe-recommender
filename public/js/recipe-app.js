@@ -14,20 +14,16 @@ var recipeApp = angular.module('recipeApp', ['ngRoute', 'ngAnimate', 'recipeCont
 recipeApp.config(function($routeProvider, $locationProvider){
 	$routeProvider
 		.when('/index',{
-			templateUrl: '/partial/home.html',
-			controller: 'recipeController'
-		})
-		.when('/index/recipes',{
-			templateUrl: '/partial/recipes.html',
-			controller: 'recipeController'
+			templateUrl: '/partial/filter.html',
+			controller: 'filterController'
 		})
 		.when('/index/list',{
 			templateUrl: '/partial/list.html',
 			controller: 'listController'
 		})
-		.when('/index/specificrecipe',{
-			templateUrl: '/partial/specificRecipe.html',
-			controller: 'recipeController'
+		.when('/index/recipe',{
+			templateUrl: '/partial/recipe.html',
+			controller: 'filterController'
 		})
 		.otherwise({
 			redirectTo: '/index'
@@ -45,4 +41,16 @@ recipeApp.filter('capitalize', function() {
       return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 });
+
+recipeApp.directive('myscroll', ['$timeout', function ($timeout) {
+    return {
+        link: function ($scope, element, attrs) {
+            $scope.$on('listloaded', function () {
+                $timeout(function () { // You might need this timeout to be sure its run after DOM render.
+                    console.log("In custom directive")
+                }, 0, false);
+            })
+        }
+    };
+}]);
 

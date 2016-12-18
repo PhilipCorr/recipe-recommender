@@ -548,9 +548,9 @@ a.btn-filter:hover{
 }
 
 .arrow-back-to-top{
-  top:3px;
-  right: 1px;
-  color: #004d00;
+  top:5px;
+  right: -1px;
+  color: #F05F40;
 }
 
 
