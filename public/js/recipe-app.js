@@ -42,15 +42,53 @@ recipeApp.filter('capitalize', function() {
     }
 });
 
-recipeApp.directive('myscroll', ['$timeout', function ($timeout) {
+recipeApp.directive('filterUpdate', ['$timeout', function (timer) {
     return {
-        link: function ($scope, element, attrs) {
-            $scope.$on('listloaded', function () {
-                $timeout(function () { // You might need this timeout to be sure its run after DOM render.
-                    console.log("In custom directive")
-                }, 0, false);
-            })
+        link: function (scope, elem, attrs, ctrl) {
+            var hello = function () {
+                console.info("passed into directive: " + attrs.filterUpdate);
+                //angular.forEach(attrs.filterUpdate, function(filterVal){
+					//console.log("filterTypes in for loop: " + attrs.filterUpdate[0])
+					//console.log("filterType in for loop: " + filterVal)
+				// for ( filterType in $scope.filters ) {
+				// 	angular.forEach(filterType, function(filterVal){
+			      		var myEl = angular.element( document.querySelector( '#' + attrs.filterUpdate ) );
+						console.log(myEl)
+						myEl.addClass('filter-added');
+						myEl.removeClass('btn-filter');   			
+		 	// 		});
+				// });
+            }
+            //hello();            
+             timer(hello, 0);
         }
-    };
+    }
 }]);
 
+// 		$scope.init = function(filterTypes){
+// 			console.log("In init function")
+
+// 			 angular.forEach(filterTypes, function(filterType){
+// 				console.log("filterTypes in for loop: " + filterTypes)
+// 				console.log("filterType in for loop: " + filterType)
+// 			//for ( filterType in $scope.filters ) {
+// 				angular.forEach(filterType, function(filterVal){
+// 		      		var myEl = angular.element( document.querySelector( '#' + filterVal ) );
+// 					console.log(myEl)
+// 					myEl.addClass('filter-added');
+// 					myEl.removeClass('btn-filter');   			
+// 	 			});
+// 			});
+// 		}
+
+// $scope.removeFilters = function(filterType){
+// 			angular.forEach(filterType, function(filterVal){
+//       			var myEl = angular.element( document.querySelector( '#' + filterVal ) );
+// 				console.log(myEl)
+// 				myEl.removeClass('filter-added');
+// 				myEl.addClass('btn-filter');   			
+ 
+//    			});
+// 			recipeService.removeFilters(filterType);
+// 			$scope.filters = recipeService.getFilters()
+// 		},

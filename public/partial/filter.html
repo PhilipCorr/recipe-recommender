@@ -18,15 +18,16 @@
                 <div >
                     <p></p>
                     <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
-
                     <p class="text-center red-text"> Please select a dietary need</p>
                     <p class="text-center red-text">(to clear any previous selected dietary needs please click "None")</p>
                     <div class="container centre-filters ">
                     <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">None</a>
-                    
+<!--                     <a id="test_init" ng-click="init(filters.cuisine)" class="btn btn-filter-none">test</a>
+ -->
                     <div class="filter-loop" ng-repeat="diet in diets">
                             <a  ng-attr-id="{{diet}}" ng-click="changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet}}</a>
                     </div>
+                    <!-- <p>{{init()}}</p> -->
 <!--                     <a id="vegetarian" ng-click="changeSelection(filters.diet,'vegetarian')" class="btn btn-filter">Vegetarian</a> -->
                     <!--<a id="vegan" ng-click="changeSelection(filters.diet,'vegan')"      class="btn btn-filter">Vegan</a>
                     <a id="pescetarian" ng-click="changeSelection(filters.diet,'pescatarian')" class="btn btn-filter">Pescetarian</a>
@@ -34,6 +35,21 @@
                     <a id="primal" ng-click="changeSelection(filters.diet,'primal')" class="btn btn-filter">Primal</a> -->
                     </div>
                 </div>
+
+<!--                 <p class="text-red">{{ filters.cuisine[0] }}"></p>
+ -->
+                <div ng-if="filters.cuisine.length > 0">
+                    <div ng-repeat="cuisine in filters.cuisine">
+                        <div filter-update="{{cuisine}}"></div>
+                    </div>
+                </div>
+
+                <div ng-if="filters.diet.length > 0">
+                    <div ng-repeat="diet in filters.diet">
+                        <div filter-update="{{diet}}"></div>
+                    </div>
+                </div>
+                <!-- <div filter-update="{{ filters.diet }}"></div> -->
 
                 <h4 class="red-text">Selected Cuisine: </h4>
                 <p class="red-text">{{filters.cuisine[0]|capitalize}} {{filters.cuisine[1]|capitalize}} {{filters.cuisine[2]|capitalize}} {{filters.cuisine[3]|capitalize}} {{filters.cuisine[4]|capitalize}} {{filters.cuisine[5]|capitalize}}</p>
@@ -50,6 +66,7 @@
                 <p class="red-text">filters.Diet1 is: {{filters.diet}}<p>
                 <p class="red-text">filters.Diet2 is: {{filters.diet[1]}}<p> -->
 
+                     <div class="red-text" repeat-hello-world='{{ repeat }}'></div>
                     <input type="text" class="form-control" name="addIngredient" placeholder="Add Ingredients to search by..." ng-model="filters.includeIngredients">
                     <label class="input-label">Enter comma seperated values e.g. "pasta, beef, tomatoes"</label>
 
