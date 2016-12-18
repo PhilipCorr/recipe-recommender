@@ -383,9 +383,9 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  border: none;
-  border-radius: 300px;
+  border-radius: 5px;
   font-weight: 700;
+  margin: auto 5px;
 }
 .btn-xl {
   padding: 15px 30px;
@@ -421,6 +421,9 @@ body {
   margin-top: 2%;
 }
 
+.filter-loop{
+  display: inline-block;
+}
 a.btn-filter{
     color: #F05F40;
     background-color: #FFF;
@@ -440,6 +443,14 @@ a.btn-filter-none{
     font-size: 20px;
 }
 a.btn-filter:hover{
+  color: #be2e0e;
+}
+
+.centre-filters a.filter-added:hover{
+  color: #be2e0e;
+}
+
+.centre-filters a.filter-added:focus{
   color: #be2e0e;
 }
 
@@ -510,12 +521,13 @@ a.btn-filter:hover{
   border-radius: 0px 4px 4px 0px;
   height: 34px;
   width: 20%;
+  margin: 0px;
 }
 
 .input-ingredient{
   margin: auto;
   float:left;
-  width:80%;
+  width: 80%;
   border-radius: 4px 4px 0px 0px;
 }
 
@@ -544,12 +556,12 @@ a.btn-filter:hover{
   height: 50px;
   width: 50px;
   background-color: white;
-  border-width: 2px;
+  border: 2px solid #F05F40;
+
 }
 
 .arrow-back-to-top{
   top:5px;
-  right: -1px;
   color: #F05F40;
 }
 
@@ -570,6 +582,10 @@ a #back-to-top:active{
 
 span.arrow-back-to-top.glyphicon.glyphicon-chevron-up:active {
     color: #fff;
+}
+
+.input-label {
+  color: #ccc
 }
 
 /* slide in from the right */

@@ -24,21 +24,5 @@ $(document).ready(function(){
         return false;
     });
 
-    $(".btn-filter").click(function(event) {
-        console.log(".btn-filter clicked on")
-        if ($("#" + event.target.id).hasClass('filter-added') == false) {
-            $("#" + event.target.id).addClass('filter-added');
-            $("#" + event.target.id).removeClass('btn-filter');
-
-        } 
-        else {
-            $("#" + event.target.id).addClass('btn-filter');
-            $("#" + event.target.id).removeClass('filter-added');
-        }
-    });
-
-    $(".btn-filter-none").click(function(event) {
-            $("#" + event.target.id).siblings().removeClass('filter-added');
-            $("#" + event.target.id).siblings().addClass('btn-filter');
-    });
+    
 });

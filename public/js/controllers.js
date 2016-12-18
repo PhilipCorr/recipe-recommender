@@ -16,6 +16,17 @@ recipeControllers.controller('filterController', ['$scope', 'recipeService', fun
 		$scope.diets = ["vegetarian","vegan","pescatarian","paleo","primal"];
 
 		console.log("$scope.cuisines:" +  $scope.cuisines)
+
+		$scope.init = function(filters){
+			angular.forEach(filterType, function(filterVal){
+				angular.forEach(filterType, function(filterVal){
+	      			var myEl = angular.element( document.querySelector( '#' + filterVal ) );
+					console.log(myEl)
+					myEl.removeClass('filter-added');
+					myEl.addClass('btn-filter');   			
+ 				});
+   			});
+		}
 		$scope.addFilters = function(){
 			console.log("addFilters method in MainController now executing...")
 			recipeService.addFilter($scope.filters);

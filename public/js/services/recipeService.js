@@ -87,18 +87,47 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 				});
 				},
 			getData: function(){
-				console.log("Parameters:")
+				console.log("Filters:")
 				console.log("filters.diet:" + filters.diet)
 				console.log("filters.cuisine:" + filters.cuisine)
 				console.log("filters.number:" + filters.number)
 				console.log("filters.includeIngredients:" + filters.includeIngredients)
+				console.log("Just about to convert to parameters...")
+
+				// var parameters = {
+	   //          "cuisine": "String",
+	   //          "diet": "String",
+	   //          "number": "10",
+	   //          "includeIngredients": ""
+	   //      	};
+
+	        	var temp = filters;
+	        	var cuisineString = temp.cuisine.join(",");
+	        	var dietString = temp.diet.join(",");
+	        	console.log("cuisineString: " + cuisineString)
+	        	console.log("dietString: " + dietString)
+
+	        	var parameters =
+		        {
+		            "cuisine": cuisineString,
+		            "diet": dietString,
+		            "number": "10",
+		            "includeIngredients": temp.includeIngredients
+		        };
+
+	        	console.log("Parameters:")
+				console.log("parameters.diet:" + parameters.diet)
+				console.log("parameters.cuisine:" + parameters.cuisine)
+				console.log("parameters.number:" + parameters.number)
+				console.log("parameters.includeIngredients:" + parameters.includeIngredients)
 				console.log("Just about to make get request...")
+
 		        return $http({
 
 		        // params get added to url when get request is made
 				url: URL + 'searchComplex?type=main+course',
 	            method: "GET",
-	            params: filters,
+	            params: parameters,
 	            headers: {"X-Mashape-Key": "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S"}
 
          		}).then(
