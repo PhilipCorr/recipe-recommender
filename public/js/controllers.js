@@ -29,12 +29,18 @@ recipeControllers.controller('filterController', ['$scope', 'recipeService', fun
         	if(filterType.indexOf(filterVal) == -1){
         		console.log("detected that it is not in array")
         		recipeService.appendFilter(filterType, filterVal);
-        		var myEl = angular.element( document.querySelector( '#chinese' ) );
-				myEl.addClass('filter-added');
+				var myEl = angular.element( document.querySelector( '#' + filterVal ) );
+				console.log(myEl)
+				myEl.removeClass('btn-filter');   			
+				myEl.addClass('filter-added');   			
         	}
         	else{
         	console.log("detected that it is in array")
 				recipeService.removeFilter(filterType, filterVal);
+				var myEl = angular.element( document.querySelector( '#' + filterVal ) );
+				console.log(myEl)
+				myEl.removeClass('filter-added');   			
+				myEl.addClass('btn-filter');   			
         	}
         	$scope.filters = recipeService.getFilters();
     	},
