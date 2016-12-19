@@ -69,7 +69,7 @@
                 No results found, please adjust your search parameters and try again
             </div>
             <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
-                <a href="/index/recipe" class="portfolio-box">
+                <a href="/index/details" class="portfolio-box">
                     <img ng-src="{{recipe.image}}" ng-click="getDetailedData(recipe.id)"  class="img-fluid img-uniform" alt="Responsive image"> 
                     <div class="recipe-summary">{{recipe.title}}</div>
                 </a>

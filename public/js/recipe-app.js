@@ -5,16 +5,16 @@ var recipeApp = angular.module('recipeApp', ['ngRoute']);
 recipeApp.config(function($routeProvider, $locationProvider){
 	$routeProvider
 		.when('/index',{
-			templateUrl: '/partial/filter.html',
-			controller: 'filterController'
+			templateUrl: '/partial/recipes.html',
+			controller: 'recipeController'
 		})
 		.when('/index/list',{
 			templateUrl: '/partial/list.html',
 			controller: 'listController'
 		})
-		.when('/index/recipe',{
-			templateUrl: '/partial/recipe.html',
-			controller: 'filterController'
+		.when('/index/details',{
+			templateUrl: '/partial/details.html',
+			controller: 'recipeController'
 		})
 		.otherwise({
 			redirectTo: '/index'
