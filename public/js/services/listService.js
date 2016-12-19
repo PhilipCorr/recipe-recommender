@@ -18,6 +18,12 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 				console.log("addIngredient in list service now executing...")
          		ingredients.push(ingredient);
 			},
+			updateIngredient: function(ingredient, index){	
+				console.log("updateIngredient in list service now executing...")
+				var index = ingredients.indexOf(ingredient);
+				ingredients.splice(index, 1);
+  				ingredients.splice(index, 0, ingredient); 
+			},
 			removeIngredient: function(ingredient){
 				console.log("removeIngredient in list service now executing...")
 				var index = ingredients.indexOf(ingredient);

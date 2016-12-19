@@ -13,19 +13,27 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 
 	    var chosenRecipe = [];
 	    var URL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
+	    var offset = 10
 	    var filters =
 	        {
 	            "cuisine": [],
 	            "diet": [],
-	            "number": "10",
-	            "includeIngredients": ""
+	            "number": 10,
+	            "includeIngredients": "",
+	            "offset": offset.toString() 
 	        };
 	    var recipes = [];
+	    var getBtnText = "Search Recipes"
+
 
 		return{
 			getChosenRecipe: function(){
 				console.log("getChosenRecipe in recipe service now executing...")
 				return chosenRecipe;
+			},
+			getText: function(){
+				console.log("getText in recipe service now executing...")
+				return getBtnText;
 			},
 			// setChosenRecipe: function(index){	
 			// 	console.log("setChosenRecipe in recipe service now executing...")
@@ -92,6 +100,8 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 				console.log("filters.cuisine:" + filters.cuisine)
 				console.log("filters.number:" + filters.number)
 				console.log("filters.includeIngredients:" + filters.includeIngredients)
+				console.log("filters.offset:" + filters.offset)
+
 				console.log("Just about to convert to parameters...")
 
 				// var parameters = {
@@ -112,7 +122,8 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 		            "cuisine": cuisineString,
 		            "diet": dietString,
 		            "number": "10",
-		            "includeIngredients": temp.includeIngredients
+		            "includeIngredients": temp.includeIngredients,
+		            "offset": offset.toString()
 		        };
 
 	        	console.log("Parameters:")
@@ -121,6 +132,8 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 				console.log("parameters.number:" + parameters.number)
 				console.log("parameters.includeIngredients:" + parameters.includeIngredients)
 				console.log("Just about to make get request...")
+				console.log("parameters.offset:" + parameters.offset)
+
 
 		        return $http({
 
@@ -143,6 +156,9 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
                		//Assign Json to object in the view
 					recipes =  res.data.results
 					console.log("Recipes array is: " + recipes)
+					offset = offset + 10
+					console.log("Offest is: " + offset)
+					filters.offset = offset.toString();
 					return recipes
 				},
 				function(data){

@@ -15,14 +15,4 @@ $(document).ready(function(){
         }, 800);
         return false;
     });
-
-    $("#link-to-list").click(function() {
-        console.log("now in JQuery method for scrolling to shopping list")
-        $('body,html').animate({
-            scrollTop: 0
-        }, 800);
-        return false;
-    });
-
-    
 });
