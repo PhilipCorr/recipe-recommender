@@ -14,7 +14,7 @@
                 </div>
                 <div class="list-items" ng-repeat="ingredient in ingredients track by $index">
                     <input type="text" class="form-control input-ingredient" name="addIngredient" placeholder="Add Ingredient..." ng-model="ingredient" ng-blur="updateIngredient(ingredient, $index)">
-                    <button type="button" class="btn btn-primary edit-ingredient" ng-click="removeIngredient()">
+                    <button type="button" class="btn btn-primary edit-ingredient" ng-click="removeIngredient(ingredient)">
                         -
                     </button>
                 </div>

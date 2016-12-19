@@ -6,8 +6,7 @@ recipeApp.controller('listController',['$scope', '$location', '$document', 'list
 			console.log("addIngredient method in listController now executing...")
 			if(ingredient){
 				listService.addIngredient(ingredient);
-				$scope.ingredients = listService.getIngredients()
-			}
+				$scope.ingredients = listService.getIngredients()			}
 		}
 		$scope.updateIngredient = function(ingredient, index){
 			console.log("updateIngredient method in listController now executing...")

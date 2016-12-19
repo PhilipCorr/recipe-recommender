@@ -26,7 +26,8 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 			},
 			removeIngredient: function(ingredient){
 				console.log("removeIngredient in list service now executing...")
-				var index = ingredients.indexOf(ingredient);
+				var index = ingredients.indexOf(ingredient);								
+				console.log("ingredient index:" + index)
   				ingredients.splice(index, 1); 
 			}
 		};
