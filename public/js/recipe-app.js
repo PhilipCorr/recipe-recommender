@@ -1,6 +1,6 @@
 
 // link config and routes up to recipeApp
-var recipeApp = angular.module('recipeApp', ['ngRoute', 'ngAnimate']);
+var recipeApp = angular.module('recipeApp', ['ngRoute']);
 
 recipeApp.config(function($routeProvider, $locationProvider){
 	$routeProvider

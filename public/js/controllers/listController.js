@@ -1,4 +1,4 @@
-recipeApp.controller('listController',['$scope', '$location', '$document', 'listService', function($scope, $location, $document, listService){
+recipeApp.controller('listController',['$scope', 'listService', function($scope, listService){
 		
 		$scope.ingredients = listService.getIngredients()
 

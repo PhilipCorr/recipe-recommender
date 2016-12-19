@@ -5,12 +5,11 @@
 
                 <h3 class="section-heading text-center red-text"> Cuisine Type </h3>
                 <p class="text-center red-text">Please select your cuisine type preference </p>
-                <p class="text-center red-text">(to clear any previous selected cuisine types please click "Remove")</p>
                 <div class="centre-filters">
-                    <a ="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">Remove</a>
                     <div class="filter-loop" ng-repeat="cuisine in cuisines">
                         <a  ng-attr-id="{{cuisine}}" ng-click="changeSelection(filters.cuisine, cuisine)" class="btn btn-filter">{{cuisine}}</a>
                     </div>
+                    <a ="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">Remove</a>
                 </div>
             </div>
 
@@ -19,13 +18,11 @@
                 <p></p>
                 <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
                 <p class="text-center red-text"> Please select a dietary need</p>
-                <p class="text-center red-text">(to clear any previous selected dietary needs please click "Remove")</p>
                 <div class="container centre-filters ">
-                    <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">Remove</a>
-
                     <div class="filter-loop" ng-repeat="diet in diets">
                         <a  ng-attr-id="{{diet}}" ng-click="changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet}}</a>
                     </div>
+                    <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">Remove</a>
 
                 </div>
             </div>
@@ -48,11 +45,11 @@
 
 
             <!-- Section here is just for debugging purposes, will remove before release -->
-            <h4 class="red-text">Selected Cuisine: </h4>
+            <!-- <h4 class="red-text">Selected Cuisine: </h4>
             <p class="red-text">{{filters.cuisine[0]|capitalize}} {{filters.cuisine[1]|capitalize}} {{filters.cuisine[2]|capitalize}} {{filters.cuisine[3]|capitalize}} {{filters.cuisine[4]|capitalize}} {{filters.cuisine[5]|capitalize}}</p>
 
             <h4 class="red-text">Selected Dietary Need: </h4>
-            <p class="red-text">{{filters.diet[0]|capitalize}} {{filters.diet[1]|capitalize}} {{filters.diet[2]|capitalize}} {{filters.diet[3]|capitalize}} {{filters.diet[4]|capitalize}} {{filters.diet[5]|capitalize}}</p>
+            <p class="red-text">{{filters.diet[0]|capitalize}} {{filters.diet[1]|capitalize}} {{filters.diet[2]|capitalize}} {{filters.diet[3]|capitalize}} {{filters.diet[4]|capitalize}} {{filters.diet[5]|capitalize}}</p> -->
             <!--End of debugging section-->
 
 
