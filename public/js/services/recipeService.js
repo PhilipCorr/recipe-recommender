@@ -24,21 +24,26 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 	        };
 	    var recipes = [];
 	    var getBtnText = "Search Recipes"
+	    var cuisines = ["american","italian","indian","irish","chinese","mexican"];
+		var diets = ["vegetarian","vegan","pescatarian","paleo","primal"];
 
 
 		return{
+			//getters
 			getChosenRecipe: function(){
 				console.log("getChosenRecipe in recipe service now executing...")
 				return chosenRecipe;
+			},
+			getCuisines: function(){
+				return cuisines;
+			},
+			getDiets: function(){
+				return diets;
 			},
 			getText: function(){
 				console.log("getText in recipe service now executing...")
 				return getBtnText;
 			},
-			// setChosenRecipe: function(index){	
-			// 	console.log("setChosenRecipe in recipe service now executing...")
-   //       		chosenRecipe = $rootScope.recipes[index];
-			// },
 			getRecipes: function(){
 				console.log("getRecipes in recipe service now executing...")
 				return recipes;
@@ -47,6 +52,8 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 				console.log("getFilters in recipe service now executing...")
 				return filters;
 			},
+
+			//methods
 			addFilter: function(newFilters){	
 				console.log("addFilter in recipe service now executing...")
          		filters = newFilters;
@@ -78,13 +85,6 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
          		function(res) {
          			console.log("The url request made was: " + res.config.url)
          			console.log("Response.status is: " + res.status)
-
-					//Just testing that object returned is as expected
-					// angular.forEach(res.data.results, function(recipe){
-     //               		console.log("Current recipe.title in loop is:" + recipe.title);  
-     //           		})
-
-               		//Assign Json to object in the view
 					chosenRecipe =  res.data
 					console.log("chosenRecipe in recipeService: " + chosenRecipe)
 					return chosenRecipe
@@ -103,13 +103,6 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 				console.log("filters.offset:" + filters.offset)
 
 				console.log("Just about to convert to parameters...")
-
-				// var parameters = {
-	   //          "cuisine": "String",
-	   //          "diet": "String",
-	   //          "number": "10",
-	   //          "includeIngredients": ""
-	   //      	};
 
 	        	var temp = filters;
 	        	var cuisineString = temp.cuisine.join(",");
@@ -148,12 +141,6 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
          			console.log("The url request made was: " + res.config.url)
          			console.log("Response.status is: " + res.status)
 
-					//Just testing that object returned is as expected
-					// angular.forEach(res.data.results, function(recipe){
-     //               		console.log("Current recipe.title in loop is:" + recipe.title);  
-     //           		})
-
-               		//Assign Json to object in the view
 					recipes =  res.data.results
 					console.log("Recipes array is: " + recipes)
 					offset = offset + 10

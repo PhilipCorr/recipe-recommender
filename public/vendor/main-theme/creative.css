@@ -153,7 +153,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../../img/veg.jpg');
+  background-image: url('../../img/header.jpg');
   text-align: center;
   color: white;
 }
@@ -446,6 +446,10 @@ a.btn-filter:hover{
   color: #be2e0e;
 }
 
+a.btn-filter-none:hover{
+  color: #be2e0e;
+}
+
 .centre-filters a.filter-added:hover{
   color: #be2e0e;
 }
@@ -587,16 +591,6 @@ span.arrow-back-to-top.glyphicon.glyphicon-chevron-up:active {
 .input-label {
   color: #ccc
 }
-
-/* slide in from the right */
-/*@keyframes slideInRight {
-    from    { transform: translateX(100%); }
-    to      { transform: translateX(0); }
+.mailto-text{
+  color: #333;
 }
-
-@keyframes slideOutLeft {
-    to      { transform: translateX(-100%); }
-}
-
-.ng-enter { animation: slideInRight 1s both ease-in; z-index: 8888; }
-.ng-leave { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }*/

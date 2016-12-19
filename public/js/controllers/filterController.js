@@ -4,11 +4,8 @@ recipeApp.controller('filterController', ['$scope', 'recipeService', function($s
 		$scope.filters = recipeService.getFilters();
 		$scope.recipes = recipeService.getRecipes();
 		$scope.getBtnText = recipeService.getText();
-		$scope.cuisines = ["american","italian","indian","irish","chinese","mexican"];
-		$scope.diets = ["vegetarian","vegan","pescatarian","paleo","primal"];
-
-		console.log("$scope.cuisines:" +  $scope.cuisines)
-
+		$scope.cuisines = recipeService.getCuisines();
+		$scope.diets = recipeService.getDiets();
 
 		$scope.addFilters = function(){
 			console.log("addFilters method in MainController now executing...")
@@ -28,7 +25,7 @@ recipeApp.controller('filterController', ['$scope', 'recipeService', function($s
 		},
 		$scope.changeSelection = function (filterType, filterVal) {
         	if(filterType.indexOf(filterVal) == -1){
-        		console.log("detected that it is not in array")
+        		console.log("detected that filter is not in array")
         		recipeService.appendFilter(filterType, filterVal);
 				var myEl = angular.element( document.querySelector( '#' + filterVal ) );
 				console.log(myEl)
@@ -36,7 +33,7 @@ recipeApp.controller('filterController', ['$scope', 'recipeService', function($s
 				myEl.addClass('filter-added');   			
         	}
         	else{
-        	console.log("detected that it is in array")
+        	console.log("detected that filter is in array")
 				recipeService.removeFilter(filterType, filterVal);
 				var myEl = angular.element( document.querySelector( '#' + filterVal ) );
 				console.log(myEl)

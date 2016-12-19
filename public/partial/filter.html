@@ -1,116 +1,83 @@
 <section class="bg-primary filter-wrapper" id="search">
-        <div class="container">
-            <div class="row">
-                <div >
-                    
-                    <h3 class="section-heading text-center red-text"> Cuisine Type </h3>
-                    <p class="text-center red-text">Please select your cuisine type preference </p>
-                    <p class="text-center red-text">(to clear any previous selected cuisine types please click "None")</p>
-                    <div class="centre-filters">
-                        <a ="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">None</a>
-                        <div class="filter-loop" ng-repeat="cuisine in cuisines">
-                            <a  ng-attr-id="{{cuisine}}" ng-click="changeSelection(filters.cuisine, cuisine)" class="btn btn-filter">{{cuisine}}</a>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div >
+
+                <h3 class="section-heading text-center red-text"> Cuisine Type </h3>
+                <p class="text-center red-text">Please select your cuisine type preference </p>
+                <p class="text-center red-text">(to clear any previous selected cuisine types please click "Remove")</p>
+                <div class="centre-filters">
+                    <a ="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">Remove</a>
+                    <div class="filter-loop" ng-repeat="cuisine in cuisines">
+                        <a  ng-attr-id="{{cuisine}}" ng-click="changeSelection(filters.cuisine, cuisine)" class="btn btn-filter">{{cuisine}}</a>
                     </div>
-                    </div>
+                </div>
+            </div>
 
 
-                <div >
-                    <p></p>
-                    <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
-                    <p class="text-center red-text"> Please select a dietary need</p>
-                    <p class="text-center red-text">(to clear any previous selected dietary needs please click "None")</p>
-                    <div class="container centre-filters ">
-                    <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">None</a>
-<!--                     <a id="test_init" ng-click="init(filters.cuisine)" class="btn btn-filter-none">test</a>
- -->
+            <div >
+                <p></p>
+                <h3 class="section-heading text-center red-text"> Dietary Needs </h3>
+                <p class="text-center red-text"> Please select a dietary need</p>
+                <p class="text-center red-text">(to clear any previous selected dietary needs please click "Remove")</p>
+                <div class="container centre-filters ">
+                    <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">Remove</a>
+
                     <div class="filter-loop" ng-repeat="diet in diets">
-                            <a  ng-attr-id="{{diet}}" ng-click="changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet}}</a>
+                        <a  ng-attr-id="{{diet}}" ng-click="changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet}}</a>
                     </div>
-                    <!-- <p>{{init()}}</p> -->
-<!--                     <a id="vegetarian" ng-click="changeSelection(filters.diet,'vegetarian')" class="btn btn-filter">Vegetarian</a> -->
-                    <!--<a id="vegan" ng-click="changeSelection(filters.diet,'vegan')"      class="btn btn-filter">Vegan</a>
-                    <a id="pescetarian" ng-click="changeSelection(filters.diet,'pescatarian')" class="btn btn-filter">Pescetarian</a>
-                    <a id="paleo" ng-click="changeSelection(filters.diet,'paleo')" class="btn btn-filter">Paleo</a>
-                    <a id="primal" ng-click="changeSelection(filters.diet,'primal')" class="btn btn-filter">Primal</a> -->
-                    </div>
-                </div>
 
-<!--                 <p class="text-red">{{ filters.cuisine[0] }}"></p>
- -->
-                <div ng-if="filters.cuisine.length > 0">
-                    <div ng-repeat="cuisine in filters.cuisine">
-                        <div filter-update="{{cuisine}}"></div>
-                    </div>
-                </div>
-
-                <div ng-if="filters.diet.length > 0">
-                    <div ng-repeat="diet in filters.diet">
-                        <div filter-update="{{diet}}"></div>
-                    </div>
-                </div>
-                <!-- <div filter-update="{{ filters.diet }}"></div> -->
-
-                <h4 class="red-text">Selected Cuisine: </h4>
-                <p class="red-text">{{filters.cuisine[0]|capitalize}} {{filters.cuisine[1]|capitalize}} {{filters.cuisine[2]|capitalize}} {{filters.cuisine[3]|capitalize}} {{filters.cuisine[4]|capitalize}} {{filters.cuisine[5]|capitalize}}</p>
-                <!--<p class="red-text">{{filters.cuisine}}</p>-->
-                
-                <h4 class="red-text">Selected Dietary Need: </h4>
-                <p class="red-text">{{filters.diet[0]|capitalize}} {{filters.diet[1]|capitalize}} {{filters.diet[2]|capitalize}} {{filters.diet[3]|capitalize}} {{filters.diet[4]|capitalize}} {{filters.diet[5]|capitalize}}</p>
-                <!--
-                <p class="red-text">Selected Cuisine: {{filters.cuisine}}<p>
-                <p class="red-text">Selected Dietary Need: {{filters.diet}}<p>
-
-                <p class="red-text">filters.Cuisine1 is: {{filters.cuisine[0]}}<p>
-                <p class="red-text">filters.Cuisine2 is: {{filters.cuisine[1]}}<p>
-                <p class="red-text">filters.Diet1 is: {{filters.diet}}<p>
-                <p class="red-text">filters.Diet2 is: {{filters.diet[1]}}<p> -->
-
-                     <div class="red-text" repeat-hello-world='{{ repeat }}'></div>
-                    <input type="text" class="form-control" name="addIngredient" placeholder="Add Ingredients to search by..." ng-model="filters.includeIngredients">
-                    <label class="input-label">Enter comma seperated values e.g. "pasta, beef, tomatoes"</label>
-
-
-                    <div class="centre-filters">
-                        <a ng-click="getData(); getBtnText='View More Recipies'" class="btn btn-get centre-custom" id="shopping-list">{{getBtnText}}</a>
-                    </div>
-                    
                 </div>
             </div>
+
+            <div ng-if="filters.cuisine.length > 0">
+                <div ng-repeat="cuisine in filters.cuisine">
+                    <div filter-update="{{cuisine}}"></div>
+                </div>
+            </div>
+
+            <div ng-if="filters.diet.length > 0">
+                <div ng-repeat="diet in filters.diet">
+                    <div filter-update="{{diet}}"></div>
+                </div>
+            </div>
+
+            <!-- <div class="red-text" repeat-hello-world='{{ repeat }}'></div> -->
+            <input type="text" class="form-control" name="addIngredient" placeholder="Add Ingredients to search by..." ng-model="filters.includeIngredients">
+            <label class="input-label">Enter comma seperated values e.g. "pasta, beef, tomatoes"</label>
+
+
+            <h2 class="red-text">Section between lines is just for debugging purposes, will remove...</h2>
+            <h1 class="red-text">--------------------------------------------------------------------</h1>
+            <h4 class="red-text">Selected Cuisine: </h4>
+            <p class="red-text">{{filters.cuisine[0]|capitalize}} {{filters.cuisine[1]|capitalize}} {{filters.cuisine[2]|capitalize}} {{filters.cuisine[3]|capitalize}} {{filters.cuisine[4]|capitalize}} {{filters.cuisine[5]|capitalize}}</p>
+
+            <h4 class="red-text">Selected Dietary Need: </h4>
+            <p class="red-text">{{filters.diet[0]|capitalize}} {{filters.diet[1]|capitalize}} {{filters.diet[2]|capitalize}} {{filters.diet[3]|capitalize}} {{filters.diet[4]|capitalize}} {{filters.diet[5]|capitalize}}</p>
+            <h1 class="red-text">--------------------------------------------------------------------</h1>
+
+
+            <div class="centre-filters">
+                <a ng-click="getData(); getBtnText='View More Recipies'" class="btn btn-get centre-custom" id="shopping-list">{{getBtnText}}</a>
+            </div>
+
         </div>
-    </section>
+    </div>
+</div>
+</section>
+
 <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div ng-if="recipes.length == false && submittedSearch" class="alert alert-danger centre-custom">
-                    No results found, please adjust your search parameters and try again
-                </div>
-                <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
-                    <a href="/index/recipe" class="portfolio-box">
-                        <img ng-src="{{recipe.image}}" ng-click="getDetailedData(recipe.id)"  class="img-fluid img-uniform" alt="Responsive image"> 
-                        <div class="recipe-summary">{{recipe.title}}</div>
-                    </a>
-                </div>
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div ng-if="recipes.length == false && submittedSearch" class="alert alert-danger centre-custom">
+                No results found, please adjust your search parameters and try again
+            </div>
+            <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
+                <a href="/index/recipe" class="portfolio-box">
+                    <img ng-src="{{recipe.image}}" ng-click="getDetailedData(recipe.id)"  class="img-fluid img-uniform" alt="Responsive image"> 
+                    <div class="recipe-summary">{{recipe.title}}</div>
+                </a>
             </div>
         </div>
-    </section>
-
-    <script type="text/javascript">
-    $(".btn-filter").click(function(event) {
-        console.log(".btn-filter clicked on inline method")
-        if ($("#" + event.target.id).hasClass('filter-added') == false) {
-            $("#" + event.target.id).addClass('filter-added');
-            $("#" + event.target.id).removeClass('btn-filter');
-
-        } 
-        else {
-            $("#" + event.target.id).addClass('btn-filter');
-            $("#" + event.target.id).removeClass('filter-added');
-        }
-    });
-
-    $(".btn-filter-none").click(function(event) {
-            $("#" + event.target.id).siblings().removeClass('filter-added');
-            $("#" + event.target.id).siblings().addClass('btn-filter');
-    });
-    </script>
+    </div>
+</section>

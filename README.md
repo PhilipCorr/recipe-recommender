@@ -1,6 +1,6 @@
 # Recipe Recommender Application
 
-A Node.js and Angular.js app using [Express 4](http://expressjs.com/) and [AngularJS v1.6.0](http://angularjs.com/).
+A Node.js and Angular.js app using [Express 4](http://expressjs.com/) and [AngularJS v1.6.0](http://angularjs.org/).
 
 This application runs on Heroku. See the following links for deployment info.
 

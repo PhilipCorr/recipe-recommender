@@ -2,31 +2,22 @@
     <div class="container">
         <div class="row">
             <form name="myform" class="centre-custom">
-                    <div>
-                        <h1>Shopping List</h1>
-                        <p></p>
-                    </div>
-                    <div class="list-entry">
-                        <input type="text" class="form-control input-ingredient" name="addIngredient" placeholder="Add Ingredient..." ng-model="ingredient">
-                        <button type="button" class="btn btn-primary edit-ingredient" ng-click="addIngredient(ingredient);ingredient=''">
+                <div>
+                    <h1>Shopping List</h1>
+                    <p></p>
+                </div>
+                <div class="list-entry">
+                    <input type="text" class="form-control input-ingredient" name="addIngredient" placeholder="Add Ingredient..." ng-model="ingredient">
+                    <button type="button" class="btn btn-primary edit-ingredient" ng-click="addIngredient(ingredient);ingredient=''">
                         +
-                        </button>
-                    </div>
-                    <div class="list-items" ng-repeat="ingredient in ingredients track by $index">
-                        <input type="text" class="form-control input-ingredient" name="addIngredient" placeholder="Add Ingredient..." ng-model="ingredient" ng-blur="updateIngredient(ingredient, $index)">
-                        <button type="button" class="btn btn-primary edit-ingredient" ng-click="removeIngredient()">
+                    </button>
+                </div>
+                <div class="list-items" ng-repeat="ingredient in ingredients track by $index">
+                    <input type="text" class="form-control input-ingredient" name="addIngredient" placeholder="Add Ingredient..." ng-model="ingredient" ng-blur="updateIngredient(ingredient, $index)">
+                    <button type="button" class="btn btn-primary edit-ingredient" ng-click="removeIngredient()">
                         -
-                        </button>
-                    </div>
-                    <!-- <div class="list-items" ng-repeat="ingredient in ingredients track by $index">
-                        {{ingredient}} 
-                        <button type="button" class="btn btn-primary" ng-click="removeIngredient(ingredient)">
-                        Delete
-                        </button>
-                    </div> -->
-
-
-
+                    </button>
+                </div>
             </form>
         </div>
     </div>
