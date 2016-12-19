@@ -7,7 +7,7 @@
                 <p class="text-center red-text">Please select your cuisine type preference </p>
                 <div class="centre-filters">
                     <div class="filter-loop" ng-repeat="cuisine in cuisines">
-                        <a  ng-attr-id="{{cuisine}}" ng-click="changeSelection(filters.cuisine, cuisine)" class="btn btn-filter">{{cuisine}}</a>
+                        <a  ng-attr-id="{{cuisine}}" ng-click="changeSelection(filters.cuisine, cuisine)" class="btn btn-filter">{{cuisine|capitalize}}</a>
                     </div>
                     <a ="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">Remove</a>
                 </div>
@@ -20,7 +20,7 @@
                 <p class="text-center red-text"> Please select a dietary need</p>
                 <div class="container centre-filters ">
                     <div class="filter-loop" ng-repeat="diet in diets">
-                        <a  ng-attr-id="{{diet}}" ng-click="changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet}}</a>
+                        <a  ng-attr-id="{{diet}}" ng-click="changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet|capitalize}}</a>
                     </div>
                     <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">Remove</a>
 
