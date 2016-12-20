@@ -17,10 +17,18 @@ describe('tests for recipeController', function () {
         });
     }));
 
-    describe('$scope.getChosenRecipe', function(){
+    /* describe('$scope.getChosenRecipe', function(){
         it("Getting the chosen recipe", function () {
-			expect(true).toBe(true);
+			scope.chosenRecipe = "Sample recipe"
+			expect(scope.getChosenRecipe).toEqual("Sample recipe");
         });
-    });
+    }); */
+
+    /* describe('$scope.getCuisines', function(){
+        it("Getting cuisines", function () {
+            //var result = scope.getCuisines;
+			expect(scope.getCuisines).toContain("american");
+        });
+    }); */
 
 });
