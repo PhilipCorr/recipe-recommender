@@ -23,7 +23,31 @@ describe('tests for listController', function () {
             scope.addIngredient("cheese");
 
             console.log("scope.ingredients: " + scope.ingredients)
-            expect(scope.ingredients).toContain("cheese");
+            expect(scope.ingredients).toContain("cheese", "egg");
         });
     }); 
+
+	describe('$scope.addIngredient', function(){
+        it("Adds an empty string to shopping list", function () {
+            scope.addIngredient("");
+
+            console.log("scope.ingredients: " + scope.ingredients)
+            expect(scope.ingredients).toBeEmptyArray;
+        });
+    });
+
+	describe('$scope.removeIngredient', function(){
+        it("Removes an ingredient from shopping list", function () {
+            scope.addIngredient("egg");
+			expect(scope.ingredients).toContain("egg");
+
+			scope.removeIngredient("egg");
+			expect(scope.ingredients).not.toContain("egg");
+
+            console.log("scope.ingredients: " + scope.ingredients)
+            expect(scope.ingredients).toBeEmptyArray;
+        });
+    });
+
+	//Test for updateIngrediant()
 });
