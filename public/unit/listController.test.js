@@ -49,5 +49,16 @@ describe('tests for listController', function () {
         });
     });
 
-	//Test for updateIngrediant()
+    describe('$scope.updateIngredient', function(){
+        it("Removes an ingredient from shopping list", function () {
+            scope.addIngredient("egg");
+            scope.addIngredient("cheese");
+            scope.addIngredient("bread");
+            expect(scope.ingredients[1]).toEqual("cheese");
+
+            scope.updateIngredient("pasta", 1)
+			expect(scope.ingredients[1]).toEqual("pasta");
+            expect(scope.ingredients[2]).toEqual("cheese");
+        });
+    });
 });
