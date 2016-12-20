@@ -16,6 +16,8 @@ module.exports = function(grunt){
 					'public/js/recipe-app.js',
 					'public/js/controllers/listController.js',
 					'public/js/services/listService.js',
+					'public/js/controllers/recipeController.js',
+					'public/js/services/recipeService.js',
 					'public/unit/*.js'
 					]
 				}
