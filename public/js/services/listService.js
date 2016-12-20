@@ -20,7 +20,7 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 			},
 			updateIngredient: function(ingredient, index){	
 				console.log("updateIngredient in list service now executing...")
-				var index = ingredients.indexOf(ingredient);
+				//var index = ingredients.indexOf(ingredient);
 				ingredients.splice(index, 1);
   				ingredients.splice(index, 0, ingredient); 
 			},

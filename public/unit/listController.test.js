@@ -57,8 +57,9 @@ describe('tests for listController', function () {
             expect(scope.ingredients[1]).toEqual("cheese");
 
             scope.updateIngredient("pasta", 1)
-			expect(scope.ingredients[1]).toEqual("pasta");
-            expect(scope.ingredients[2]).toEqual("cheese");
+            expect(scope.ingredients[0]).toEqual("egg");
+            expect(scope.ingredients[1]).toEqual("pasta");
+            expect(scope.ingredients[2]).toEqual("bread");
         });
     });
 });
