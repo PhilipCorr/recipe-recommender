@@ -8,6 +8,12 @@
                 </div>
                 <h2>Instructions:</h2>
                 <div>{{chosenRecipe[0].instructions}}</div>
+                <div class="centre-filters">
+                    <a ng-click="addToShoppingList(chosenRecipe[0])" class="btn btn-filter centre-custom" id="shopping-list">
+                    Add to shopping list
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

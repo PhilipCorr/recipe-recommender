@@ -1,4 +1,4 @@
-recipeApp.controller('recipeController', ['$scope', 'recipeService', function($scope, recipeService){
+recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listService', function($scope, recipeService){
 		console.log("Entered Filter Controller")	
 		$scope.chosenRecipe = recipeService.getChosenRecipe();
 		$scope.filters = recipeService.getFilters();
@@ -7,13 +7,17 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', function($s
 		$scope.cuisines = recipeService.getCuisines();
 		$scope.diets = recipeService.getDiets();
 
+		$scope.addToShoppingList = function(chosenRecipe){
+			if(chosenRecipe.instructions){
+				console.log("Inside AddToShoppingList")
+			}
+		},
 		$scope.removeFilters = function(filterType){
 			angular.forEach(filterType, function(filterVal){
       			var myEl = angular.element( document.querySelector( '#' + filterVal ) );
 				console.log(myEl)
 				myEl.removeClass('filter-added');
 				myEl.addClass('btn-filter');   			
- 
    			});
 			recipeService.removeFilters(filterType);
 			$scope.filters = recipeService.getFilters()
