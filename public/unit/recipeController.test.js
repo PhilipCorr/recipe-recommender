@@ -17,18 +17,38 @@ describe('tests for recipeController', function () {
         });
     }));
 
-    /* describe('$scope.getChosenRecipe', function(){
-        it("Getting the chosen recipe", function () {
-			scope.chosenRecipe = "Sample recipe"
-			expect(scope.getChosenRecipe).toEqual("Sample recipe");
-        });
-    }); */
 
-    /* describe('$scope.getCuisines', function(){
-        it("Getting cuisines", function () {
-            //var result = scope.getCuisines;
-			expect(scope.getCuisines).toContain("american");
+   //   describe('$scope.addFilter', function(){
+   //      it("Adding filters", function () {
+   //          var newFilter =
+   //          {
+   //              "cuisine": ["irish"],
+   //              "diet": ["vegan"],
+   //              "number": 10,
+   //              "includeIngredients": "potato"
+   //          };
+   //          //scope.filters = newFilters;
+   //          scope.addFilter(newFilter);
+   //          //scope.filters.cuisine = "mexican";
+			// expect(scope.filters.diet).toContain("irish");
+   //      });
+   //  });
+
+     describe('$scope.removeFilters', function(){
+        it("Removing cuisine filters", function () {
+            var newFilters =
+            {
+                "cuisine": ["irish"],
+                "diet": ["vegan"],
+                "number": 10,
+                "includeIngredients": "potato"
+            };
+            scope.filters = newFilters;
+            expect(scope.filters.cuisine).toContain("irish");
+
+            scope.removeFilters(scope.filters.cuisine);
+            expect(scope.filters.cuisine).toBeEmptyArray;
         });
-    }); */
+    });
 
 });
