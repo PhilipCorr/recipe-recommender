@@ -4,7 +4,7 @@
                 <h1>{{chosenRecipe[0].title}}</h1>
                 <h2>Ingredients:</h2>
                 <div ng-repeat="ingredient in chosenRecipe[0].extendedIngredients">
-                    <p>{{ingredient.name}}</p>
+                    <p>{{ingredient.name|capitalize}}</p>
                 </div>
                 <h2>Instructions:</h2>
                 <div>{{chosenRecipe[0].instructions}}</div>
