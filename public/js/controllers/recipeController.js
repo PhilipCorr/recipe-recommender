@@ -1,4 +1,4 @@
-recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listService', function($scope, recipeService){
+recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listService', function($scope, recipeService, listService){
 		console.log("Entered Filter Controller")	
 		$scope.chosenRecipe = recipeService.getChosenRecipe();
 		$scope.filters = recipeService.getFilters();
@@ -10,6 +10,7 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 		$scope.addToShoppingList = function(chosenRecipe){
 			if(chosenRecipe.instructions){
 				console.log("Inside AddToShoppingList")
+				listService.addToShoppingList(chosenRecipe)
 			}
 		},
 		$scope.removeFilters = function(filterType){

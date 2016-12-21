@@ -29,7 +29,11 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 				var index = ingredients.indexOf(ingredient);								
 				console.log("ingredient index:" + index)
   				ingredients.splice(index, 1); 
-			}
+			},
+			addToShoppingList: function(chosenRecipe){
+				console.log("Inside AddToShoppingList in service")
+				console.log("chosenRecipe.extendedIngredients: " + chosenRecipe.extendedIngredients[0].name)
+			},
 		};
 }]);
 
