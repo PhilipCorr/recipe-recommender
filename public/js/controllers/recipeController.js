@@ -7,11 +7,6 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', function($s
 		$scope.cuisines = recipeService.getCuisines();
 		$scope.diets = recipeService.getDiets();
 
-		$scope.addFilters = function(){
-			console.log("addFilters method in MainController now executing...")
-			recipeService.addFilter($scope.filters);
-			$scope.filters = recipeService.getFilters()
-		},
 		$scope.removeFilters = function(filterType){
 			angular.forEach(filterType, function(filterVal){
       			var myEl = angular.element( document.querySelector( '#' + filterVal ) );

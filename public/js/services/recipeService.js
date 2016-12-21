@@ -52,12 +52,6 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 				console.log("getFilters in recipe service now executing...")
 				return filters;
 			},
-
-			//methods
-			addFilter: function(newFilters){	
-				console.log("addFilter in recipe service now executing...")
-         		filters = newFilters;
-			},
 			removeFilters: function(filterType){	
 				console.log("removeFilters in recipe service now executing...")
          		filterType.length = 0;
