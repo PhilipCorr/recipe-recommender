@@ -69,7 +69,10 @@
 <section class="no-padding" id="portfolio">
     <div class="container-fluid">
         <div class="row no-gutter">
-            <div ng-if="recipes.length == false && submittedSearch" class="alert alert-danger centre-custom">
+            <div ng-if="recipes.length == false && submittedSearch" class="alert alert-danger alert-dismissible centre-custom">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
                 No results found, please adjust your search parameters and try again
             </div>
             <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
