@@ -58,4 +58,20 @@ describe('tests for recipeController', function () {
         });
     });
 
+
+
+     describe('$scope.changeSelection', function(){
+            it("Changing filter selection", function () {
+                console.log("Adding 'mexican' to cusines filter");
+                scope.changeSelection(scope.filters.cuisine, "mexican");
+                console.log("scope.filters.cuisine: " + scope.filters.cuisine);
+                expect(scope.filters.cuisine).toContain("mexican");
+
+                console.log("Removing 'mexican' from cusines filter");
+                scope.changeSelection(scope.filters.cuisine, "mexican");
+                console.log("scope.filters.cuisine: " + scope.filters.cuisine);
+                expect(scope.filters.cuisine).not.toContain("mexican");
+            });
+        });
+
 });
