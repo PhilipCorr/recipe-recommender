@@ -70,9 +70,8 @@
             </div>
             <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
                 <a href="/index/details" class="portfolio-box">
-                    <img ng-src="{{recipe.image}}" ng-click="getData(recipe.id, 'information')"  class="img-fluid img-uniform" alt="Responsive image"> 
+                    <img ng-src="{{recipe.image}}" ng-click="getData(recipe.id, 'analyzedInstructions');getData(recipe.id, 'information')"  class="img-fluid img-uniform" alt="Responsive image"> 
                     <div class="recipe-summary">{{recipe.title}}</div>
-                    <!-- ;getData(recipe.id, 'analyzedInstructions') -->
                 </a>
             </div>
         </div>

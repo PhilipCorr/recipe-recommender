@@ -11,9 +11,6 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 				console.log("getIngredients in list service now executing...")
 				return ingredients;
 			},
-			// setProperty: function(key, value){
-			// 	ingredients = value
-			// }
 			addIngredient: function(ingredient){	
 				console.log("addIngredient in list service now executing...")
          		ingredients.push(ingredient);

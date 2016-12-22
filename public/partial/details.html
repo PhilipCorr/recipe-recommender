@@ -12,8 +12,16 @@
                         <p>Please adjust your search parameters or select an alternative recipe</p>
                 </div>
                 <h2>Instructions:</h2>
-                <div>{{chosenRecipe[0].instructions}}</div>
-                    <div ng-if="!chosenRecipe[0].instructions" class="alert alert-danger centre-custom">
+                <div ng-repeat="instructionParts in instructions">
+<!--                     <div ng-repeat="instructionpart in instructionVals">
+ -->                        <div ng-repeat="instructionPart in instructionParts">
+                                <div ng-repeat="stepInfo in instructionPart.steps">
+                                <p>{{stepInfo.step}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="!chosenRecipe[0].instructions" class="alert alert-danger centre-custom">
                         <p>No instructions found in database</p> 
                         <p>Apologies for the inconvinence</p>
                         <p>Please adjust your search parameters or select an alternative recipe</p>
@@ -21,9 +29,8 @@
                 </div>
                 <div class="centre-filters">
                     <a ng-click="addToShoppingList(chosenRecipe[0],alert_added_ingredients())" class="btn btn-filter centre-custom" id="shopping-list">
-                    Add ingredients to shopping list</a>
-                </div>
-
+                    Add ingredients to shopping list
+                    </a>
                 </div>
             </div>
         </div>

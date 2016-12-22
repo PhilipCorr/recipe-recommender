@@ -123,13 +123,18 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 						return recipes
 					}
 					else if(methodName == "information"){
+						console.log("The url request made was: " + res.config.url)
+	         			console.log("Response.status is: " + res.status)
 						chosenRecipe = res.data;
 						console.log("chosenRecipe in recipeService: " + chosenRecipe)
 						return chosenRecipe
 					}
 					else if(methodName == "analyzedInstructions"){
-						$scope.instructions = response;
-						console.log("$scope.instructions in controller is: " + $scope.instructions)
+						console.log("The url request made was: " + res.config.url)
+	         			console.log("Response.status is: " + res.status)
+						instructions = res.data;
+						console.log("instructions in controller is: " + instructions)
+						return instructions
 					}
 				},
 				function(data){

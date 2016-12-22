@@ -62,7 +62,7 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 					console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe[0].title)
 				}
 				else if(methodName == "analyzedInstructions"){
-					$scope.instructions = response;
+					$scope.instructions[0] = response;
 					console.log("$scope.instructions in controller is: " + $scope.instructions)
 				}	
 			});
