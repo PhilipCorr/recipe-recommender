@@ -20,14 +20,13 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 	        {
 	            "cuisine": [],
 	            "diet": [],
-	            "number": 10,
 	            "includeIngredients": "",
-	            "offset": offset.toString() 
 	        };
 	    var recipes = [];
 	    var getBtnText = "Search Recipes"
 	    var cuisines = ["american","italian","indian","irish","chinese","mexican"];
 		var diets = ["vegetarian","vegan","pescatarian","paleo","primal"];
+		var submittedSearch = false;
 
 
 		return{
@@ -35,6 +34,10 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 			getChosenRecipe: function(){
 				console.log("getChosenRecipe in recipe service now executing...")
 				return chosenRecipe;
+			},
+			getSubmittedSearch: function(){
+				console.log("getSubmittedSearch in recipe service now executing...")
+				return submittedSearch;
 			},
 			getInstructions: function(){
 				console.log("getChosenRecipe in recipe service now executing...")
@@ -111,6 +114,8 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 
          		}).then(
          		function(res) {
+         			submittedSearch='true'
+
 	         		if(methodName == "searchComplex"){
 						console.log("The url request made was: " + res.config.url)
 	         			console.log("Response.status is: " + res.status)

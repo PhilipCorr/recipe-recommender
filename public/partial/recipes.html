@@ -58,7 +58,7 @@
 
 
             <div class="centre-filters">
-                <a ng-click="getData(0, 'searchComplex'); getBtnText='View More Recipies'" class="btn btn-get centre-custom">{{getBtnText}}</a>
+                <a ng-click="getData(0, 'searchComplex'); getBtnText='View More Recipies'; submittedSearch=false" class="btn btn-get centre-custom">{{getBtnText}}</a>
             </div>
 
         </div>
@@ -69,8 +69,11 @@
 <section class="no-padding" id="portfolio">
     <div class="container-fluid">
         <div class="row no-gutter">
-            <div ng-if="recipes.length == false && submittedSearch" class="alert alert-danger alert-dismissible centre-custom">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <p>recipes.length: {{recipes.length}}</p>
+        <p>submittedSearch: {{submittedSearch}}</p>
+
+            <div ng-if="recipes.length == false && submittedSearch" ng-show="submittedSearch" class="alert alert-danger alert-dismissible centre-custom">
+            <button type="button" class="close" ng-click="submittedSearch=false" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
                 No results found, please adjust your search parameters and try again

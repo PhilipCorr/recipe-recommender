@@ -11,10 +11,11 @@
             <div class="col-md-6">
                 <img ng-src="{{chosenRecipe[0].image}}" class="img-fluid img-uniform" alt="Responsive image">
             </div>
-            <div ng-if="!chosenRecipe[0].extendedIngredients" class="alert alert-danger centre-custom">
-                <p>No ingredients found in database</p> 
-                <p>Apologies for the inconvinence</p>
-                <p>Please adjust your search parameters or select an alternative recipe</p>
+            <div ng-if="!chosenRecipe[0].extendedIngredients" class="alert alert-danger alert-dismissible centre-custom">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                No ingredients found for this recipe
             </div>
             <h2 class="instructions">Instructions:</h2>
             <div ng-repeat="instructionParts in instructions">
@@ -25,10 +26,11 @@
                 </div>
             </div>
         </div>
-        <div ng-if="!chosenRecipe[0].instructions" class="alert alert-danger centre-custom">
-            <p>No instructions found in database</p> 
-            <p>Apologies for the inconvinence</p>
-            <p>Please adjust your search parameters or select an alternative recipe</p>
+        <div ng-if="!chosenRecipe[0].instructions" class="alert alert-danger alert-dismissible centre-custom">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            No instructions found for this recipe
         </div>
     </div>
     <div class="centre-filters">

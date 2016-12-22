@@ -7,6 +7,7 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 		$scope.getBtnText = recipeService.getText();
 		$scope.cuisines = recipeService.getCuisines();
 		$scope.diets = recipeService.getDiets();
+		$scope.submittedSearch = recipeService.getSubmittedSearch();
 
 		$scope.addToShoppingList = function(chosenRecipe){
 			if(chosenRecipe.instructions){
@@ -49,9 +50,9 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 			// call method in service
 			recipeService.getData(id, methodName)
 			.then(function(response){
+				$scope.submittedSearch = recipeService.getSubmittedSearch();
 				if(methodName == "searchComplex"){
 					$scope.recipes = response;
-					$scope.submittedSearch='true'
 				}
 				else if(methodName == "information"){
 					$scope.chosenRecipe[0] = response;
@@ -62,11 +63,9 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 					$scope.instructions[0] = response;
 					console.log("$scope.instructions in controller is: " + $scope.instructions)
 				}
-				
 			});
 		},
 		$scope.alert_added_ingredients = function(){
 			$scope.add_ingred_list='true'
-			//alert('Your ingredients have been added to the Shopping List!');
 		}
 }]);
