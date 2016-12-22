@@ -64,15 +64,5 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 		$scope.alert_added_ingredients = function(){
 			$scope.add_ingred_list='true'
 			//alert('Your ingredients have been added to the Shopping List!');
-		},
-		$scope.getDetailedData = function(id){
-			console.log("getDetailedData method in recipeController now executing...")
-			recipeService.getDetailedData(id)
-			.then(function(response){
-				else if(methodName == "analyzedInstructions"){
-					$scope.instructions[0] = response;
-					console.log("$scope.instructions in controller is: " + $scope.instructions)
-				}	
-			});
 		}
 }]);
