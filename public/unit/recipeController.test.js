@@ -97,5 +97,14 @@ describe('tests for recipeController', function () {
             scope.addToShoppingList(scope.chosenRecipe);
             expect(scope.ingredients).toContain("ancho chile powder");
         });
+
+
+     describe('$scope.alert_added_ingredients', function(){
+            it("Testing alert_added_ingredients", function () {
+                scope.alert_added_ingredients;
+                expect(scope.add_ingred_list).toBeTrue;
+            });
+        });
+
     });
 });
