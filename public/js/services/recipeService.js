@@ -12,7 +12,8 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 	console.log("Entered recipe service factory")
 
 	    var chosenRecipe = [];
-	    var URL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
+	    var URL = ""
+	    var URLStart = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes"
 	    var offset = 10
 	    var filters =
 	        {
@@ -66,66 +67,42 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 				var index = filterType.indexOf(filterVal);
   				filterType.splice(index, 1);
 			},
-			getDetailedData: function(id){	
+			getData: function(id, methodName){
 				console.log("id value is " + id)
 				console.log("Just about to make get request...")
-		        return $http({
-				url: URL + id +'/information',
-	            method: "GET",
-	            //params: filters,
-	            headers: {"X-Mashape-Key": "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S"}
 
-         		}).then(
-         		function(res) {
-         			console.log("The url request made was: " + res.config.url)
-         			console.log("Response.status is: " + res.status)
-					chosenRecipe =  res.data
-					console.log("chosenRecipe in recipeService: " + chosenRecipe)
-					return chosenRecipe
+				if(id==0){
+					URL = URLStart + "/" + methodName + "?" 
+				}
+				else{
+					URL = URLStart + "/" + id + "/" + methodName + "?" 
+				}
 
-				},
-				function(data){
-					console.log("error occured making getDetailedData request in recipeController:" + data)
-				});
-				},
-			getData: function(){
-				console.log("Filters:")
-				console.log("filters.diet:" + filters.diet)
-				console.log("filters.cuisine:" + filters.cuisine)
-				console.log("filters.number:" + filters.number)
-				console.log("filters.includeIngredients:" + filters.includeIngredients)
-				console.log("filters.offset:" + filters.offset)
+				//url: URL + id + '/analyzedInstructions?stepBreakdown=true'
 
-				console.log("Just about to convert to parameters...")
 
-	        	var temp = filters;
-	        	var cuisineString = temp.cuisine.join(",");
-	        	var dietString = temp.diet.join(",");
-	        	console.log("cuisineString: " + cuisineString)
-	        	console.log("dietString: " + dietString)
+				// console.log("Filters:")
+				// console.log("filters.diet:" + filters.diet)
+				// console.log("filters.cuisine.join(','): " + filters.cuisine.join(','))
+				// console.log("filters.diet.join(','): " + filters.diet.join(','))
+				// console.log("filters.cuisine:" + filters.cuisine)
+				// console.log("filters.number:" + filters.number)
+				// console.log("filters.includeIngredients:" + filters.includeIngredients)
+				// console.log("filters.offset:" + filters.offset)
 
 	        	var parameters =
 		        {
-		            "cuisine": cuisineString,
-		            "diet": dietString,
+		            "cuisine": filters.cuisine.join(","),
+		            "diet": filters.diet.join(","),
 		            "number": "10",
-		            "includeIngredients": temp.includeIngredients,
+		            "includeIngredients": filters.includeIngredients,
 		            "offset": offset.toString()
 		        };
-
-	        	console.log("Parameters:")
-				console.log("parameters.diet:" + parameters.diet)
-				console.log("parameters.cuisine:" + parameters.cuisine)
-				console.log("parameters.number:" + parameters.number)
-				console.log("parameters.includeIngredients:" + parameters.includeIngredients)
-				console.log("Just about to make get request...")
-				console.log("parameters.offset:" + parameters.offset)
-
 
 		        return $http({
 
 		        // params get added to url when get request is made
-				url: URL + 'searchComplex?type=main+course',
+		        url: URL,
 	            method: "GET",
 	            params: parameters,
 	            headers: {"X-Mashape-Key": "UhgpDYqy2pmsh8nnaEksOhY83DJ2p1PHdyfjsnjmKT2rQVIH6S"}

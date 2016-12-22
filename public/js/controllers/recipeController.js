@@ -42,23 +42,29 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
         	}
         	$scope.filters = recipeService.getFilters();
     	},
-		$scope.getData = function() {
+		$scope.getData = function(id, methodName) {
 			console.log("getData method in recipeController now executing...")
 
 			// call method in service
-			recipeService.getData()
+			recipeService.getData(id, methodName)
 			.then(function(response){
-				$scope.recipes = response;
-				$scope.submittedSearch='true'
+				if(methodName = "searchComplex"){
+					$scope.recipes = response;
+					$scope.submittedSearch='true'
+				}
+				else{
+					$scope.chosenRecipe[0] = response;
+					console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe[0])
+					console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe[0].title)
+				}
+				
 			});
 		},
 		$scope.getDetailedData = function(id){
 			console.log("getDetailedData method in recipeController now executing...")
 			recipeService.getDetailedData(id)
 			.then(function(response){
-				$scope.chosenRecipe[0] = response;
-				console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe[0])
-				console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe[0].title)
+				
 			});
 		}
 

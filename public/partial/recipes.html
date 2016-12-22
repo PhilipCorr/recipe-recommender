@@ -45,16 +45,16 @@
 
 
             <!-- Section here is just for debugging purposes, will remove before release -->
-            <!-- <h4 class="red-text">Selected Cuisine: </h4>
+            <h4 class="red-text">Selected Cuisine: </h4>
             <p class="red-text">{{filters.cuisine[0]|capitalize}} {{filters.cuisine[1]|capitalize}} {{filters.cuisine[2]|capitalize}} {{filters.cuisine[3]|capitalize}} {{filters.cuisine[4]|capitalize}} {{filters.cuisine[5]|capitalize}}</p>
 
             <h4 class="red-text">Selected Dietary Need: </h4>
-            <p class="red-text">{{filters.diet[0]|capitalize}} {{filters.diet[1]|capitalize}} {{filters.diet[2]|capitalize}} {{filters.diet[3]|capitalize}} {{filters.diet[4]|capitalize}} {{filters.diet[5]|capitalize}}</p> -->
+            <p class="red-text">{{filters.diet[0]|capitalize}} {{filters.diet[1]|capitalize}} {{filters.diet[2]|capitalize}} {{filters.diet[3]|capitalize}} {{filters.diet[4]|capitalize}} {{filters.diet[5]|capitalize}}</p>
             <!--End of debugging section-->
 
 
             <div class="centre-filters">
-                <a ng-click="getData(); getBtnText='View More Recipies'" class="btn btn-get centre-custom">{{getBtnText}}</a>
+                <a ng-click="getData(0, 'searchComplex'); getBtnText='View More Recipies'" class="btn btn-get centre-custom">{{getBtnText}}</a>
             </div>
 
         </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
                 <a href="/index/details" class="portfolio-box">
-                    <img ng-src="{{recipe.image}}" ng-click="getDetailedData(recipe.id)"  class="img-fluid img-uniform" alt="Responsive image"> 
+                    <img ng-src="{{recipe.image}}" ng-click="getData(recipe.id, 'information')"  class="img-fluid img-uniform" alt="Responsive image"> 
                     <div class="recipe-summary">{{recipe.title}}</div>
                 </a>
             </div>
