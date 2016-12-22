@@ -2,20 +2,25 @@
     <div class="container">
         <div class="row">
             <h1>{{chosenRecipe[0].title}}</h1>
-            <h2>Ingredients:</h2>
-            <div ng-repeat="ingredient in chosenRecipe[0].extendedIngredients">
-                <p>{{ingredient.name|capitalize}}</p>
+            <div class="col-md-6">
+                <h2>Ingredients:</h2>
+                <div ng-repeat="ingredient in chosenRecipe[0].extendedIngredients">
+                    <p>{{ingredient.name|capitalize}}</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img ng-src="{{chosenRecipe[0].image}}" class="img-fluid img-uniform" alt="Responsive image">
             </div>
             <div ng-if="!chosenRecipe[0].extendedIngredients" class="alert alert-danger centre-custom">
                 <p>No ingredients found in database</p> 
                 <p>Apologies for the inconvinence</p>
                 <p>Please adjust your search parameters or select an alternative recipe</p>
             </div>
-            <h2>Instructions:</h2>
+            <h2 class="instructions">Instructions:</h2>
             <div ng-repeat="instructionParts in instructions">
                 <div ng-repeat="instructionPart in instructionParts">
                     <div ng-repeat="stepInfo in instructionPart.steps">
-                        <p>{{stepInfo.step}}</p>
+                        <p>{{stepInfo.number}}) {{stepInfo.step}}</p>
                     </div>
                 </div>
             </div>

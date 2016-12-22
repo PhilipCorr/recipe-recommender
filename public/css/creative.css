@@ -594,3 +594,7 @@ span.arrow-back-to-top.glyphicon.glyphicon-chevron-up:active {
 .mailto-text{
   color: #333;
 }
+
+.instructions {
+  clear: left;
+}
