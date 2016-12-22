@@ -18,22 +18,6 @@ describe('tests for recipeController', function () {
     }));
 
 
-     describe('$scope.addFilter', function(){
-        it("Adding filters", function () {
-            var newFilter =
-            {
-                "cuisine": ["irish"],
-                "diet": ["vegan"],
-                "number": 10,
-                "includeIngredients": "potato"
-            };
-            //scope.filters = newFilters;
-            scope.addFilter(newFilter);
-            //scope.filters.cuisine = "mexican";
-			expect(scope.filters.diet).toContain("irish");
-        });
-    });
-
      describe('$scope.removeFilters', function(){
         it("Removing cuisine filters", function () {
             var newFilters =
