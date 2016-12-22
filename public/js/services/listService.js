@@ -34,7 +34,7 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 				console.log("Inside AddToShoppingList in service")
 				console.log("chosenRecipe.extendedIngredients: " + chosenRecipe.extendedIngredients[0].name)
 				angular.forEach(chosenRecipe.extendedIngredients, function(ingredient){
-				console.log("ingredient.name" + ingredient.name)
+				console.log("ingredient.name: " + ingredient.name)
        				ingredients.push(ingredient.name);
   				});
 			},

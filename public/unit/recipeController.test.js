@@ -3,16 +3,22 @@ describe('tests for recipeController', function () {
     var scope;
     var ctrl;
     var recipeService;
+    var listService;
 
     beforeEach(module('recipeApp'));
 
-    beforeEach(inject(function($rootScope, $controller, _recipeService_){
+    beforeEach(inject(function($rootScope, $controller, _recipeService_, _listService_){
 
         // create a new child of rootScope to mock variables
         scope = $rootScope.$new();
 
         recipeService = _recipeService_
         ctrl = $controller('recipeController',{
+            $scope: scope,
+        });
+
+        listService = _listService_
+        ctrl = $controller('listController',{
             $scope: scope,
         });
     }));
@@ -58,4 +64,38 @@ describe('tests for recipeController', function () {
         });
     });
 
+
+     describe('$scope.changeSelection', function(){
+            it("Changing filter selection", function () {
+                console.log("Adding 'mexican' to cusines filter");
+                scope.changeSelection(scope.filters.cuisine, "mexican");
+                console.log("scope.filters.cuisine: " + scope.filters.cuisine);
+                expect(scope.filters.cuisine).toContain("mexican");
+
+                console.log("Removing 'mexican' from cusines filter");
+                scope.changeSelection(scope.filters.cuisine, "mexican");
+                console.log("scope.filters.cuisine: " + scope.filters.cuisine);
+                expect(scope.filters.cuisine).not.toContain("mexican");
+            });
+        });
+
+
+     describe('$scope.addToShoppingList', function(){
+        it("Adding recipe ingredients to shopping list", function () {
+
+            scope.chosenRecipe = {
+                "vegetarian": false,
+                "extendedIngredients":[
+                {
+                    "id": 1022009,
+                    "name": "ancho chile powder"
+                }
+                ],
+                "instructions": "Sample Instructions"
+            };
+
+            scope.addToShoppingList(scope.chosenRecipe);
+            expect(scope.ingredients).toContain("ancho chile powder");
+        });
+    });
 });
