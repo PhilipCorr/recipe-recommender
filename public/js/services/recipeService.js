@@ -12,6 +12,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 	console.log("Entered recipe service factory")
 
 	    var chosenRecipe = [];
+	    var instructions = [];
 	    var URL = ""
 	    var URLStart = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes"
 	    var offset = 10
@@ -34,6 +35,10 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 			getChosenRecipe: function(){
 				console.log("getChosenRecipe in recipe service now executing...")
 				return chosenRecipe;
+			},
+			getInstructions: function(){
+				console.log("getChosenRecipe in recipe service now executing...")
+				return instructions;
 			},
 			getCuisines: function(){
 				return cuisines;
@@ -78,9 +83,6 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 					URL = URLStart + "/" + id + "/" + methodName + "?" 
 				}
 
-				//url: URL + id + '/analyzedInstructions?stepBreakdown=true'
-
-
 				// console.log("Filters:")
 				// console.log("filters.diet:" + filters.diet)
 				// console.log("filters.cuisine.join(','): " + filters.cuisine.join(','))
@@ -109,15 +111,26 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 
          		}).then(
          		function(res) {
-         			console.log("The url request made was: " + res.config.url)
-         			console.log("Response.status is: " + res.status)
+	         		if(methodName == "searchComplex"){
+						console.log("The url request made was: " + res.config.url)
+	         			console.log("Response.status is: " + res.status)
 
-					recipes =  res.data.results
-					console.log("Recipes array is: " + recipes)
-					offset = offset + 10
-					console.log("Offest is: " + offset)
-					filters.offset = offset.toString();
-					return recipes
+						recipes = res.data.results
+						console.log("Recipes array is: " + recipes)
+						offset = offset + 10
+						console.log("Offest is: " + offset)
+						filters.offset = offset.toString();
+						return recipes
+					}
+					else if(methodName == "information"){
+						chosenRecipe = res.data;
+						console.log("chosenRecipe in recipeService: " + chosenRecipe)
+						return chosenRecipe
+					}
+					else if(methodName == "analyzedInstructions"){
+						$scope.instructions = response;
+						console.log("$scope.instructions in controller is: " + $scope.instructions)
+					}
 				},
 				function(data){
 					console.log("error occured making getData request in recipeController:" + data)

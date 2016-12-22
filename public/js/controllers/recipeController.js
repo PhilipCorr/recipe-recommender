@@ -1,6 +1,7 @@
 recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listService', function($scope, recipeService, listService){
 		console.log("Entered Filter Controller")	
 		$scope.chosenRecipe = recipeService.getChosenRecipe();
+		$scope.instructions = recipeService.getInstructions();
 		$scope.filters = recipeService.getFilters();
 		$scope.recipes = recipeService.getRecipes();
 		$scope.getBtnText = recipeService.getText();
@@ -48,25 +49,19 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 			// call method in service
 			recipeService.getData(id, methodName)
 			.then(function(response){
-				if(methodName = "searchComplex"){
+				if(methodName == "searchComplex"){
 					$scope.recipes = response;
 					$scope.submittedSearch='true'
 				}
-				else{
+				else if(methodName == "information"){
 					$scope.chosenRecipe[0] = response;
 					console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe[0])
 					console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe[0].title)
 				}
-				
-			});
-		},
-		$scope.getDetailedData = function(id){
-			console.log("getDetailedData method in recipeController now executing...")
-			recipeService.getDetailedData(id)
-			.then(function(response){
-				
+				else if(methodName == "analyzedInstructions"){
+					$scope.instructions = response;
+					console.log("$scope.instructions in controller is: " + $scope.instructions)
+				}
 			});
 		}
-
-		
 }]);
