@@ -1,5 +1,5 @@
 <section>
-    <div class="container" ng-init="submittedSearch=false">
+    <div class="container" ng-init="submittedSearch=false; addedToShoppingList=false">
         <div class="row">
             <h1>{{chosenRecipe[0].title}}</h1>
             <div class="col-md-6">
@@ -34,10 +34,14 @@
         </div>
     </div>
     <div class="centre-filters">
-        <a ng-click="addToShoppingList(chosenRecipe[0],alert_added_ingredients())" class="btn btn-filter centre-custom">
+        {{addedToShoppingList}}
+        <a ng-click="addToShoppingList(chosenRecipe[0]); addedToShoppingList=true" class="btn btn-filter centre-custom">
             Add ingredients to shopping list</a>
         </div>
-        <div ng-if="add_ingred_list" class="alert alert-success centre-custom">
+        <div ng-show="addedToShoppingList" class="alert alert-success alert-dismissible centre-custom">
+            <button type="button" class="close" ng-click="addedToShoppingList=false" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             <p>Your ingredients have been added to the Shopping List!</p> 
         </div>
     </div>

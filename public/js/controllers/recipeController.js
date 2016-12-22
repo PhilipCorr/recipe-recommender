@@ -8,11 +8,13 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 		$scope.cuisines = recipeService.getCuisines();
 		$scope.diets = recipeService.getDiets();
 		$scope.submittedSearch = recipeService.getSubmittedSearch();
+		$scope.addedToShoppingList = listService.getAddedToShoppingList();
 
 		$scope.addToShoppingList = function(chosenRecipe){
-			if(chosenRecipe.instructions){
+			if(chosenRecipe.extendedIngredients){
 				console.log("Inside AddToShoppingList")
 				listService.addToShoppingList(chosenRecipe)
+				$scope.addedToShoppingList = listService.getAddedToShoppingList();
 			}
 		},
 		$scope.removeFilters = function(filterType){
@@ -64,8 +66,5 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 					console.log("$scope.instructions in controller is: " + $scope.instructions)
 				}
 			});
-		},
-		$scope.alert_added_ingredients = function(){
-			$scope.add_ingred_list='true'
 		}
 }]);

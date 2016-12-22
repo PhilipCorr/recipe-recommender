@@ -4,16 +4,23 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 
 
 		var ingredients = []
-		//console.log("$rootScope.ingredients[0] is " + $rootScope.ingredients[0])
+		var addedToShoppingList = false
 
 		return{
 			getIngredients: function(){
 				console.log("getIngredients in list service now executing...")
 				return ingredients;
 			},
+			getAddedToShoppingList: function(){
+				console.log("getAddedToShoppingList in list service now executing...")
+				return addedToShoppingList;
+			},
 			addIngredient: function(ingredient){	
 				console.log("addIngredient in list service now executing...")
-         		ingredients.push(ingredient);
+				if(ingredients.indexOf(ingredient) == -1){
+					console.log("ingredient.name: " + ingredient.name)
+       				ingredients.push(ingredient);
+       			}
 			},
 			updateIngredient: function(ingredient, index){	
 				console.log("updateIngredient in list service now executing...")
@@ -31,10 +38,13 @@ recipeApp.factory('listService', ['$rootScope', function($rootScope){
 				console.log("Inside AddToShoppingList in service")
 				console.log("chosenRecipe.extendedIngredients: " + chosenRecipe.extendedIngredients[0].name)
 				angular.forEach(chosenRecipe.extendedIngredients, function(ingredient){
-				console.log("ingredient.name: " + ingredient.name)
-       				ingredients.push(ingredient.name);
+					if(ingredients.indexOf(ingredient.name) == -1){
+						console.log("ingredient.name: " + ingredient.name)
+       					ingredients.push(ingredient.name);
+       				}
   				});
-			},
+  				addedToShoppingList = true
+			}
 		};
 }]);
 

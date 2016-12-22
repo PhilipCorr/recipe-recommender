@@ -27,8 +27,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 	    var cuisines = ["american","italian","indian","irish","chinese","mexican"];
 		var diets = ["vegetarian","vegan","pescatarian","paleo","primal"];
 		var submittedSearch = false;
-
-
+		
 		return{
 			//getters
 			getChosenRecipe: function(){
