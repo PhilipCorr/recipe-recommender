@@ -1,41 +1,40 @@
 <section>
     <div class="container">
         <div class="row">
-                <h1>{{chosenRecipe[0].title}}</h1>
-                <h2>Ingredients:</h2>
-                <div ng-repeat="ingredient in chosenRecipe[0].extendedIngredients">
-                    <p>{{ingredient.name|capitalize}}</p>
-                </div>
-                <div ng-if="!chosenRecipe[0].extendedIngredients" class="alert alert-danger centre-custom">
-                        <p>No ingredients found in database</p> 
-                        <p>Apologies for the inconvinence</p>
-                        <p>Please adjust your search parameters or select an alternative recipe</p>
-                </div>
-                <h2>Instructions:</h2>
-                <div ng-repeat="instructionParts in instructions">
-<!--                     <div ng-repeat="instructionpart in instructionVals">
- -->                        <div ng-repeat="instructionPart in instructionParts">
-                                <div ng-repeat="stepInfo in instructionPart.steps">
-                                <p>{{stepInfo.step}}</p>
-                            </div>
-                        </div>
+            <h1>{{chosenRecipe[0].title}}</h1>
+            <h2>Ingredients:</h2>
+            <div ng-repeat="ingredient in chosenRecipe[0].extendedIngredients">
+                <p>{{ingredient.name|capitalize}}</p>
+            </div>
+            <div ng-if="!chosenRecipe[0].extendedIngredients" class="alert alert-danger centre-custom">
+                <p>No ingredients found in database</p> 
+                <p>Apologies for the inconvinence</p>
+                <p>Please adjust your search parameters or select an alternative recipe</p>
+            </div>
+            <h2>Instructions:</h2>
+            <div ng-repeat="instructionParts in instructions">
+                <div ng-repeat="instructionPart in instructionParts">
+                    <div ng-repeat="stepInfo in instructionPart.steps">
+                        <p>{{stepInfo.step}}</p>
                     </div>
-                </div>
-                <div ng-if="!chosenRecipe[0].instructions" class="alert alert-danger centre-custom">
-                        <p>No instructions found in database</p> 
-                        <p>Apologies for the inconvinence</p>
-                        <p>Please adjust your search parameters or select an alternative recipe</p>
-                    </div>
-                </div>
-                <div class="centre-filters">
-                    <a ng-click="addToShoppingList(chosenRecipe[0],alert_added_ingredients())" class="btn btn-filter centre-custom">
-                    Add ingredients to shopping list</a>
-                </div>
-                <div ng-if="add_ingred_list" class="alert alert-success centre-custom">
-                    <p>Your ingredients have been added to the Shopping List!</p> 
-                </div>
                 </div>
             </div>
         </div>
+        <div ng-if="!chosenRecipe[0].instructions" class="alert alert-danger centre-custom">
+            <p>No instructions found in database</p> 
+            <p>Apologies for the inconvinence</p>
+            <p>Please adjust your search parameters or select an alternative recipe</p>
+        </div>
     </div>
+    <div class="centre-filters">
+        <a ng-click="addToShoppingList(chosenRecipe[0],alert_added_ingredients())" class="btn btn-filter centre-custom">
+            Add ingredients to shopping list</a>
+        </div>
+        <div ng-if="add_ingred_list" class="alert alert-success centre-custom">
+            <p>Your ingredients have been added to the Shopping List!</p> 
+        </div>
+    </div>
+</div>
+</div>
+</div>
 </section>
