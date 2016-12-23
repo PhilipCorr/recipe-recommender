@@ -61,6 +61,7 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 					$scope.chosenRecipe[0] = response;
 					console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe[0])
 					console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe[0].title)
+					console.log("$scope.instructions in controller is: " + $scope.chosenRecipe[0].instructions)
 				}
 				else if(methodName == "analyzedInstructions"){
 					$scope.instructions[0] = response;
