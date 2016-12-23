@@ -28,6 +28,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 		var diets = ["vegetarian","vegan","pescatarian","paleo","primal"];
 		var submittedSearch = false;
 		var endPoint = "random";
+		var alertNeeded = false;
 		
 		return{
 			// setEndPoint: function(endPointVal){
@@ -38,6 +39,15 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 			getChosenRecipe: function(){
 				console.log("getChosenRecipe in recipe service now executing...")
 				return chosenRecipe;
+			},
+			setAlertNeeded: function(val){
+				console.log("setAlertNeeded in recipe service now executing...")
+				alertNeeded = val
+				console.log("alertNeeded: " + alertNeeded)
+			},
+			getAlertNeeded: function(){
+				console.log("getAlertNeeded in recipe service now executing...")
+				return alertNeeded;
 			},
 			getEndPoint: function(){
 				console.log("getEndPoint in recipe service now executing...")

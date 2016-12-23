@@ -52,3 +52,14 @@ recipeApp.directive('filterUpdate', ['$timeout', function (timer) {
         }
     }
 }]);
+
+recipeApp.directive('alertNeeded', ['$timeout', function (timer) {
+    return {
+        link: function (scope) {
+            var alertUpdate = function () {
+                scope.alertNeeded = true; 			
+            }
+            timer(alertUpdate, 1000);
+        }
+    }
+}]);

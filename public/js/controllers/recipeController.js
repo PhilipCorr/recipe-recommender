@@ -11,6 +11,7 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 		$scope.submittedSearch = recipeService.getSubmittedSearch();
 		$scope.addedToShoppingList = listService.getAddedToShoppingList();
 		$scope.endPoint = recipeService.getEndPoint();
+		$scope.alertNeeded = recipeService.getAlertNeeded();
 
 		$scope.$watch('filters', function (newValue, oldValue, $scope) {
      		if($scope.filters.includeIngredients=="" && $scope.filters.cuisine.length == 0  && $scope.filters.diet.length == 0){
@@ -72,6 +73,8 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 					console.log("$scope.chosenRecipe in controller is: " + $scope.chosenRecipe[0])
 					console.log("$scope.chosenRecipe.title is " + $scope.chosenRecipe[0].title)
 					console.log("$scope.instructions in controller is: " + $scope.chosenRecipe[0].instructions)
+					recipeService.setAlertNeeded(true);
+					$scope.alertNeeded = true;
 				}
 				else if(methodName == "analyzedInstructions"){
 					$scope.instructions[0] = response;

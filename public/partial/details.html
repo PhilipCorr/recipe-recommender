@@ -1,5 +1,5 @@
 <section>
-    <div class="container" ng-init="submittedSearch=false; addedToShoppingList=false">
+    <div class="container" ng-init="addedToShoppingList=false; alertNeeded=false">
         <div class="row">
             <h1>{{chosenRecipe[0].title}}</h1>
             <div class="col-md-6">
@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 <img ng-src="{{chosenRecipe[0].image}}" class="img-fluid img-uniform" alt="Responsive image">
             </div>
-            <div ng-if="!chosenRecipe[0].extendedIngredients" class="alert alert-danger alert-dismissible centre-custom">
+            <div ng-if="!chosenRecipe[0].extendedIngredients && alertNeeded" class="alert alert-danger alert-dismissible centre-custom">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -20,21 +20,22 @@
             <h2 class="instructions">Instructions:</h2>
             <div ng-repeat="instructionParts in instructions">
                 <div ng-repeat="instructionPart in instructionParts">
-                        <div ng-if="instructionPart.name==''" ng-repeat="stepInfo in instructionPart.steps">
-                            <p>{{stepInfo.number}}) {{stepInfo.step}}</p>
+                    <div ng-if="instructionPart.name==''" ng-repeat="stepInfo in instructionPart.steps">
+                        <p>{{stepInfo.number}}) {{stepInfo.step}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div ng-if="!chosenRecipe[0].instructions" class="alert alert-danger alert-dismissible centre-custom">
+        <div ng-if="!chosenRecipe[0].instructions && alertNeeded" class="alert alert-danger alert-dismissible centre-custom">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             No instructions found for this recipe
         </div>
     </div>
+    <div alert-needed></div>
     <div class="centre-filters">
-        {{addedToShoppingList}}
+    {{alertNeeded}}
         <a ng-click="addToShoppingList(chosenRecipe[0]); addedToShoppingList=true" class="btn btn-filter centre-custom">
             Add ingredients to shopping list</a>
         </div>
