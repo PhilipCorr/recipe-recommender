@@ -27,12 +27,21 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 	    var cuisines = ["american","italian","indian","irish","chinese","mexican"];
 		var diets = ["vegetarian","vegan","pescatarian","paleo","primal"];
 		var submittedSearch = false;
+		var endPoint = "random";
 		
 		return{
+			// setEndPoint: function(endPointVal){
+			// 	console.log("setEndPoint in recipe service now executing...")
+			// 	endPoint = endPointVal;
+			// }
 			//getters
 			getChosenRecipe: function(){
 				console.log("getChosenRecipe in recipe service now executing...")
 				return chosenRecipe;
+			},
+			getEndPoint: function(){
+				console.log("getEndPoint in recipe service now executing...")
+				return endPoint;
 			},
 			getSubmittedSearch: function(){
 				console.log("getSubmittedSearch in recipe service now executing...")
@@ -139,6 +148,16 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 						instructions = res.data;
 						console.log("instructions in controller is: " + instructions)
 						return instructions
+					}
+					else if(methodName == "random"){
+						console.log("The url request made was: " + res.config.url)
+	         			console.log("Response.status is: " + res.status)
+						recipes = res.data.recipes
+						console.log("Recipes array is: " + recipes)
+						offset = offset + 10
+						console.log("Offest is: " + offset)
+						filters.offset = offset.toString();
+						return recipes
 					}
 				},
 				function(data){

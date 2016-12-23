@@ -10,6 +10,16 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 		$scope.diets = recipeService.getDiets();
 		$scope.submittedSearch = recipeService.getSubmittedSearch();
 		$scope.addedToShoppingList = listService.getAddedToShoppingList();
+		$scope.endPoint = recipeService.getEndPoint();
+
+		$scope.$watch('filters', function (newValue, oldValue, $scope) {
+     		if($scope.filters.includeIngredients=="" && $scope.filters.cuisine.length == 0  && $scope.filters.diet.length == 0){
+     			$scope.endPoint = "random" ;
+			}
+			else{
+				$scope.endPoint = "searchComplex"
+			}
+		}, true);
 
 		$scope.addToShoppingList = function(chosenRecipe){
 			if(chosenRecipe.extendedIngredients){
@@ -66,6 +76,9 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 				else if(methodName == "analyzedInstructions"){
 					$scope.instructions[0] = response;
 					console.log("$scope.instructions in controller is: " + $scope.instructions)
+				}
+				else if(methodName == "random"){
+					$scope.recipes = response;
 				}
 			});
 		}

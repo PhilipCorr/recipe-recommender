@@ -7,9 +7,9 @@
                 <p class="text-center red-text">Please select your cuisine type preference </p>
                 <div class="centre-filters">
                     <div class="filter-loop" ng-repeat="cuisine in cuisines">
-                        <a  ng-attr-id="{{cuisine}}" ng-click="changeSelection(filters.cuisine, cuisine)" class="btn btn-filter">{{cuisine|capitalize}}</a>
+                        <a  ng-attr-id="{{cuisine}}" ng-click="endPoint='searchComplex'; changeSelection(filters.cuisine, cuisine)" class="btn btn-filter">{{cuisine|capitalize}}</a>
                     </div>
-                    <a ="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">
+                    <a id="none1" ng-click="removeFilters(filters.cuisine)" class="btn btn-filter-none">
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -22,7 +22,7 @@
                 <p class="text-center red-text"> Please select a dietary need</p>
                 <div class="container centre-filters ">
                     <div class="filter-loop" ng-repeat="diet in diets">
-                        <a  ng-attr-id="{{diet}}" ng-click="changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet|capitalize}}</a>
+                        <a  ng-attr-id="{{diet}}" ng-click="endPoint='searchComplex'; changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet|capitalize}}</a>
                     </div>
                     <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -58,7 +58,10 @@
 
 
             <div class="centre-filters">
-                <a ng-click="getData(0, 'searchComplex'); getBtnText='View More Recipies'; submittedSearch=false" class="btn btn-get centre-custom">{{getBtnText}}</a>
+            <p class="red-text">endPoint: {{endPoint}}</p>
+                <a ng-click="getData(0, endPoint); getBtnText='View More Recipies'; submittedSearch=false" class="btn btn-get centre-custom">{{getBtnText}}</a>
+            }
+            }
             </div>
 
         </div>
