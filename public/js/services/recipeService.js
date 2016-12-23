@@ -15,7 +15,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 	    var instructions = [];
 	    var URL = ""
 	    var URLStart = constantService.getConstant();
-	    var offset = 10
+	    var offset = 0
 	    var filters =
 	        {
 	            "cuisine": [],
@@ -44,6 +44,11 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 				console.log("setAlertNeeded in recipe service now executing...")
 				alertNeeded = val
 				console.log("alertNeeded: " + alertNeeded)
+			},
+			setOffset: function(val){
+				console.log("setOffset in recipe service now executing...")
+				offset = val
+				console.log("Offset: " + offset)
 			},
 			getAlertNeeded: function(){
 				console.log("getAlertNeeded in recipe service now executing...")
@@ -142,7 +147,6 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 						console.log("Recipes array is: " + recipes)
 						offset = offset + 10
 						console.log("Offest is: " + offset)
-						filters.offset = offset.toString();
 						return recipes
 					}
 					else if(methodName == "information"){
@@ -164,9 +168,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 	         			console.log("Response.status is: " + res.status)
 						recipes = res.data.recipes
 						console.log("Recipes array is: " + recipes)
-						offset = offset + 10
 						console.log("Offest is: " + offset)
-						filters.offset = offset.toString();
 						return recipes
 					}
 				},

@@ -14,6 +14,7 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 		$scope.alertNeeded = recipeService.getAlertNeeded();
 
 		$scope.$watch('filters', function (newValue, oldValue, $scope) {
+			recipeService.setOffset(0);
      		if($scope.filters.includeIngredients=="" && $scope.filters.cuisine.length == 0  && $scope.filters.diet.length == 0){
      			$scope.endPoint = "random" ;
 			}
