@@ -423,12 +423,15 @@ body {
 
 .filter-loop{
   display: inline-block;
+  margin-top:2px;
+  margin-bottom:2px;
 }
 a.btn-filter{
     color: #F05F40;
     background-color: #FFF;
     border: 1px solid #F05F40;
     font-size: 20px;
+    width: 140px;
 }
 a.btn-get{
     color: #F05F40;
@@ -597,4 +600,10 @@ span.arrow-back-to-top.glyphicon.glyphicon-chevron-up:active {
 
 .instructions {
   clear: left;
+}
+
+@media (max-width: 310px) {
+  .trash {
+    clear: left;
+  }
 }

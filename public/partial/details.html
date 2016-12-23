@@ -11,42 +11,39 @@
             <div class="col-md-6">
                 <img ng-src="{{chosenRecipe[0].image}}" class="img-fluid img-uniform" alt="Responsive image">
             </div>
-            <div ng-if="!chosenRecipe[0].extendedIngredients && alertNeeded" class="alert alert-danger alert-dismissible centre-custom">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                No ingredients found for this recipe
-            </div>
-            <h2 class="instructions">Instructions:</h2>
-            <div ng-repeat="instructionParts in instructions">
-                <div ng-repeat="instructionPart in instructionParts">
-                    <div ng-if="instructionPart.name==''" ng-repeat="stepInfo in instructionPart.steps">
-                        <p>{{stepInfo.number}}) {{stepInfo.step}}</p>
+            <div class="col-md-12">
+                <div ng-if="!chosenRecipe[0].extendedIngredients && alertNeeded" class="alert alert-danger alert-dismissible centre-custom">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    No ingredients found for this recipe
+                </div>
+                <h2 class="instructions">Instructions:</h2>
+                <div ng-repeat="instructionParts in instructions">
+                    <div ng-repeat="instructionPart in instructionParts">
+                        <div ng-if="instructionPart.name==''" ng-repeat="stepInfo in instructionPart.steps">
+                            <p>{{stepInfo.number}}) {{stepInfo.step}}</p>
+                        </div>
                     </div>
+                </div>
+                <div ng-if="!chosenRecipe[0].instructions && alertNeeded" class="alert alert-danger alert-dismissible centre-custom">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    No instructions found for this recipe
+                </div>
+                <div alert-needed></div>
+                <div class="centre-filters">
+                    <a ng-click="addToShoppingList(chosenRecipe[0]); addedToShoppingList=true" class="btn btn-filter centre-custom">
+                        Add ingredients to shopping list</a>
+                </div>
+                <div ng-show="addedToShoppingList" class="alert alert-success alert-dismissible centre-custom">
+                    <button type="button" class="close" ng-click="addedToShoppingList=false" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>Your ingredients have been added to the Shopping List!</p> 
                 </div>
             </div>
         </div>
-        <div ng-if="!chosenRecipe[0].instructions && alertNeeded" class="alert alert-danger alert-dismissible centre-custom">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            No instructions found for this recipe
-        </div>
     </div>
-    <div alert-needed></div>
-    <div class="centre-filters">
-    {{alertNeeded}}
-        <a ng-click="addToShoppingList(chosenRecipe[0]); addedToShoppingList=true" class="btn btn-filter centre-custom">
-            Add ingredients to shopping list</a>
-        </div>
-        <div ng-show="addedToShoppingList" class="alert alert-success alert-dismissible centre-custom">
-            <button type="button" class="close" ng-click="addedToShoppingList=false" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <p>Your ingredients have been added to the Shopping List!</p> 
-        </div>
-    </div>
-</div>
-</div>
-</div>
 </section>

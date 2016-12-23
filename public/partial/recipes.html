@@ -24,7 +24,7 @@
                     <div class="filter-loop" ng-repeat="diet in diets">
                         <a  ng-attr-id="{{diet}}" ng-click="endPoint='searchComplex'; changeSelection(filters.diet, diet)" class="btn btn-filter">{{diet|capitalize}}</a>
                     </div>
-                    <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none">
+                    <a id="none2" ng-click="removeFilters(filters.diet)" class="btn btn-filter-none trash">
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                     </a>
 
