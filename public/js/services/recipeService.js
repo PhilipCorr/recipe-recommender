@@ -1,4 +1,4 @@
-recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, $http){
+recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', function($rootScope, $http, constantService){
 
 	// factory creates a service. 
 	// This service can be called from whatever 
@@ -14,7 +14,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', function($rootScope, 
 	    var chosenRecipe = [];
 	    var instructions = [];
 	    var URL = ""
-	    var URLStart = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes"
+	    var URLStart = constantService.getConstant();
 	    var offset = 10
 	    var filters =
 	        {

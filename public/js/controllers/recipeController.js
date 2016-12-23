@@ -1,5 +1,6 @@
 recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listService', function($scope, recipeService, listService){
-		console.log("Entered Filter Controller")	
+		console.log("Entered Filter Controller")
+	
 		$scope.chosenRecipe = recipeService.getChosenRecipe();
 		$scope.instructions = recipeService.getInstructions();
 		$scope.filters = recipeService.getFilters();

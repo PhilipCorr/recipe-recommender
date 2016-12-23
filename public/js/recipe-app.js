@@ -25,6 +25,11 @@ recipeApp.config(function($routeProvider, $locationProvider){
 
 });
 
+// recipeApp.constant("Constants", {
+//         "url": "http://localhost",
+//         "port": "80"
+//     })
+
 // custom filter for capitalizing variables displayed in view
 recipeApp.filter('capitalize', function() {
     return function(input) {
