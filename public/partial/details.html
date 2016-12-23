@@ -20,8 +20,8 @@
             <h2 class="instructions">Instructions:</h2>
             <div ng-repeat="instructionParts in instructions">
                 <div ng-repeat="instructionPart in instructionParts">
-                    <div ng-repeat="stepInfo in instructionPart.steps">
-                        <p>{{stepInfo.number}}) {{stepInfo.step}}</p>
+                        <div ng-if="instructionPart.name==''" ng-repeat="stepInfo in instructionPart.steps">
+                            <p>{{stepInfo.number}}) {{stepInfo.step}}</p>
                     </div>
                 </div>
             </div>
