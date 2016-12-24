@@ -5,8 +5,6 @@ describe('tests for recipeController', function () {
     var recipeService;
     var listService;
     var constantService;
-    // var $q;
-    // var deferred;
 
     beforeEach(module('recipeApp'));
 
@@ -14,13 +12,6 @@ describe('tests for recipeController', function () {
 
         // create a new child of rootScope to mock variables
         scope = $rootScope.$new();
-        // q = $q;
-
-        // We use the $q service to create a mock instance of defer
-        // deferred = _$q_.defer();
-
-        // Use a Jasmine Spy to return the deferred promise
-        // spyOn(recipeService, 'getData').and.returnValue(deferred.promise);
 
         recipeService = _recipeService_
         constantService = _constantService_
@@ -34,6 +25,11 @@ describe('tests for recipeController', function () {
             $scope: scope,
         });
     }));
+
+    beforeEach(function() {
+        // spy on getData method to test api endpoints
+        spyOn(scope, 'getData');
+    }); 
 
     describe('$scope.removeFilters', function(){
         it("Removing cuisine filters", function () {
@@ -99,36 +95,33 @@ describe('tests for recipeController', function () {
     });
 
     describe('$scope.getData', function(){
-        it("makes an api call to get a recipe", function (done) {
-            var isItDone = false;
-
-            expect(scope.chosenRecipe[0]).toBeUndefined(); 
-            console.log("getting here fine");
+        it("makes an api call to information endpoint to get a recipes information", function () {
             scope.getData(759070, "information");
-            console.log("Finished Get data");
-            isItDone = true;
-            console.log("isItDone: " + isItDone);
-            //console.log("scope.chosenRecipe[0] is: " + scope.chosenRecipe[0])
-                //expect(scope.chosenRecipe[0]).toBeDefined(); 
+            expect(scope.getData).toHaveBeenCalled();
+        });
+    });
 
-            setTimeout(function(){
-                expect(isItDone).toBe(true);
-                done(); // call this to finish off the it block
-              }, 2000);
-            //Setup the data we wish to return for the .then function in the controller
-            // deferred.resolve({
-            //     "vegetarian": true,
-            //     "extendedIngredients":[
-            //     {
-            //         "id": 11485,
-            //         "name": "butternut squash"
-            //     }
-            //     ],
-            //     "instructions": "Sample Instructions"
-            // });
+    describe('$scope.getData', function(){
+        it("makes an api call to analysedInstructions endpoint to get a recipes information", function () {
+            expect(scope.chosenRecipe[0]).toBeUndefined(); 
+            scope.getData(759070, "analysedInstructions");
+            expect(scope.getData).toHaveBeenCalled();
+        });
+    });
 
-            // $scope.$apply();
-            // expect($scope.results).not.toBe(undefined);
+    describe('$scope.getData', function(){
+        it("makes an api call to random endpoint to get a recipes information", function () {
+            expect(scope.chosenRecipe[0]).toBeUndefined(); 
+            scope.getData(0, "random");
+            expect(scope.getData).toHaveBeenCalled();
+        });
+    });
+
+    describe('$scope.getData', function(){
+        it("makes an api call to searchComplex endpoint to get a recipes information", function () {
+            expect(scope.chosenRecipe[0]).toBeUndefined(); 
+            scope.getData(0, "searchComplex");
+            expect(scope.getData).toHaveBeenCalled();
         });
     });
 });

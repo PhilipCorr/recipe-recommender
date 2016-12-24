@@ -1,21 +1,23 @@
 recipeApp.controller('listController',['$scope', 'listService', function($scope, listService){
 		
+		// set variables on controller load
 		$scope.ingredients = listService.getIngredients()
 
+		// add ingredient to list if not already present
 		$scope.addIngredient = function(ingredient){
-			console.log("addIngredient method in listController now executing...")
 			if(ingredient){
 				listService.addIngredient(ingredient);
-				$scope.ingredients = listService.getIngredients()			}
+				$scope.ingredients = listService.getIngredients()			
+			}
 		}
+		// replace ingredient in list with another ingredient
 		$scope.updateIngredient = function(ingredient, index){
-			console.log("updateIngredient method in listController now executing...")
 			listService.updateIngredient(ingredient, index);
 			$scope.ingredients = listService.getIngredients()
 
 		}
+		// find ingredient in list and remove it
 		$scope.removeIngredient = function(ingredient){
-			console.log("removeIngredient method in listController now executing...")
 			listService.removeIngredient(ingredient);
 			$scope.ingredients = listService.getIngredients()
 		}

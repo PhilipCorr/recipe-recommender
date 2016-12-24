@@ -461,10 +461,12 @@ a.btn-filter-none:hover{
 
 .centre-filters a.filter-added:hover{
   color: #be2e0e;
+  width: 140px;
 }
 
 .centre-filters a.filter-added:focus{
   color: #be2e0e;
+  width: 140px;
 }
 
 .filter-added{
@@ -472,6 +474,7 @@ a.btn-filter-none:hover{
     background-color: #F05F40;
     border: 1px solid #F05F40;
     font-size: 20px;
+    width: 140px;
 }
 
 .img-uniform{
