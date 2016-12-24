@@ -11,6 +11,7 @@ describe('tests for listController', function () {
         // create a new child of rootScope to mock variables
         scope = $rootScope.$new();
 
+        // set up dependencies
         listService = _listService_
         ctrl = $controller('listController',{
             $scope: scope,
@@ -26,7 +27,7 @@ describe('tests for listController', function () {
         });
     });
 
-	describe('$scope.addIngredient', function(){
+    describe('$scope.addIngredient', function(){
         it("Adds an empty string to shopping list", function () {
             scope.addIngredient("");
 
@@ -34,15 +35,13 @@ describe('tests for listController', function () {
         });
     });
 
-	describe('$scope.removeIngredient', function(){
+    describe('$scope.removeIngredient', function(){
         it("Removes an ingredient from shopping list", function () {
             scope.ingredients = ["milk"]
-			expect(scope.ingredients).toContain("milk");
+            expect(scope.ingredients).toContain("milk");
 
-			scope.removeIngredient("milk");
-			expect(scope.ingredients).not.toContain("milk");
-
-            console.log("scope.ingredients: " + scope.ingredients)
+            scope.removeIngredient("milk");
+            expect(scope.ingredients).not.toContain("milk");
             expect(scope.ingredients).toBeEmptyArray;
         });
     });
@@ -52,7 +51,6 @@ describe('tests for listController', function () {
             scope.addIngredient("egg");
             scope.addIngredient("cheese");
             scope.addIngredient("bread");
-            console.log("scope.ingredients: " + scope.ingredients)
             expect(scope.ingredients[1]).toEqual("cheese");
 
             scope.updateIngredient("pasta", 1)

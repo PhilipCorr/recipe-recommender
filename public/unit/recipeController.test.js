@@ -42,7 +42,6 @@ describe('tests for recipeController', function () {
             };
             scope.filters = newFilters;
             scope.removeFilters(scope.filters.cuisine);
-            console.log("scope.filters.cuisine: " + scope.filters.cuisine);
             expect(scope.filters.cuisine).toBeEmptyArray;
         });
     });

@@ -1,5 +1,6 @@
 module.exports = function(grunt){
 
+	// load grunt tasks to run
 	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.initConfig({

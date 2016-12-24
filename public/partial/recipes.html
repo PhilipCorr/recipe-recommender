@@ -45,11 +45,11 @@
 
             <!-- <div class="red-text" repeat-hello-world='{{ repeat }}'></div> -->
             <input type="text" class="form-control" name="addIngredient" placeholder="Add Ingredients to search by..." ng-model="filters.includeIngredients">
-            <label class="input-label">Please seperated ingredients using a comma e.g. "Pasta, Beef, Tomatoes"</label>
+            <label class="input-label">Please seperate ingredients using a comma e.g. "Pasta, Beef, Tomatoes"</label>
 
 
             <div class="centre-filters">
-                <a ng-click="getData(0, endPoint); getBtnText='View More Recipies'; submittedSearch=false" class="btn btn-get centre-custom">{{getBtnText}}</a>
+                <a ng-click="getData(endPoint); getBtnText='View More Recipies'; submittedSearch=false" class="btn btn-get centre-custom">{{getBtnText}}</a>
             </div>
 
         </div>
@@ -61,14 +61,14 @@
     <div class="container-fluid">
         <div class="row no-gutter">
             <div ng-if="recipes.length == false && submittedSearch" ng-show="submittedSearch" class="alert alert-danger alert-dismissible centre-custom">
-            <button type="button" class="close" ng-click="submittedSearch=false" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+                <button type="button" class="close" ng-click="submittedSearch=false" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 No results found, please adjust your search parameters and try again
             </div>
             <div class="col-lg-6 col-sm-6 center-block" ng-repeat="recipe in recipes">
                 <a href="/index/details" class="portfolio-box">
-                    <img ng-src="{{recipe.image}}" ng-click="getData(recipe.id, 'analyzedInstructions');getData(recipe.id, 'information')"  class="img-fluid img-uniform" alt="Responsive image"> 
+                    <img ng-src="{{recipe.image}}" ng-click="getData('analyzedInstructions', recipe.id);getData('information', recipe.id)"  class="img-fluid img-uniform" alt="Responsive image"> 
                     <div class="recipe-summary">{{recipe.title}}</div>
                 </a>
             </div>
