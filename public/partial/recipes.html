@@ -48,20 +48,8 @@
             <label class="input-label">Please seperated ingredients using a comma e.g. "Pasta, Beef, Tomatoes"</label>
 
 
-            <!-- Section here is just for debugging purposes, will remove before release -->
-            <h4 class="red-text">Selected Cuisine: </h4>
-            <p class="red-text">{{filters.cuisine[0]|capitalize}} {{filters.cuisine[1]|capitalize}} {{filters.cuisine[2]|capitalize}} {{filters.cuisine[3]|capitalize}} {{filters.cuisine[4]|capitalize}} {{filters.cuisine[5]|capitalize}}</p>
-
-            <h4 class="red-text">Selected Dietary Need: </h4>
-            <p class="red-text">{{filters.diet[0]|capitalize}} {{filters.diet[1]|capitalize}} {{filters.diet[2]|capitalize}} {{filters.diet[3]|capitalize}} {{filters.diet[4]|capitalize}} {{filters.diet[5]|capitalize}}</p>
-            <!--End of debugging section-->
-
-
             <div class="centre-filters">
-            <p class="red-text">endPoint: {{endPoint}}</p>
                 <a ng-click="getData(0, endPoint); getBtnText='View More Recipies'; submittedSearch=false" class="btn btn-get centre-custom">{{getBtnText}}</a>
-            }
-            }
             </div>
 
         </div>
@@ -72,9 +60,6 @@
 <section class="no-padding" id="portfolio">
     <div class="container-fluid">
         <div class="row no-gutter">
-        <p>recipes.length: {{recipes.length}}</p>
-        <p>submittedSearch: {{submittedSearch}}</p>
-
             <div ng-if="recipes.length == false && submittedSearch" ng-show="submittedSearch" class="alert alert-danger alert-dismissible centre-custom">
             <button type="button" class="close" ng-click="submittedSearch=false" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

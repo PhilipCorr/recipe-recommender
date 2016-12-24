@@ -14,7 +14,7 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 	    var chosenRecipe = [];
 	    var instructions = [];
 	    var URL = ""
-	    var URLStart = constantService.getConstant();
+	    var URLStart = constantService.getConstant("URLStart");
 	    var offset = 0
 	    var filters =
 	        {

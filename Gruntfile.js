@@ -18,6 +18,7 @@ module.exports = function(grunt){
 					'public/js/services/listService.js',
 					'public/js/controllers/recipeController.js',
 					'public/js/services/recipeService.js',
+					'public/js/services/constantService.js',
 					'public/unit/*.js'
 					]
 				}

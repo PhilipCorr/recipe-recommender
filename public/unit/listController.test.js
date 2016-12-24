@@ -22,7 +22,6 @@ describe('tests for listController', function () {
             scope.addIngredient("egg");
             scope.addIngredient("cheese");
 
-            console.log("scope.ingredients: " + scope.ingredients)
             expect(scope.ingredients).toContain("cheese", "egg");
         });
     });
@@ -31,18 +30,17 @@ describe('tests for listController', function () {
         it("Adds an empty string to shopping list", function () {
             scope.addIngredient("");
 
-            console.log("scope.ingredients: " + scope.ingredients)
             expect(scope.ingredients).toBeEmptyArray;
         });
     });
 
 	describe('$scope.removeIngredient', function(){
         it("Removes an ingredient from shopping list", function () {
-            scope.addIngredient("egg");
-			expect(scope.ingredients).toContain("egg");
+            scope.ingredients = ["milk"]
+			expect(scope.ingredients).toContain("milk");
 
-			scope.removeIngredient("egg");
-			expect(scope.ingredients).not.toContain("egg");
+			scope.removeIngredient("milk");
+			expect(scope.ingredients).not.toContain("milk");
 
             console.log("scope.ingredients: " + scope.ingredients)
             expect(scope.ingredients).toBeEmptyArray;
@@ -54,6 +52,7 @@ describe('tests for listController', function () {
             scope.addIngredient("egg");
             scope.addIngredient("cheese");
             scope.addIngredient("bread");
+            console.log("scope.ingredients: " + scope.ingredients)
             expect(scope.ingredients[1]).toEqual("cheese");
 
             scope.updateIngredient("pasta", 1)

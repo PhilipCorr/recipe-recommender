@@ -23,13 +23,6 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
 			}
 		}, true);
 
-		$scope.addToShoppingList = function(chosenRecipe){
-			if(chosenRecipe.extendedIngredients){
-				console.log("Inside AddToShoppingList")
-				listService.addToShoppingList(chosenRecipe)
-				$scope.addedToShoppingList = listService.getAddedToShoppingList();
-			}
-		},
 		$scope.removeFilters = function(filterType){
 			angular.forEach(filterType, function(filterVal){
       			var myEl = angular.element( document.querySelector( '#' + filterVal ) );
@@ -39,6 +32,13 @@ recipeApp.controller('recipeController', ['$scope', 'recipeService', 'listServic
    			});
 			recipeService.removeFilters(filterType);
 			$scope.filters = recipeService.getFilters()
+		},
+		$scope.addToShoppingList = function(chosenRecipe){
+			if(chosenRecipe.extendedIngredients){
+				console.log("Inside AddToShoppingList")
+				listService.addToShoppingList(chosenRecipe)
+				$scope.addedToShoppingList = listService.getAddedToShoppingList();
+			}
 		},
 		$scope.changeSelection = function (filterType, filterVal) {
         	if(filterType.indexOf(filterVal) == -1){
