@@ -11,10 +11,10 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 	// request in order to make a get request which would be messier and wouldn't make much sense.
 	console.log("Entered recipe service factory")
 
-	    var chosenRecipe = [];
-	    var instructions = [];
-	    var URL = ""
-	    var URLStart = constantService.getConstant("URLStart");
+	    var chosenRecipe = []
+	    var instructions = []
+	    var URL = constantService.getConstant("URL");
+	    var URLStart = constantService.getConstant("URLSTART");
 	    var offset = 0
 	    var filters =
 	        {
@@ -108,15 +108,6 @@ recipeApp.factory('recipeService', ['$rootScope', '$http', 'constantService', fu
 				else{
 					URL = URLStart + "/" + id + "/" + methodName + "?" 
 				}
-
-				// console.log("Filters:")
-				// console.log("filters.diet:" + filters.diet)
-				// console.log("filters.cuisine.join(','): " + filters.cuisine.join(','))
-				// console.log("filters.diet.join(','): " + filters.diet.join(','))
-				// console.log("filters.cuisine:" + filters.cuisine)
-				// console.log("filters.number:" + filters.number)
-				// console.log("filters.includeIngredients:" + filters.includeIngredients)
-				// console.log("filters.offset:" + filters.offset)
 
 	        	var parameters =
 		        {

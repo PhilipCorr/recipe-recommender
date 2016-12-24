@@ -1,7 +1,8 @@
 recipeApp.factory('constantService', [function(){
   var constants=
   {
-    "URLStart": "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes"
+    "URLStart":"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes",
+    "URL":"",
   }; 
 
   return{ 
