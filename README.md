@@ -2,15 +2,16 @@
 
 A Node.js and Angular.js app using [Express 4](http://expressjs.com/) and [AngularJS v1.6.0](http://angularjs.org/).
 
-This application runs on Heroku. See the following links for deployment info.
+This application runs on Heroku. See the links at the bottom of this page for Heroku documentation.
 
 ## Running Locally
 
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+Runnning npm install (The third command below) will install the other dependencies such as express.
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
+$ git clone https://github.com/PhilipCorr/recipe-recommender
+$ cd recipe-recommender
 $ npm install
 $ npm start
 ```
@@ -27,6 +28,15 @@ $ heroku open
 or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Development 
+AngularJS MVC framework used for application structure.
+Spoonacular api used to fetch recipes.
+
+See index.html for starting page.  
+ng-app initialises the application.  
+ng-init initialises the app data.  
+ng-view is part of routing in angularjs and controls which partial html is injected into the application.  
 
 ## Documentation
 
